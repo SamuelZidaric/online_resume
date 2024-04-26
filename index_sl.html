@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samuel Zidaric - Življenjepis</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold">Samuel Zidaric</a>
+            <div class="flex items-center space-x-4">
+                <a href="#home" class="text-gray-600 hover:text-gray-800">Home</a>
+                <a href="#experience" class="text-gray-600 hover:text-gray-800">Experience</a>
+                <a href="#education" class="text-gray-600 hover:text-gray-800">Education</a>
+                <a href="#skills" class="text-gray-600 hover:text-gray-800">Skills & Interests</a>
+                <!-- Language Selector Dropdown -->
+                <div class="relative">
+                    <select id="languageDropdown" onchange="changeLanguage(this)" class="border border-gray-300 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+                    <option value="index.html">English</option>
+                    <option value="index_sl.html">Slovenščina</option>
+                    <option value="index_it.html">Italiano</option>
+                    </select>
+                </div>  
+            </div>
+        </nav>
+    </header>
+    
+    <script>
+    window.onload = function() {
+        // Function to update the dropdown based on the current URL
+        function updateLanguageDropdown() {
+            const dropdown = document.getElementById('languageDropdown');
+            const currentUrl = window.location.href;
+    
+            if (currentUrl.includes('index_sl.html')) {
+                dropdown.value = 'index_sl.html';
+                dropdown.nextElementSibling.textContent = 'Slovenščina';
+            } else if (currentUrl.includes('index_it.html')) {
+                dropdown.value = 'index_it.html';
+                dropdown.nextElementSibling.textContent = 'Italiano';
+            } else {
+                // Default to English if no specific language segment is found in the URL
+                dropdown.value = 'index.html';
+                dropdown.nextElementSibling.textContent = 'English';
+            }
+        }
+        
+        updateLanguageDropdown(); // Call the function on page load
+    
+        // Your existing changeLanguage function
+        function changeLanguage(select) {
+            window.location = select.value;
+        }
+        
+        // Attaching the changeLanguage function to the dropdown
+        document.getElementById('languageDropdown').onchange = function() {
+            changeLanguage(this);
+        }
+    };
+    </script>        
+
+    <main class="container mx-auto px-6 mt-10">
+        <section id="home" class="mb-10">
+            <h1 class="text-3xl font-bold">Dobrodošli v Samuelovem portfoliu</h1>
+            <p class="mt-4">Pozdravljeni! Sem Samuel, navdušenec nad nevroznanostjo z bogatimi izkušnjami na področju raziskovanja, poučevanja in športa. Trenutno živim v Trstu, Italija, in sem predan napredovanju našega razumevanja nevralnih mehanizmov preko inovativnih raziskav. Odkrijte moje potovanje in dosežke na moji spletni strani.</p>
+        </section>
+        <hr class="my-4 h-1 bg-gray-700"> <!-- Močnejša, temnejša in bolj razmaknjena vodoravna črta -->
+
+        <section id="experience" class="mb-10">
+            <h2 class="text-2xl font-bold">Delovne Izkušnje</h2>
+            <div class="mt-4">
+                <h3 class="text-xl font-semibold">Magistrska Naloga, Zimmer Lab, Dunaj (AT)</h3>
+                <p>Marec 2023– Marec 2024</p>
+                <ul class="list-disc ml-5 mt-2">
+                    <li>Testiranje novega optogenetskega in sledilnega mikroskopa, kalibracija intenzivnosti LED svetlobe.</li>
+                    <li>Izvedba poglobljene video analize za identifikacijo vedenjskih odzivov C. elegans po optogenetskih stimulacijah.</li>
+                    <li>Pregled in izboljšava analitične cevovod za optogenetski mikroskop.</li>
+                    <li>Trening in izpopolnjevanje nevronskih mrež za sledenje telesnih delov z uporabo DeepLabCut.</li>
+                </ul>
+            </div>
+            <div class="mt-4">
+                <h3 class="text-xl font-semibold">Študentska Praksa, BIA Separations (Sartorius), Ajdovščina (SI)</h3>
+                <p>August 2022– December 2022</p>
+                <ul class="list-disc ml-5 mt-2">
+                    <li>Sodelovanje v laboratorijskih raziskovalnih dejavnostih: priprava pufrjev, validacija laboratorijske opreme.</li>
+                    <li>Izvajanje analitskih testov: SDS-PAGE, Bradford, PicoGreen.</li>
+                    <li>Izvedba kromatografskih tekov z uporabo sistemov AKTA za čiščenje proteinov.</li>
+                    <li>Doprinos k projektom AAV in adenovirusov, razvoj metod za aplikacije genske terapije v spodnjem toku.</li>
+                </ul>
+            </div>
+            <div class="mt-4">
+                <h3 class="text-xl font-semibold">Diplomska Naloga, Tongiorgi Lab, Trst (IT)</h3>
+                <p>Maj 2019– Oktober 2019</p>
+                <ul class="list-disc ml-5 mt-2">
+                    <li>Raziskovanje vloge BDNF v razvoju nevronov, uporaba PCR, sekcij s kriostatom, gel elektroforeze in in situ hibridizacije.</li>
+                </ul>
+            </div>
+            <div class="mt-4">
+                <h3 class="text-xl font-semibold">Dodatne Delovne Izkušnje</h3>
+                <ul class="list-disc ml-5 mt-2">
+                    <li>Profesionalni košarkar (2015– 2023)</li>
+                    <li>Trener minibasketa za otroke od 8 do 12 let (2016– 2021)</li>
+                    <li>Učitelj na osnovni šoli (Marec 2021– Junij 2021)</li>
+                </ul>
+            </div>
+        </section>        
+        <hr class="my-4 h-1 bg-gray-700"> <!-- Močnejša, temnejša in bolj razmaknjena vodoravna črta -->
+        
+        <section id="education" class="mb-10">
+            <h2 class="text-2xl font-bold">Izobrazba</h2>
+            <div class="mt-4">
+                <h3 class="text-xl font-semibold">Univerza v Trstu, Oddelek za življenjske vede– Magisterij iz nevroznanosti</h3>
+                <p>Trst (IT), September 2021– Marec 2024</p>
+                <p>Osredotočenost predmeta: Celularna in molekularna nevrobiologija, nevroanatomija in nevrofarmakologija, molekularna nevrofiziologija, kognitivna nevroznanost.</p>
+            </div>
+            <div class="mt-4">
+                <h3 class="text-xl font-semibold">Univerza v Trstu, Oddelek za življenjske vede– Diploma iz biologije</h3>
+                <p>Trst (IT), September 2017– Marec 2021</p>
+                <p>Osredotočenost predmeta: Splošna biologija, kemija, anatomija.</p>
+            </div>
+        </section>        
+        <hr class="my-4 h-1 bg-gray-700"> <!-- Močnejša, temnejša in bolj razmaknjena vodoravna črta -->
+
+        <section id="skills" class="mb-10">
+            <h2 class="text-2xl font-bold">Veščine & Interesi</h2>
+            <div class="mt-4">
+                <h3 class="text-xl font-semibold">Jeziki</h3>
+                <p>Materinščina slovenščina in italijanščina; tekoče v angleščini.</p>
+            </div>
+            <div class="mt-4">
+                <h3 class="text-xl font-semibold">Mehke Veščine</h3>
+                <p>Reševanje problemov, komunikacija (odrasli in otroci), timsko delo, raziskovanje informacij, izvedba načrtov.</p>
+            </div>
+            <div class="mt-4">
+                <h3 class="text-xl font-semibold">Tehnične Veščine</h3>
+                <p>Osnove v Pythonu, GitHubu, Snakemake, Excel.</p>
+            </div>
+            <div class="mt-4">
+                <h3 class="text-xl font-semibold">Interesi</h3>
+                <p>Vse, kar je povezano z znanostjo, košarka, MMA, renesančna umetnost.</p>
+            </div>
+        </section>     
+        <hr class="my-4 h-1 bg-gray-700"> <!-- Močnejša, temnejša in bolj razmaknjena vodoravna črta -->   
+    </main>
+
+    <footer class="bg-white shadow-md mt-10">
+        <div class="container mx-auto px-6 py-4">
+            <p>Kontaktne informacije: +39 340 800 4175 | samzidaric@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+    function changeLanguage(select) {
+        window.location = select.value;
+    }
+
+    function updateLanguageDropdown() {
+        const dropdown = document.getElementById('languageDropdown');
+        const url = window.location.href;
+
+        dropdown.selectedIndex = url.includes('index_sl.html') ? 1 : url.includes('index_it.html') ? 2 : 0;
+    }
+
+    window.onload = updateLanguageDropdown;
+    </script>
+</body>
+
+</html>
