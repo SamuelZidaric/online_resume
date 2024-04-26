@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="sl">
+<html lang="it">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samuel Zidaric - Življenjepis</title>
+    <title>Samuel Zidaric - Curriculum Vitae</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
@@ -20,9 +20,9 @@
                 <!-- Language Selector Dropdown -->
                 <div class="relative">
                     <select id="languageDropdown" onchange="changeLanguage(this)" class="border border-gray-300 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
-                    <option value="index.html">English</option>
-                    <option value="index_sl.html">Slovenščina</option>
-                    <option value="index_it.html">Italiano</option>
+                    <option value="main/index.html">English</option>
+                    <option value="main/index_sl.html">Slovenščina</option>
+                    <option value="main/index_it.html">Italiano</option>
                     </select>
                 </div>  
             </div>
@@ -61,8 +61,9 @@
             changeLanguage(this);
         }
     };
-    </script>        
-
+    </script>
+        
+    
     <main class="container mx-auto px-6 mt-10">
         <section id="home" class="mb-10">
             <h1 class="text-3xl font-bold">Welcome to Samuel Zidaric's Portfolio</h1>
@@ -70,88 +71,88 @@
             <img src="main/images/main_image.jpg" alt="Samuel Zidaric" class="my-4 rounded-full w-32 h-32 object-cover">
             <p class="mt-4">Hello! I'm Samuel, a neuroscience enthusiast with a rich background in research, teaching, and sports...</p>
         </section>
-        <hr class="my-4 h-1 bg-gray-700"> <!-- Močnejša, temnejša in bolj razmaknjena vodoravna črta -->
+        <hr class="my-4 h-1 bg-gray-700"> <!-- Una linea orizzontale più spessa, più scura e più distanziata -->
 
         <section id="experience" class="mb-10">
-            <h2 class="text-2xl font-bold">Delovne Izkušnje</h2>
+            <h2 class="text-2xl font-bold">Esperienze Professionali</h2>
             <div class="mt-4">
-                <h3 class="text-xl font-semibold">Magistrska Naloga, Zimmer Lab, Dunaj (AT)</h3>
-                <p>Marec 2023– Marec 2024</p>
+                <h3 class="text-xl font-semibold">Tesi di Master, Laboratorio Zimmer, Vienna (AT)</h3>
+                <p>Marzo 2023– Marzo 2024</p>
                 <ul class="list-disc ml-5 mt-2">
-                    <li>Testiranje novega optogenetskega in sledilnega mikroskopa, kalibracija intenzivnosti LED svetlobe.</li>
-                    <li>Izvedba poglobljene video analize za identifikacijo vedenjskih odzivov C. elegans po optogenetskih stimulacijah.</li>
-                    <li>Pregled in izboljšava analitične cevovod za optogenetski mikroskop.</li>
-                    <li>Trening in izpopolnjevanje nevronskih mrež za sledenje telesnih delov z uporabo DeepLabCut.</li>
+                    <li>Testato un nuovo microscopio optogenetico e di tracciamento, calibrando la sua intensità di luce LED.</li>
+                    <li>Eseguito analisi video approfondite per identificare le risposte comportamentali di C. elegans dopo stimolazioni optogenetiche.</li>
+                    <li>Rivisitato e migliorato un pipeline di analisi comportamentale per il microscopio optogenetico.</li>
+                    <li>Addestrato e perfezionato reti neurali per il tracciamento delle parti del corpo con DeepLabCut.</li>
                 </ul>
             </div>
             <div class="mt-4">
-                <h3 class="text-xl font-semibold">Študentska Praksa, BIA Separations (Sartorius), Ajdovščina (SI)</h3>
-                <p>August 2022– December 2022</p>
+                <h3 class="text-xl font-semibold">Tirocinio Studentesco, BIA Separations (Sartorius), Ajdovščina (SI)</h3>
+                <p>Agosto 2022– Dicembre 2022</p>
                 <ul class="list-disc ml-5 mt-2">
-                    <li>Sodelovanje v laboratorijskih raziskovalnih dejavnostih: priprava pufrjev, validacija laboratorijske opreme.</li>
-                    <li>Izvajanje analitskih testov: SDS-PAGE, Bradford, PicoGreen.</li>
-                    <li>Izvedba kromatografskih tekov z uporabo sistemov AKTA za čiščenje proteinov.</li>
-                    <li>Doprinos k projektom AAV in adenovirusov, razvoj metod za aplikacije genske terapije v spodnjem toku.</li>
+                    <li>Partecipato a attività di ricerca in laboratorio: preparazione di buffer, validazione attrezzature di laboratorio.</li>
+                    <li>Eseguito saggi analitici: SDS-PAGE, Bradford, PicoGreen.</li>
+                    <li>Condotti cicli di cromatografia utilizzando sistemi AKTA per la purificazione delle proteine.</li>
+                    <li>Contribuito ai progetti AAV e Adenovirus, sviluppando metodi downstream per applicazioni di terapia genica.</li>
                 </ul>
             </div>
             <div class="mt-4">
-                <h3 class="text-xl font-semibold">Diplomska Naloga, Tongiorgi Lab, Trst (IT)</h3>
-                <p>Maj 2019– Oktober 2019</p>
+                <h3 class="text-xl font-semibold">Tesi di Laurea, Laboratorio Tongiorgi, Trieste (IT)</h3>
+                <p>Maggio 2019– Ottobre 2019</p>
                 <ul class="list-disc ml-5 mt-2">
-                    <li>Raziskovanje vloge BDNF v razvoju nevronov, uporaba PCR, sekcij s kriostatom, gel elektroforeze in in situ hibridizacije.</li>
+                    <li>Indagato il ruolo del BDNF nello sviluppo neuronale, utilizzando PCR, sezionamento con criostato, elettroforesi su gel e ibridazione in situ.</li>
                 </ul>
             </div>
             <div class="mt-4">
-                <h3 class="text-xl font-semibold">Dodatne Delovne Izkušnje</h3>
+                <h3 class="text-xl font-semibold">Altre Esperienze Lavorative</h3>
                 <ul class="list-disc ml-5 mt-2">
-                    <li>Profesionalni košarkar (2015– 2023)</li>
-                    <li>Trener minibasketa za otroke od 8 do 12 let (2016– 2021)</li>
-                    <li>Učitelj na osnovni šoli (Marec 2021– Junij 2021)</li>
+                    <li>Giocatore Professionista di Basket (2015– 2023)</li>
+                    <li>Allenatore di Minibasket per bambini di 8–12 anni (2016– 2021)</li>
+                    <li>Insegnante di Scuola Media (Marzo 2021– Giugno 2021)</li>
                 </ul>
             </div>
         </section>        
-        <hr class="my-4 h-1 bg-gray-700"> <!-- Močnejša, temnejša in bolj razmaknjena vodoravna črta -->
+        <hr class="my-4 h-1 bg-gray-700"> <!-- Una linea orizzontale più spessa, più scura e più distanziata -->
         
         <section id="education" class="mb-10">
-            <h2 class="text-2xl font-bold">Izobrazba</h2>
+            <h2 class="text-2xl font-bold">Formazione</h2>
             <div class="mt-4">
-                <h3 class="text-xl font-semibold">Univerza v Trstu, Oddelek za življenjske vede– Magisterij iz nevroznanosti</h3>
-                <p>Trst (IT), September 2021– Marec 2024</p>
-                <p>Osredotočenost predmeta: Celularna in molekularna nevrobiologija, nevroanatomija in nevrofarmakologija, molekularna nevrofiziologija, kognitivna nevroznanost.</p>
+                <h3 class="text-xl font-semibold">Università di Trieste, Dipartimento di Scienze della Vita– Master in Neuroscienze</h3>
+                <p>Trieste (IT), Settembre 2021– Marzo 2024</p>
+                <p>Focus dei Corsi: Neurobiologia Cellulare e Molecolare, Neuroanatomia e Neurofarmacologia, Neurofisiologia Molecolare, Neuroscienze Cognitive.</p>
             </div>
             <div class="mt-4">
-                <h3 class="text-xl font-semibold">Univerza v Trstu, Oddelek za življenjske vede– Diploma iz biologije</h3>
-                <p>Trst (IT), September 2017– Marec 2021</p>
-                <p>Osredotočenost predmeta: Splošna biologija, kemija, anatomija.</p>
+                <h3 class="text-xl font-semibold">Università di Trieste, Dipartimento di Scienze della Vita– Laurea in Biologia</h3>
+                <p>Trieste (IT), Settembre 2017– Marzo 2021</p>
+                <p>Focus dei Corsi: Biologia Generale, Chimica, Anatomia.</p>
             </div>
         </section>        
-        <hr class="my-4 h-1 bg-gray-700"> <!-- Močnejša, temnejša in bolj razmaknjena vodoravna črta -->
+        <hr class="my-4 h-1 bg-gray-700"> <!-- Una linea orizzontale più spessa, più scura e più distanziata -->
 
         <section id="skills" class="mb-10">
-            <h2 class="text-2xl font-bold">Veščine & Interesi</h2>
+            <h2 class="text-2xl font-bold">Competenze & Interessi</h2>
             <div class="mt-4">
-                <h3 class="text-xl font-semibold">Jeziki</h3>
-                <p>Materinščina slovenščina in italijanščina; tekoče v angleščini.</p>
+                <h3 class="text-xl font-semibold">Lingue</h3>
+                <p>Madrelingua Sloveno e Italiano; Fluente in Inglese.</p>
             </div>
             <div class="mt-4">
-                <h3 class="text-xl font-semibold">Mehke Veščine</h3>
-                <p>Reševanje problemov, komunikacija (odrasli in otroci), timsko delo, raziskovanje informacij, izvedba načrtov.</p>
+                <h3 class="text-xl font-semibold">Soft Skills</h3>
+                <p>Risoluzione dei problemi, comunicazione (adulti e bambini), lavoro di squadra, ricerca delle informazioni, esecuzione di piani.</p>
             </div>
             <div class="mt-4">
-                <h3 class="text-xl font-semibold">Tehnične Veščine</h3>
-                <p>Osnove v Pythonu, GitHubu, Snakemake, Excel.</p>
+                <h3 class="text-xl font-semibold">Competenze Tecniche</h3>
+                <p>Basi in Python, GitHub, Snakemake, Excel.</p>
             </div>
             <div class="mt-4">
-                <h3 class="text-xl font-semibold">Interesi</h3>
-                <p>Vse, kar je povezano z znanostjo, košarka, MMA, renesančna umetnost.</p>
+                <h3 class="text-xl font-semibold">Interessi</h3>
+                <p>Tutto ciò che è da nerd, basket, MMA, arte rinascimentale.</p>
             </div>
         </section>     
-        <hr class="my-4 h-1 bg-gray-700"> <!-- Močnejša, temnejša in bolj razmaknjena vodoravna črta -->   
+        <hr class="my-4 h-1 bg-gray-700"> <!-- Una linea orizzontale più spessa, più scura e più distanziata -->   
     </main>
 
     <footer class="bg-white shadow-md mt-10">
         <div class="container mx-auto px-6 py-4">
-            <p>Kontaktne informacije: +39 340 800 4175 | samzidaric@gmail.com</p>
+            <p>Informazioni di Contatto: +39 340 800 4175 | samzidaric@gmail.com</p>
         </div>
     </footer>
 
