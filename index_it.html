@@ -9,25 +9,112 @@
 </head>
 
 <body class="bg-gray-50 text-gray-800">
-    <header class="bg-white shadow-md">
-        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold">Samuel Zidaric</a>
-            <div class="flex items-center space-x-4">
-                <a href="#home" class="text-gray-600 hover:text-gray-800">Home</a>
-                <a href="#experience" class="text-gray-600 hover:text-gray-800">Experience</a>
-                <a href="#education" class="text-gray-600 hover:text-gray-800">Education</a>
-                <a href="#skills" class="text-gray-600 hover:text-gray-800">Skills & Interests</a>
+    <div class="flex flex-wrap bg-gray-50 text-gray-800">
+        <!-- Sidebar navigation -->
+        <aside class="w-full md:w-1/4 xl:w-1/5 bg-white">
+            <nav class="sticky top-0 h-screen px-4 py-8">
+                <a href="#" class="block py-2.5 px-4 rounded hover:bg-gray-100 text-xl font-bold">Samuel Zidaric</a>
+                <a href="#home" class="block py-2.5 px-4 rounded hover:bg-gray-100">Home</a>
+                <a href="#experience" class="block py-2.5 px-4 rounded hover:bg-gray-100">Experience</a>
+                <a href="#education" class="block py-2.5 px-4 rounded hover:bg-gray-100">Education</a>
+                <a href="#skills" class="block py-2.5 px-4 rounded hover:bg-gray-100">Skills & Interests</a>
                 <!-- Language Selector Dropdown -->
-                <div class="relative">
-                    <select id="languageDropdown" onchange="changeLanguage(this)" class="border border-gray-300 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
-                    <option value="index.html">English</option>
-                    <option value="index_sl.html">Slovenščina</option>
-                    <option value="index_it.html">Italiano</option>
+                <div class="relative mt-4">
+                    <select id="languageDropdown" onchange="changeLanguage(this)" class="border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none w-full">
+                        <option value="index.html">English</option>
+                        <option value="index_sl.html">Slovenščina</option>
+                        <option value="index_it.html">Italiano</option>
                     </select>
-                </div>  
-            </div>
-        </nav>
-    </header>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="w-full md:w-3/4 xl:w-4/5 p-4">
+            <section id="home" class="mb-10">
+                <h1 class="text-3xl font-bold">Benvenuti nel Portfolio di Samuel Zidaric</h1>
+                <!-- Image of Samuel -->
+                <img src="images/main_image.jpeg" alt="Samuel Zidaric" class="my-4 rounded-full w-64 h-64 object-cover">
+                <p class="mt-4">Ciao! Sono Samuel, un appassionato di neuroscienze con un ricco background in ricerca, insegnamento e sport. Attualmente residente a Trieste, Italia, sono impegnato a far avanzare la nostra comprensione dei meccanismi neurali attraverso la ricerca innovativa. Esplora il mio viaggio e i miei successi attraverso il mio sito web.</p>
+            </section>
+            <hr class="my-4 h-1 bg-gray-700"> <!-- A thicker, darker, and more spaced-out horizontal rule -->
+    
+            <section id="experience" class="mb-10">
+                <h2 class="text-2xl font-bold">Esperienze Professionali</h2>
+                <div class="mt-4">
+                    <h3 class="text-xl font-semibold">Tesi di Master, Laboratorio Zimmer, Vienna (AT)</h3>
+                    <p>Marzo 2023– Marzo 2024</p>
+                    <ul class="list-disc ml-5 mt-2">
+                        <li>Testato un nuovo microscopio optogenetico e di tracciamento, calibrando la sua intensità di luce LED.</li>
+                        <li>Eseguito analisi video approfondite per identificare le risposte comportamentali di C. elegans dopo stimolazioni optogenetiche.</li>
+                        <li>Rivisitato e migliorato un pipeline di analisi comportamentale per il microscopio optogenetico.</li>
+                        <li>Addestrato e perfezionato reti neurali per il tracciamento delle parti del corpo con DeepLabCut.</li>
+                    </ul>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-xl font-semibold">Tirocinio Studentesco, BIA Separations (Sartorius), Ajdovščina (SI)</h3>
+                    <p>Agosto 2022– Dicembre 2022</p>
+                    <ul class="list-disc ml-5 mt-2">
+                        <li>Partecipato a attività di ricerca in laboratorio: preparazione di buffer, validazione attrezzature di laboratorio.</li>
+                        <li>Eseguito saggi analitici: SDS-PAGE, Bradford, PicoGreen.</li>
+                        <li>Condotti cicli di cromatografia utilizzando sistemi AKTA per la purificazione delle proteine.</li>
+                        <li>Contribuito ai progetti AAV e Adenovirus, sviluppando metodi downstream per applicazioni di terapia genica.</li>
+                    </ul>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-xl font-semibold">Tesi di Laurea, Laboratorio Tongiorgi, Trieste (IT)</h3>
+                    <p>Maggio 2019– Ottobre 2019</p>
+                    <ul class="list-disc ml-5 mt-2">
+                        <li>Indagato il ruolo del BDNF nello sviluppo neuronale, utilizzando PCR, sezionamento con criostato, elettroforesi su gel e ibridazione in situ.</li>
+                    </ul>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-xl font-semibold">Altre Esperienze Lavorative</h3>
+                    <ul class="list-disc ml-5 mt-2">
+                        <li>Giocatore Professionista di Basket (2015– 2023)</li>
+                        <li>Allenatore di Minibasket per bambini di 8–12 anni (2016– 2021)</li>
+                        <li>Insegnante di Scuola Media (Marzo 2021– Giugno 2021)</li>
+                    </ul>
+                </div>
+            </section>        
+            <hr class="my-4 h-1 bg-gray-700"> <!-- Una linea orizzontale più spessa, più scura e più distanziata -->
+            
+            <section id="education" class="mb-10">
+                <h2 class="text-2xl font-bold">Formazione</h2>
+                <div class="mt-4">
+                    <h3 class="text-xl font-semibold">Università di Trieste, Dipartimento di Scienze della Vita– Master in Neuroscienze</h3>
+                    <p>Trieste (IT), Settembre 2021– Marzo 2024</p>
+                    <p>Focus dei Corsi: Neurobiologia Cellulare e Molecolare, Neuroanatomia e Neurofarmacologia, Neurofisiologia Molecolare, Neuroscienze Cognitive.</p>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-xl font-semibold">Università di Trieste, Dipartimento di Scienze della Vita– Laurea in Biologia</h3>
+                    <p>Trieste (IT), Settembre 2017– Marzo 2021</p>
+                    <p>Focus dei Corsi: Biologia Generale, Chimica, Anatomia.</p>
+                </div>
+            </section>        
+            <hr class="my-4 h-1 bg-gray-700"> <!-- Una linea orizzontale più spessa, più scura e più distanziata -->
+    
+            <section id="skills" class="mb-10">
+                <h2 class="text-2xl font-bold">Competenze & Interessi</h2>
+                <div class="mt-4">
+                    <h3 class="text-xl font-semibold">Lingue</h3>
+                    <p>Madrelingua Sloveno e Italiano; Fluente in Inglese.</p>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-xl font-semibold">Soft Skills</h3>
+                    <p>Risoluzione dei problemi, comunicazione (adulti e bambini), lavoro di squadra, ricerca delle informazioni, esecuzione di piani.</p>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-xl font-semibold">Competenze Tecniche</h3>
+                    <p>Basi in Python, GitHub, Snakemake, Excel.</p>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-xl font-semibold">Interessi</h3>
+                    <p>Tutto ciò che è da nerd, basket, MMA, arte rinascimentale.</p>
+                </div>
+            </section>     
+            <hr class="my-4 h-1 bg-gray-700"> <!-- Una linea orizzontale più spessa, più scura e più distanziata -->   
+        </main>
+    </div>
     
     <script>
     window.onload = function() {
@@ -63,97 +150,6 @@
     };
     </script>
         
-    
-    <main class="container mx-auto px-6 mt-10">
-        <section id="home" class="mb-10">
-            <div class="flex flex-col md:flex-row items-center md:items-start">
-                <div class="md:flex-1">
-                    <h1 class="text-3xl font-bold">Benvenuti nel Portfolio di Samuel Zidaric</h1>
-                    <p class="mt-4">Ciao! Sono Samuel, un appassionato di neuroscienze con un ricco background in ricerca, insegnamento e sport. Attualmente residente a Trieste, Italia, sono impegnato a far avanzare la nostra comprensione dei meccanismi neurali attraverso la ricerca innovativa. Esplora il mio viaggio e i miei successi attraverso il mio sito web.</p>
-                </div>
-                <!-- Image of Samuel -->
-                <img src="images/main_image.jpg" alt="Samuel Zidaric" class="my-4 md:my-0 md:ml-4 rounded-full w-32 h-32 md:w-48 md:h-48 object-cover">
-            </div>
-        </section>
-        <hr class="my-4 h-1 bg-gray-700"> <!-- Una linea orizzontale più spessa, più scura e più distanziata -->
-
-        <section id="experience" class="mb-10">
-            <h2 class="text-2xl font-bold">Esperienze Professionali</h2>
-            <div class="mt-4">
-                <h3 class="text-xl font-semibold">Tesi di Master, Laboratorio Zimmer, Vienna (AT)</h3>
-                <p>Marzo 2023– Marzo 2024</p>
-                <ul class="list-disc ml-5 mt-2">
-                    <li>Testato un nuovo microscopio optogenetico e di tracciamento, calibrando la sua intensità di luce LED.</li>
-                    <li>Eseguito analisi video approfondite per identificare le risposte comportamentali di C. elegans dopo stimolazioni optogenetiche.</li>
-                    <li>Rivisitato e migliorato un pipeline di analisi comportamentale per il microscopio optogenetico.</li>
-                    <li>Addestrato e perfezionato reti neurali per il tracciamento delle parti del corpo con DeepLabCut.</li>
-                </ul>
-            </div>
-            <div class="mt-4">
-                <h3 class="text-xl font-semibold">Tirocinio Studentesco, BIA Separations (Sartorius), Ajdovščina (SI)</h3>
-                <p>Agosto 2022– Dicembre 2022</p>
-                <ul class="list-disc ml-5 mt-2">
-                    <li>Partecipato a attività di ricerca in laboratorio: preparazione di buffer, validazione attrezzature di laboratorio.</li>
-                    <li>Eseguito saggi analitici: SDS-PAGE, Bradford, PicoGreen.</li>
-                    <li>Condotti cicli di cromatografia utilizzando sistemi AKTA per la purificazione delle proteine.</li>
-                    <li>Contribuito ai progetti AAV e Adenovirus, sviluppando metodi downstream per applicazioni di terapia genica.</li>
-                </ul>
-            </div>
-            <div class="mt-4">
-                <h3 class="text-xl font-semibold">Tesi di Laurea, Laboratorio Tongiorgi, Trieste (IT)</h3>
-                <p>Maggio 2019– Ottobre 2019</p>
-                <ul class="list-disc ml-5 mt-2">
-                    <li>Indagato il ruolo del BDNF nello sviluppo neuronale, utilizzando PCR, sezionamento con criostato, elettroforesi su gel e ibridazione in situ.</li>
-                </ul>
-            </div>
-            <div class="mt-4">
-                <h3 class="text-xl font-semibold">Altre Esperienze Lavorative</h3>
-                <ul class="list-disc ml-5 mt-2">
-                    <li>Giocatore Professionista di Basket (2015– 2023)</li>
-                    <li>Allenatore di Minibasket per bambini di 8–12 anni (2016– 2021)</li>
-                    <li>Insegnante di Scuola Media (Marzo 2021– Giugno 2021)</li>
-                </ul>
-            </div>
-        </section>        
-        <hr class="my-4 h-1 bg-gray-700"> <!-- Una linea orizzontale più spessa, più scura e più distanziata -->
-        
-        <section id="education" class="mb-10">
-            <h2 class="text-2xl font-bold">Formazione</h2>
-            <div class="mt-4">
-                <h3 class="text-xl font-semibold">Università di Trieste, Dipartimento di Scienze della Vita– Master in Neuroscienze</h3>
-                <p>Trieste (IT), Settembre 2021– Marzo 2024</p>
-                <p>Focus dei Corsi: Neurobiologia Cellulare e Molecolare, Neuroanatomia e Neurofarmacologia, Neurofisiologia Molecolare, Neuroscienze Cognitive.</p>
-            </div>
-            <div class="mt-4">
-                <h3 class="text-xl font-semibold">Università di Trieste, Dipartimento di Scienze della Vita– Laurea in Biologia</h3>
-                <p>Trieste (IT), Settembre 2017– Marzo 2021</p>
-                <p>Focus dei Corsi: Biologia Generale, Chimica, Anatomia.</p>
-            </div>
-        </section>        
-        <hr class="my-4 h-1 bg-gray-700"> <!-- Una linea orizzontale più spessa, più scura e più distanziata -->
-
-        <section id="skills" class="mb-10">
-            <h2 class="text-2xl font-bold">Competenze & Interessi</h2>
-            <div class="mt-4">
-                <h3 class="text-xl font-semibold">Lingue</h3>
-                <p>Madrelingua Sloveno e Italiano; Fluente in Inglese.</p>
-            </div>
-            <div class="mt-4">
-                <h3 class="text-xl font-semibold">Soft Skills</h3>
-                <p>Risoluzione dei problemi, comunicazione (adulti e bambini), lavoro di squadra, ricerca delle informazioni, esecuzione di piani.</p>
-            </div>
-            <div class="mt-4">
-                <h3 class="text-xl font-semibold">Competenze Tecniche</h3>
-                <p>Basi in Python, GitHub, Snakemake, Excel.</p>
-            </div>
-            <div class="mt-4">
-                <h3 class="text-xl font-semibold">Interessi</h3>
-                <p>Tutto ciò che è da nerd, basket, MMA, arte rinascimentale.</p>
-            </div>
-        </section>     
-        <hr class="my-4 h-1 bg-gray-700"> <!-- Una linea orizzontale più spessa, più scura e più distanziata -->   
-    </main>
-
     <footer class="bg-white shadow-md mt-10">
         <div class="container mx-auto px-6 py-4">
             <p>Informazioni di Contatto: +39 340 800 4175 | samzidaric@gmail.com</p>
