@@ -9,9 +9,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #1e1e1e;
+            --bg-card: #242424;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-primary: #5b8af5;
+            --accent-secondary: #7c4dff;
+            --accent-yellow: #ffd54f;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+        
         .mobile-menu-closed {
             display: none;
         }
+        
         @media (min-width: 768px) {
             .mobile-menu-toggle {
                 display: none;
@@ -20,6 +37,7 @@
                 display: block;
             }
         }
+        
         .skip-link {
             position: absolute;
             top: -40px;
@@ -30,68 +48,122 @@
             z-index: 100;
             transition: top 0.3s;
         }
+        
         .skip-link:focus {
             top: 0;
         }
+        
         section {
             scroll-margin-top: 2rem;
+        }
+        
+        .dark-card {
+            background-color: var(--bg-card);
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-glow {
+            transition: all 0.3s ease;
+        }
+        
+        .card-glow:hover {
+            box-shadow: 0 0 15px rgba(91, 138, 245, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .progress-bar-bg {
+            background-color: #333;
+        }
+        
+        .progress-bar-fill-blue {
+            background: linear-gradient(90deg, #4286f4, #5b8af5);
+        }
+        
+        .progress-bar-fill-green {
+            background: linear-gradient(90deg, #20BF55, #2D9CDB);
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(91, 138, 245, 0), rgba(91, 138, 245, 0.5), rgba(91, 138, 245, 0));
+            margin: 3rem 0;
+        }
+        
+        .nav-link {
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: #2a2a2a;
+            border-left: 3px solid var(--accent-primary);
+        }
+        
+        .tag {
+            background-color: #2a2a2a;
+            color: var(--text-primary);
+            border: 1px solid #444;
         }
     </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-900 text-gray-100">
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
-    <div class="flex flex-col md:flex-row bg-gray-50 text-gray-800">
+    <div class="flex flex-col md:flex-row">
         <!-- Mobile navigation toggle -->
-        <div class="md:hidden bg-white p-4 flex justify-between items-center shadow-md">
-            <h1 class="text-xl font-bold">Samuel Zidaric</h1>
-            <button id="mobileMenuToggle" class="mobile-menu-toggle p-2" aria-label="Toggle navigation menu">
+        <div class="md:hidden bg-gray-800 p-4 flex justify-between items-center shadow-md">
+            <h1 class="text-xl font-bold text-gray-100">Samuel Zidaric</h1>
+            <button id="mobileMenuToggle" class="mobile-menu-toggle p-2 text-gray-100" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </div>
 
         <!-- Sidebar navigation - hidden on mobile by default -->
-        <aside id="sidebarNav" class="w-full md:w-1/4 xl:w-1/5 bg-white shadow-md md:shadow-none transition-all duration-300 mobile-menu-closed md:block">
+        <aside id="sidebarNav" class="w-full md:w-1/4 xl:w-1/5 bg-gray-800 shadow-md md:shadow-none transition-all duration-300 mobile-menu-closed md:block">
             <nav class="md:sticky md:top-0 md:h-screen p-4 md:p-8">
-                <a href="#" class="block py-2.5 px-4 rounded hover:bg-gray-100 text-xl font-bold">Samuel Zidaric</a>
-                <ul class="mt-4">
-                    <li><a href="#home" class="block py-2.5 px-4 rounded hover:bg-gray-100 transition-colors" aria-current="page">Home</a></li>
-                    <li><a href="#experience" class="block py-2.5 px-4 rounded hover:bg-gray-100 transition-colors">Experience</a></li>
-                    <li><a href="#education" class="block py-2.5 px-4 rounded hover:bg-gray-100 transition-colors">Education</a></li>
-                    <li><a href="#skills" class="block py-2.5 px-4 rounded hover:bg-gray-100 transition-colors">Skills & Interests</a></li>
-                    <li><a href="#contact" class="block py-2.5 px-4 rounded hover:bg-gray-100 transition-colors">Contact</a></li>
+                <a href="#" class="block py-2.5 px-4 rounded text-xl font-bold text-blue-400 mb-6">Samuel Zidaric</a>
+                <ul class="mt-4 space-y-1">
+                    <li><a href="#home" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white" aria-current="page">Home</a></li>
+                    <li><a href="#experience" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Experience</a></li>
+                    <li><a href="#education" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Education</a></li>
+                    <li><a href="#skills" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Skills & Interests</a></li>
+                    <li><a href="#contact" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Contact</a></li>
                 </ul>
                 
                 <!-- Language Selector Dropdown -->
-                <div class="relative mt-6">
-                    <label for="languageDropdown" class="block text-sm font-medium text-gray-700 mb-1">Select Language</label>
-                    <select id="languageDropdown" class="border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none w-full">
+                <div class="relative mt-8">
+                    <label for="languageDropdown" class="block text-sm font-medium text-gray-400 mb-1">Select Language</label>
+                    <select id="languageDropdown" class="border border-gray-600 rounded text-gray-300 h-10 pl-5 pr-10 bg-gray-700 hover:border-gray-500 focus:outline-none appearance-none w-full">
                         <option value="index.html">English</option>
                         <option value="index_sl.html">Slovenščina</option>
                         <option value="index_it.html">Italiano</option>
                     </select>
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 mt-6">
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400 mt-6">
                         <i class="fas fa-chevron-down"></i>
                     </div>
                 </div>
             </nav>
         </aside>
         
-        <main id="main-content" class="w-full md:w-3/4 xl:w-4/5 p-4 md:p-8">
+        <main id="main-content" class="w-full md:w-3/4 xl:w-4/5 p-4 md:p-8 bg-gray-900">
             <section id="home" class="mb-10">
-                <h1 class="text-3xl font-bold">Welcome to Samuel Zidaric's Portfolio</h1>
-                <!-- Image of Samuel -->
+                <h1 class="text-3xl font-bold text-blue-400 mb-6">Welcome to Samuel Zidaric's Portfolio</h1>
+                <!-- Image of Samuel with glow effect -->
                 <div class="flex justify-center md:justify-start">
-                    <img src="images/main_image.jpeg" alt="Samuel Zidaric" class="my-4 rounded-full w-48 h-48 md:w-64 md:h-64 object-cover shadow-lg">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-blue-500 rounded-full blur-md opacity-20"></div>
+                        <img src="images/main_image.jpeg" alt="Samuel Zidaric" class="relative my-4 rounded-full w-48 h-48 md:w-64 md:h-64 object-cover border-2 border-blue-400">
+                    </div>
                 </div>
-                <p class="mt-4 text-lg">Hello! I'm Samuel, a neuroscientist navigating the fascinating paradox where biology meets computation. Is it not the supreme irony that we use artificial neural networks to understand actual neurons? In Trieste, I work at this precise contradiction—using algorithmic models to make sense of the very biological structures that inspired them. My research journey from C. elegans neurons to FAIR data principles represents not merely a career path but an ongoing dialectic between the material brain and its abstract outputs. When not contemplating this recursive loop of consciousness studying itself, I'm on basketball courts or immersed in art galleries—different frameworks for the same fundamental question: what patterns connect all things?</p>
+                <p class="mt-4 text-lg text-gray-300">Hello! I'm Samuel, a neuroscientist navigating the fascinating paradox where biology meets computation. Is it not the supreme irony that we use artificial neural networks to understand actual neurons? In Trieste, I work at this precise contradiction—using algorithmic models to make sense of the very biological structures that inspired them. My research journey from C. elegans neurons to FAIR data principles represents not merely a career path but an ongoing dialectic between the material brain and its abstract outputs. When not contemplating this recursive loop of consciousness studying itself, I'm on basketball courts or immersed in art galleries—different frameworks for the same fundamental question: what patterns connect all things?</p>
             </section>
-            <hr class="my-8 h-1 bg-gray-200"> 
+            <div class="section-divider"></div> 
         
             <section id="experience" class="mb-10">
-                <h2 class="text-2xl font-bold mb-6">Professional Experience</h2>
-                <div class="mt-6 bg-white p-5 rounded-lg shadow-sm relative overflow-hidden">
+                <h2 class="text-2xl font-bold text-blue-400 mb-6">Professional Experience</h2>
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg relative overflow-hidden">
                     <!-- Trophy icon in the background -->
                     <div class="absolute right-0 top-0 opacity-10 transform translate-x-6 -translate-y-4">
                         <i class="fas fa-trophy text-9xl text-yellow-500"></i>
@@ -102,27 +174,27 @@
                     <div class="relative z-10">
                         <div class="flex items-start justify-between">
                             <div>
-                                <h3 class="text-xl font-semibold">Research Fellowship – FAIR-by-Design Project</h3>
-                                <p class="text-gray-600 italic">Area Science Park, Trieste (IT), June 2025 – Present</p>
+                                <h3 class="text-xl font-semibold text-blue-300">Research Fellowship – FAIR-by-Design Project</h3>
+                                <p class="text-gray-400 italic">Area Science Park, Trieste (IT), June 2025 – Present</p>
                             </div>
-                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded border border-yellow-400 flex items-center">
+                            <span class="bg-yellow-900 text-yellow-300 text-xs font-medium px-2.5 py-0.5 rounded border border-yellow-700 flex items-center">
                                 <i class="fas fa-medal mr-1"></i> Distinguished Position
                             </span>
                         </div>
-                        <ul class="list-disc ml-5 mt-2">
+                        <ul class="list-disc ml-5 mt-2 text-gray-300">
                             <li>Researching interpretability of AI models (Transformers, LLMs) for protein sequences and electron microscopy images</li>
                             <li>Applying topological data analysis techniques to FAIR-compliant datasets</li>
                             <li>Developing methodologies for improved data acquisition and sharing in scientific research</li>
                         </ul>
                     </div>
                 </div>
-                <div class="mt-6 bg-white p-5 rounded-lg shadow-sm">
-                    <h3 class="text-xl font-semibold">Internship, Infordata Sistemi Srl, Trieste (IT)</h3>
-                    <p class="text-gray-600 italic">June 2024 – Present</p>
-                    <ul class="list-disc ml-5 mt-2">
-                        <li>Data harmonization and management for INSPIRE project (<a href="https://infordata.it/sostenibilita/progetto-inspire/" class="text-blue-600 hover:underline" target="_blank">https://infordata.it/sostenibilita/progetto-inspire/</a>)</li>
-                        <li>Data harmonization and management for Remedies project (<a href="https://remedies-for-ocean.eu/" class="text-blue-600 hover:underline" target="_blank">https://remedies-for-ocean.eu/</a>)</li>
-                        <li>Creation of learning algorithm for wildfire prediction for Karst Firewall (<a href="https://infordata.it/sostenibilita/progetto-karst-firewall-5-0-2/" class="text-blue-600 hover:underline" target="_blank">https://infordata.it/sostenibilita/progetto-karst-firewall-5-0-2/</a>)</li>
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Internship, Infordata Sistemi Srl, Trieste (IT)</h3>
+                    <p class="text-gray-400 italic">June 2024 – Present</p>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
+                        <li>Data harmonization and management for INSPIRE project (<a href="https://infordata.it/sostenibilita/progetto-inspire/" class="text-blue-400 hover:text-blue-300 hover:underline" target="_blank">https://infordata.it/sostenibilita/progetto-inspire/</a>)</li>
+                        <li>Data harmonization and management for Remedies project (<a href="https://remedies-for-ocean.eu/" class="text-blue-400 hover:text-blue-300 hover:underline" target="_blank">https://remedies-for-ocean.eu/</a>)</li>
+                        <li>Creation of learning algorithm for wildfire prediction for Karst Firewall (<a href="https://infordata.it/sostenibilita/progetto-karst-firewall-5-0-2/" class="text-blue-400 hover:text-blue-300 hover:underline" target="_blank">https://infordata.it/sostenibilita/progetto-karst-firewall-5-0-2/</a>)</li>
                     </ul>
                 </div>  
                 <div class="mt-6 bg-white p-5 rounded-lg shadow-sm">
@@ -311,26 +383,26 @@
             <hr class="my-8 h-1 bg-gray-200">
             
             <section id="contact" class="mb-10">
-                <h2 class="text-2xl font-bold mb-6">Contact Me</h2>
-                <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h2 class="text-2xl font-bold text-blue-400 mb-6">Contact Me</h2>
+                <div class="dark-card card-glow p-6 rounded-lg">
                     <form id="contactForm" class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
-                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Your Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required>
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Your Email</label>
-                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Your Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required>
                             </div>
                         </div>
                         <div>
-                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Subject</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required>
                         </div>
                         <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required></textarea>
                         </div>
                         <div>
                             <button type="submit" class="w-full md:w-auto px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">
@@ -343,18 +415,18 @@
         </main>
     </div>
 
-    <footer class="bg-white shadow-md py-6">
+    <footer class="bg-gray-800 shadow-md py-6">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-600 mb-4 md:mb-0">© 2025 Samuel Zidaric. All rights reserved.</p>
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Samuel Zidaric. All rights reserved.</p>
                 <div class="flex space-x-4">
-                    <a href="https://linkedin.com/" class="text-gray-600 hover:text-blue-600" aria-label="LinkedIn">
+                    <a href="https://linkedin.com/" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="LinkedIn">
                         <i class="fab fa-linkedin text-xl"></i>
                     </a>
-                    <a href="https://github.com/" class="text-gray-600 hover:text-gray-900" aria-label="GitHub">
+                    <a href="https://github.com/" class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
                         <i class="fab fa-github text-xl"></i>
                     </a>
-                    <a href="https://twitter.com/" class="text-gray-600 hover:text-blue-400" aria-label="Twitter">
+                    <a href="https://twitter.com/" class="text-gray-400 hover:text-blue-300 transition-colors" aria-label="Twitter">
                         <i class="fab fa-twitter text-xl"></i>
                     </a>
                 </div>
@@ -399,12 +471,12 @@
             });
             
             navLinks.forEach(link => {
-                link.classList.remove('bg-gray-100', 'font-medium');
+                link.classList.remove('nav-link-active', 'active', 'bg-gray-800', 'font-medium');
                 link.removeAttribute('aria-current');
                 
                 const href = link.getAttribute('href');
                 if (href === `#${currentSection}`) {
-                    link.classList.add('bg-gray-100', 'font-medium');
+                    link.classList.add('nav-link-active', 'active', 'bg-gray-800', 'font-medium');
                     link.setAttribute('aria-current', 'page');
                 }
             });
@@ -412,6 +484,17 @@
         
         window.addEventListener('scroll', setActiveLink);
         setActiveLink(); // Set initial active link
+        
+        // Add hover effects to cards
+        const cards = document.querySelectorAll('.card-glow');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.classList.add('transform', 'scale-[1.01]', 'shadow-lg', 'shadow-blue-900/20');
+            });
+            card.addEventListener('mouseleave', function() {
+                this.classList.remove('transform', 'scale-[1.01]', 'shadow-lg', 'shadow-blue-900/20');
+            });
+        });
         
         // Language selector functionality
         const languageDropdown = document.getElementById('languageDropdown');
