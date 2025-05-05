@@ -4,187 +4,544 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Profesionalni portfolio in življenjepis Samuela Zidarica">
     <title>Samuel Zidaric - Življenjepis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #1e1e1e;
+            --bg-card: #242424;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-primary: #5b8af5;
+            --accent-secondary: #7c4dff;
+            --accent-yellow: #ffd54f;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+        
+        .mobile-menu-closed {
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .mobile-menu-toggle {
+                display: none;
+            }
+            .mobile-menu-closed {
+                display: block;
+            }
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        section {
+            scroll-margin-top: 2rem;
+        }
+        
+        .dark-card {
+            background-color: var(--bg-card);
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-glow {
+            transition: all 0.3s ease;
+        }
+        
+        .card-glow:hover {
+            box-shadow: 0 0 15px rgba(91, 138, 245, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .progress-bar-bg {
+            background-color: #333;
+        }
+        
+        .progress-bar-fill-blue {
+            background: linear-gradient(90deg, #4286f4, #5b8af5);
+        }
+        
+        .progress-bar-fill-green {
+            background: linear-gradient(90deg, #20BF55, #2D9CDB);
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(91, 138, 245, 0), rgba(91, 138, 245, 0.5), rgba(91, 138, 245, 0));
+            margin: 3rem 0;
+        }
+        
+        .nav-link {
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: #2a2a2a;
+            border-left: 3px solid var(--accent-primary);
+        }
+        
+        .tag {
+            background-color: #2a2a2a;
+            color: var(--text-primary);
+            border: 1px solid #444;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
-    <div class="flex flex-wrap bg-gray-50 text-gray-800">
-        <!-- Sidebar navigation -->
-        <aside class="w-full md:w-1/4 xl:w-1/5 bg-white">
-            <nav class="sticky top-0 h-screen px-4 py-8">
-                <a href="#" class="block py-2.5 px-4 rounded hover:bg-gray-100 text-xl font-bold">Samuel Zidaric</a>
-                <a href="#home" class="block py-2.5 px-4 rounded hover:bg-gray-100">Home</a>
-                <a href="#experience" class="block py-2.5 px-4 rounded hover:bg-gray-100">Experience</a>
-                <a href="#education" class="block py-2.5 px-4 rounded hover:bg-gray-100">Education</a>
-                <a href="#skills" class="block py-2.5 px-4 rounded hover:bg-gray-100">Skills & Interests</a>
+<body class="bg-gray-900 text-gray-100">
+    <a href="#main-content" class="skip-link">Preskoči na glavno vsebino</a>
+    
+    <div class="flex flex-col md:flex-row">
+        <!-- Mobile navigation toggle -->
+        <div class="md:hidden bg-gray-800 p-4 flex justify-between items-center shadow-md">
+            <h1 class="text-xl font-bold text-gray-100">Samuel Zidaric</h1>
+            <button id="mobileMenuToggle" class="mobile-menu-toggle p-2 text-gray-100" aria-label="Preklopi navigacijski meni">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Sidebar navigation - hidden on mobile by default -->
+        <aside id="sidebarNav" class="w-full md:w-1/4 xl:w-1/5 bg-gray-800 shadow-md md:shadow-none transition-all duration-300 mobile-menu-closed md:block">
+            <nav class="md:sticky md:top-0 md:h-screen p-4 md:p-8">
+                <a href="#" class="block py-2.5 px-4 rounded text-xl font-bold text-blue-400 mb-6">Samuel Zidaric</a>
+                <ul class="mt-4 space-y-1">
+                    <li><a href="#home" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white" aria-current="page">Domov</a></li>
+                    <li><a href="#experience" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Izkušnje</a></li>
+                    <li><a href="#education" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Izobrazba</a></li>
+                    <li><a href="#skills" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Veščine in interesi</a></li>
+                    <li><a href="#contact" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Kontakt</a></li>
+                </ul>
+                
                 <!-- Language Selector Dropdown -->
-                <div class="relative mt-4">
-                    <select id="languageDropdown" onchange="changeLanguage(this)" class="border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none w-full">
+                <div class="relative mt-8">
+                    <label for="languageDropdown" class="block text-sm font-medium text-gray-400 mb-1">Izberi jezik</label>
+                    <select id="languageDropdown" class="border border-gray-600 rounded text-gray-300 h-10 pl-5 pr-10 bg-gray-700 hover:border-gray-500 focus:outline-none appearance-none w-full">
                         <option value="index.html">English</option>
-                        <option value="index_sl.html">Slovenščina</option>
+                        <option value="index_sl.html" selected>Slovenščina</option>
                         <option value="index_it.html">Italiano</option>
                     </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400 mt-6">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
                 </div>
             </nav>
         </aside>
         
-        <main class="w-full md:w-3/4 xl:w-4/5 p-4">
+        <main id="main-content" class="w-full md:w-3/4 xl:w-4/5 p-4 md:p-8 bg-gray-900">
             <section id="home" class="mb-10">
-                <h1 class="text-3xl font-bold">Dobrodošli v Samuelovem portfoliu</h1>
-                <!-- Image of Samuel -->
-                <img src="images/main_image.jpeg" alt="Samuel Zidaric" class="my-4 rounded-full w-64 h-64 object-cover">
-                <p class="mt-4">Pozdravljeni! Sem Samuel, navdušenec nad nevroznanostjo z bogatimi izkušnjami na področju raziskovanja, poučevanja in športa. Trenutno živim v Trstu, Italija, in sem predan napredovanju našega razumevanja nevralnih mehanizmov preko inovativnih raziskav.</p>
+                <h1 class="text-3xl font-bold text-blue-400 mb-6">Dobrodošli na portfoliu Samuela Zidarica</h1>
+                <!-- Image of Samuel with glow effect -->
+                <div class="flex justify-center md:justify-start">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-blue-500 rounded-full blur-md opacity-20"></div>
+                        <img src="images/main_image.jpeg" alt="Samuel Zidaric" class="relative my-4 rounded-full w-48 h-48 md:w-64 md:h-64 object-cover border-2 border-blue-400">
+                    </div>
+                </div>
+                <p class="mt-4 text-lg text-gray-300">Živjo! Sem Samuel, nevroznanstvenik, ki raziskuje fascinanten paradoks, kjer se biologja sreča z računalništvom. Ali ni to največja ironija, da uporabljamo umetne nevronske mreže za razumevanje pravih nevronov? V Trstu delam na tem natančnem protislovju - uporabljam algoritmične modele za razumevanje bioloških struktur, ki so jih navdihnile. Moja raziskovalna pot od nevronov C. elegans do načel FAIR podatkov ne predstavlja le karierne poti, ampak tudi dialog med materialnimi možgani in njihovimi abstraktnimi izidi. Ko ne razmišljam o tej rekurzivni zanki zavesti, ki preučuje samo sebe, sem na košarkarskih igriščih ali pa v umetniških galerijah—različni okviri za isto temeljno vprašanje: kateri vzorci povezujejo vse stvari?</p>
             </section>
-            <hr class="my-4 h-1 bg-gray-700"> <!-- A thicker, darker, and more spaced-out horizontal rule -->
-    
+            <div class="section-divider"></div> 
+        
             <section id="experience" class="mb-10">
-                <h2 class="text-2xl font-bold">Delovne Izkušnje</h2>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Praksa, Infordata Sistemi Srl, Trst (IT)</h3>
-                    <p>Junij 2024 – Danes</p>
-                    <ul class="list-disc ml-5 mt-2">
-                        <li>Predprocesiranje podatkov in usposabljanje modelov za projekt Karst Firewall 5.0</li>
+                <h2 class="text-2xl font-bold text-blue-400 mb-6">Strokovne izkušnje</h2>
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg relative overflow-hidden">
+                    <!-- Trophy icon in the background -->
+                    <div class="absolute right-0 top-0 opacity-10 transform translate-x-6 -translate-y-4">
+                        <i class="fas fa-trophy text-9xl text-yellow-500"></i>
+                    </div>
+                    <!-- Gold accent on the left side -->
+                    <div class="absolute left-0 top-0 bottom-0 w-2 bg-yellow-500"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-blue-300">Raziskovalna štipendija – Projekt FAIR-by-Design</h3>
+                                <p class="text-gray-400 italic">Area Science Park, Trst (IT), junij 2025 – Trenutno</p>
+                            </div>
+                            <span class="bg-yellow-900 text-yellow-300 text-xs font-medium px-2.5 py-0.5 rounded border border-yellow-700 flex items-center">
+                                <i class="fas fa-medal mr-1"></i> Ugledna pozicija
+                            </span>
+                        </div>
+                        <ul class="list-disc ml-5 mt-2 text-gray-300">
+                            <li>Raziskovanje interpretabilnosti AI modelov (Transformerji, LLM) za proteinske sekvence in slike elektronske mikroskopije</li>
+                            <li>Uporaba tehnik topološke analize podatkov na zbirkah podatkov, skladnih s FAIR</li>
+                            <li>Razvoj metodologij za izboljšano pridobivanje in deljenje podatkov v znanstvenih raziskavah</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Praksa, Infordata Sistemi Srl, Trst (IT)</h3>
+                    <p class="text-gray-400 italic">Junij 2024 – Trenutno</p>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
+                        <li>Harmonizacija in upravljanje podatkov za projekt INSPIRE (<a href="https://infordata.it/sostenibilita/progetto-inspire/" class="text-blue-400 hover:text-blue-300 hover:underline" target="_blank">https://infordata.it/sostenibilita/progetto-inspire/</a>)</li>
+                        <li>Harmonizacija in upravljanje podatkov za projekt Remedies (<a href="https://remedies-for-ocean.eu/" class="text-blue-400 hover:text-blue-300 hover:underline" target="_blank">https://remedies-for-ocean.eu/</a>)</li>
+                        <li>Ustvarjanje učnih algoritmov za napovedovanje požarov za Karst Firewall (<a href="https://infordata.it/sostenibilita/progetto-karst-firewall-5-0-2/" class="text-blue-400 hover:text-blue-300 hover:underline" target="_blank">https://infordata.it/sostenibilita/progetto-karst-firewall-5-0-2/</a>)</li>
                     </ul>
-                </div>    
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Magistrska Naloga, Zimmer Lab, Dunaj (AT)</h3>
-                    <p>Marec 2023– Marec 2024</p>
-                    <ul class="list-disc ml-5 mt-2">
-                        <li>Testiranje novega optogenetskega in sledilnega mikroskopa, kalibracija intenzivnosti LED svetlobe.</li>
-                        <li>Izvedba poglobljene video analize za identifikacijo vedenjskih odzivov C. elegans po optogenetskih stimulacijah.</li>
-                        <li>Pregled in izboljšava analitične cevovod za optogenetski mikroskop.</li>
-                        <li>Trening in izpopolnjevanje nevronskih mrež za sledenje telesnih delov z uporabo DeepLabCut.</li>
+                </div>  
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Magistrska naloga, Zimmer Lab, Dunaj (AT)</h3>
+                    <p class="text-gray-400 italic">Marec 2023– Marec 2024</p>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
+                        <li>Testiranje novega optogenetskega in sledilnega mikroskopa, kalibracija njegove LED svetlobne intenzitete.</li>
+                        <li>Izvajanje poglobljene video analize za identifikacijo vedenjskih odzivov C. elegans po optogenetskih stimulacijah.</li>
+                        <li>Pregled in izboljšava pipeline vedenjske analize za optogenetski mikroskop.</li>
+                        <li>Učenje in izpopolnjevanje nevronskih mrež za sledenje delom telesa z DeepLabCut.</li>
                     </ul>
                 </div>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Študentska Praksa, BIA Separations (Sartorius), Ajdovščina (SI)</h3>
-                    <p>August 2022– December 2022</p>
-                    <ul class="list-disc ml-5 mt-2">
-                        <li>Sodelovanje v laboratorijskih raziskovalnih dejavnostih: priprava pufrjev, validacija laboratorijske opreme.</li>
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Študentska praksa, BIA Separations (Sartorius), Ajdovščina (SI)</h3>
+                    <p class="text-gray-400 italic">Avgust 2022– December 2022</p>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
+                        <li>Sodelovanje pri laboratorijskih raziskovalnih aktivnostih: priprava pufrov, validacija laboratorijske opreme.</li>
                         <li>Izvajanje analitskih testov: SDS-PAGE, Bradford, PicoGreen.</li>
-                        <li>Izvedba kromatografskih tekov z uporabo sistemov AKTA za čiščenje proteinov.</li>
-                        <li>Doprinos k projektom AAV in adenovirusov, razvoj metod za aplikacije genske terapije v spodnjem toku.</li>
+                        <li>Izvajanje kromatografije z uporabo AKTA sistemov za čiščenje proteinov.</li>
+                        <li>Prispevanje k projektom AAV in Adenovirus, razvoj metod čiščenja za genske terapije.</li>
                     </ul>
                 </div>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Diplomska Naloga, Tongiorgi Lab, Trst (IT)</h3>
-                    <p>Maj 2019– Oktober 2019</p>
-                    <ul class="list-disc ml-5 mt-2">
-                        <li>Raziskovanje vloge BDNF v razvoju nevronov, uporaba PCR, sekcij s kriostatom, gel elektroforeze in in situ hibridizacije.</li>
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Diplomska naloga, Tongiorgi Lab, Trst (IT)</h3>
+                    <p class="text-gray-400 italic">Maj 2019– Oktober 2019</p>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
+                        <li>Raziskava vloge BDNF v razvoju nevronov z uporabo PCR, kriostatnega rezanja, gelske elektroforeze in in-situ hibridizacije.</li>
                     </ul>
                 </div>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Gostitelj, Osmica Zidarich, Trst</h3>
-                    <p>Aktivna leta, npr. 2018 – 2024, nekaj tednov vsako leto</p>
-                    <ul class="list-disc ml-5 mt-2">
-                        <li>Pozdravljanje in interakcija s strankami, razlaga vinskih sort in postopka proizvodnje.</li>
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Gostitelj, Osmica Zidarich, Trst</h3>
+                    <p class="text-gray-400 italic">Aktivna leta, npr. 2018 – 2024, nekaj tednov vsako leto</p>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
+                        <li>Sprejem in komunikacija s strankami, razlaga vinskih sort in proizvodnega procesa.</li>
                         <li>Sprejemanje naročil, obdelava plačil in postrežba vina strankam.</li>
-                        <li>Reševanje povpraševanj strank in morebitnih težav.</li>
+                        <li>Obravnava vprašanj strank in reševanje morebitnih težav.</li>
                     </ul>
                 </div>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Dodatne Delovne Izkušnje</h3>
-                    <ul class="list-disc ml-5 mt-2">
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Dodatne delovne izkušnje</h3>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
                         <li>Profesionalni košarkar (2015– 2023)</li>
-                        <li>Trener minibasketa za otroke od 8 do 12 let (2016– 2021)</li>
-                        <li>Učitelj na osnovni šoli (Marec 2021– Junij 2021)</li>
+                        <li>Trener košarke za otroke od 8 do 12 let (2016– 2021)</li>
+                        <li>Učitelj v osnovni šoli (marec 2021– junij 2021)</li>
                     </ul>
                 </div>
             </section>        
-            <hr class="my-4 h-1 bg-gray-700"> <!-- Močnejša, temnejša in bolj razmaknjena vodoravna črta -->
+            <div class="section-divider"></div>
             
             <section id="education" class="mb-10">
-                <h2 class="text-2xl font-bold">Izobrazba</h2>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Univerza v Trstu, Oddelek za življenjske vede– Magisterij iz nevroznanosti</h3>
-                    <p>Trst (IT), September 2021– Marec 2024</p>
-                    <p>Osredotočenost predmeta: Celularna in molekularna nevrobiologija, nevroanatomija in nevrofarmakologija, molekularna nevrofiziologija, kognitivna nevroznanost.</p>
+                <h2 class="text-2xl font-bold text-blue-400 mb-6">Izobrazba</h2>
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Magisterij iz upravljanja in kuriranja podatkov (MDMC)</h3>
+                    <p class="text-gray-400 italic">SISSA & Area Science Park, Trst (IT), september 2024– maj 2025</p>
+                    <p class="mt-2 text-gray-300">10-mesečni profesionalni magisterij (60 ECTS), osredotočen na metodologije FAIR-by-design za upravljanje raziskovalnih podatkov. Predmeti vključujejo odprto znanost, upravljanje raziskovalnih podatkov, znanstveno programiranje s Pythonom, oblačno infrastrukturo, orodja za upravljanje podatkov in AI za znanstvene aplikacije.</p>
                 </div>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Univerza v Trstu, Oddelek za življenjske vede– Diploma iz biologije</h3>
-                    <p>Trst (IT), September 2017– Marec 2021</p>
-                    <p>Osredotočenost predmeta: Splošna biologija, kemija, anatomija.</p>
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Univerza v Trstu, Oddelek za vede o življenju – Magisterij iz nevroznanosti</h3>
+                    <p class="text-gray-400 italic">Trst (IT), september 2021 – marec 2024</p>
+                    <p class="mt-2 text-gray-300">Poudarek: Celična in molekularna nevrobiologija, nevroanatomija in nevrofarmakologija, molekularna nevrofiziologija, kognitivna nevroznanost.</p>
+                </div>
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Univerza v Trstu, Oddelek za vede o življenju – Dodiplomski študij biologije</h3>
+                    <p class="text-gray-400 italic">Trst (IT), september 2017 – marec 2021</p>
+                    <p class="mt-2 text-gray-300">Poudarek: Splošna biologija, kemija, anatomija.</p>
                 </div>
             </section>        
-            <hr class="my-4 h-1 bg-gray-700"> <!-- Močnejša, temnejša in bolj razmaknjena vodoravna črta -->
+            <div class="section-divider"></div>
     
             <section id="skills" class="mb-10">
-                <h2 class="text-2xl font-bold">Veščine & Interesi</h2>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Jeziki</h3>
-                    <p>Materinščina slovenščina in italijanščina; tekoče v angleščini.</p>
+                <h2 class="text-2xl font-bold text-blue-400 mb-6">Veščine in interesi</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="dark-card card-glow p-5 rounded-lg">
+                        <h3 class="text-xl font-semibold text-blue-300 mb-3">Jeziki</h3>
+                        <div class="space-y-2">
+                            <div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Slovenščina</span>
+                                    <span class="text-gray-400">Materni jezik</span>
+                                </div>
+                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
+                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Italijanščina</span>
+                                    <span class="text-gray-400">Materni jezik</span>
+                                </div>
+                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
+                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Angleščina</span>
+                                    <span class="text-gray-400">Tekoče</span>
+                                </div>
+                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
+                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Nemščina</span>
+                                    <span class="text-gray-400">Osnovno</span>
+                                </div>
+                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
+                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 30%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dark-card card-glow p-5 rounded-lg">
+                        <h3 class="text-xl font-semibold text-blue-300 mb-3">Tehnične veščine</h3>
+                        <div class="space-y-2">
+                            <div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Python</span>
+                                    <span class="text-gray-400">Osnovno</span>
+                                </div>
+                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
+                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 40%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">GitHub</span>
+                                    <span class="text-gray-400">Srednje</span>
+                                </div>
+                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
+                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">SQL</span>
+                                    <span class="text-gray-400">Srednje</span>
+                                </div>
+                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
+                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Snakemake</span>
+                                    <span class="text-gray-400">Osnovno</span>
+                                </div>
+                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
+                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 35%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Excel</span>
+                                    <span class="text-gray-400">Srednje</span>
+                                </div>
+                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
+                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dark-card card-glow p-5 rounded-lg">
+                        <h3 class="text-xl font-semibold text-blue-300 mb-3">Mehke veščine</h3>
+                        <ul class="list-disc ml-5 text-gray-300">
+                            <li>Reševanje problemov</li>
+                            <li>Komunikacija (odrasli in otroci)</li>
+                            <li>Timsko delo</li>
+                            <li>Raziskovanje informacij</li>
+                            <li>Izvajanje načrtov</li>
+                        </ul>
+                    </div>
+                    <div class="dark-card card-glow p-5 rounded-lg">
+                        <h3 class="text-xl font-semibold text-blue-300 mb-3">Interesi</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 tag rounded-full text-sm">Piflarija</span>
+                            <span class="px-3 py-1 tag rounded-full text-sm">Košarka</span>
+                            <span class="px-3 py-1 tag rounded-full text-sm">MMA</span>
+                            <span class="px-3 py-1 tag rounded-full text-sm">Umetnost</span>
+                            <span class="px-3 py-1 tag rounded-full text-sm">Videoigre</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Mehke Veščine</h3>
-                    <p>Reševanje problemov, komunikacija (odrasli in otroci), timsko delo, raziskovanje informacij, izvedba načrtov.</p>
+            </section>
+            <div class="section-divider"></div>
+            
+            <section id="contact" class="mb-10">
+                <h2 class="text-2xl font-bold text-blue-400 mb-6">Kontaktirajte me</h2>
+                <div class="dark-card card-glow p-6 rounded-lg">
+                    <form id="contactForm" class="space-y-6" action="https://formsubmit.co/samzidaric@gmail.com" method="POST">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Vaše ime</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Vaš email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Zadeva</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Sporočilo</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full md:w-auto px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">
+                                Pošlji sporočilo
+                            </button>
+                        </div>
+                        <!-- Hidden inputs for FormSubmit configuration -->
+                        <input type="hidden" name="_subject" value="Novo sporočilo s spletne strani Portfolio">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+                    </form>
                 </div>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Tehnične Veščine</h3>
-                    <p>Osnove v Pythonu, GitHubu, Snakemake, Excel.</p>
-                </div>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Interesi</h3>
-                    <p>Vse, kar je povezano z znanostjo, košarka, MMA, renesančna umetnost.</p>
-                </div>
-            </section>     
-            <hr class="my-4 h-1 bg-gray-700"> <!-- Močnejša, temnejša in bolj razmaknjena vodoravna črta -->   
+            </section>
         </main>
     </div>
 
-    <script>
-    window.onload = function() {
-        // Function to update the dropdown based on the current URL
-        function updateLanguageDropdown() {
-            const dropdown = document.getElementById('languageDropdown');
-            const currentUrl = window.location.href;
-    
-            if (currentUrl.includes('index_sl.html')) {
-                dropdown.value = 'index_sl.html';
-                dropdown.nextElementSibling.textContent = 'Slovenščina';
-            } else if (currentUrl.includes('index_it.html')) {
-                dropdown.value = 'index_it.html';
-                dropdown.nextElementSibling.textContent = 'Italiano';
-            } else {
-                // Default to English if no specific language segment is found in the URL
-                dropdown.value = 'index.html';
-                dropdown.nextElementSibling.textContent = 'English';
-            }
-        }
-        
-        updateLanguageDropdown(); // Call the function on page load
-    
-        // Your existing changeLanguage function
-        function changeLanguage(select) {
-            window.location = select.value;
-        }
-        
-        // Attaching the changeLanguage function to the dropdown
-        document.getElementById('languageDropdown').onchange = function() {
-            changeLanguage(this);
-        }
-    };
-    </script>        
-
-    <footer class="bg-white shadow-md mt-10">
-        <div class="container mx-auto px-6 py-4">
-            <p>Kontaktne informacije: +39 340 800 4175 | samzidaric@gmail.com</p>
+    <footer class="bg-gray-800 shadow-md py-6">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Samuel Zidaric. Vse pravice pridržane.</p>
+                <div class="flex space-x-4">
+                    <a href="https://linkedin.com/" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="https://github.com/" class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://twitter.com/" class="text-gray-400 hover:text-blue-300 transition-colors" aria-label="Twitter">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
-    function changeLanguage(select) {
-        window.location = select.value;
-    }
-
-    function updateLanguageDropdown() {
-        const dropdown = document.getElementById('languageDropdown');
-        const url = window.location.href;
-
-        dropdown.selectedIndex = url.includes('index_sl.html') ? 1 : url.includes('index_it.html') ? 2 : 0;
-    }
-
-    window.onload = updateLanguageDropdown;
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sidebarNav = document.getElementById('sidebarNav');
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            sidebarNav.classList.toggle('mobile-menu-closed');
+        });
+        
+        // Close mobile menu when clicking a nav link
+        const navLinks = document.querySelectorAll('#sidebarNav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth < 768) {
+                    sidebarNav.classList.add('mobile-menu-closed');
+                }
+            });
+        });
+        
+        // Active link highlighting
+        function setActiveLink() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('#sidebarNav a[href^="#"]');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= (sectionTop - 200)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('nav-link-active', 'active', 'bg-gray-800', 'font-medium');
+                link.removeAttribute('aria-current');
+                
+                const href = link.getAttribute('href');
+                if (href === `#${currentSection}`) {
+                    link.classList.add('nav-link-active', 'active', 'bg-gray-800', 'font-medium');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', setActiveLink);
+        setActiveLink(); // Set initial active link
+        
+        // Add hover effects to cards
+        const cards = document.querySelectorAll('.card-glow');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.classList.add('transform', 'scale-[1.01]', 'shadow-lg', 'shadow-blue-900/20');
+            });
+            card.addEventListener('mouseleave', function() {
+                this.classList.remove('transform', 'scale-[1.01]', 'shadow-lg', 'shadow-blue-900/20');
+            });
+        });
+        
+        // Language selector functionality
+        const languageDropdown = document.getElementById('languageDropdown');
+        
+        // Update dropdown based on current URL
+        function updateLanguageDropdown() {
+            const currentUrl = window.location.href;
+            
+            if (currentUrl.includes('index_sl.html')) {
+                languageDropdown.value = 'index_sl.html';
+            } else if (currentUrl.includes('index_it.html')) {
+                languageDropdown.value = 'index_it.html';
+            } else {
+                languageDropdown.value = 'index.html';
+            }
+        }
+        
+        updateLanguageDropdown();
+        
+        // Change language when dropdown changes
+        languageDropdown.addEventListener('change', function() {
+            window.location = this.value;
+        });
+        
+        // Contact form handling (still kept in addition to the form action for any additional processing)
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(e) {
+            // Form will be submitted via action to FormSubmit.co
+            // This event handler is just for any additional JavaScript processing
+            
+            const formData = new FormData(contactForm);
+            let formValues = {};
+            
+            formData.forEach((value, key) => {
+                formValues[key] = value;
+            });
+            
+            console.log('Form submitted:', formValues);
+            
+            // Form submission will be handled by the form action
+        });
+    });
     </script>
 </body>
 
