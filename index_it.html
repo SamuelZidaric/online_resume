@@ -4,187 +4,544 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio professionale e curriculum vitae di Samuel Zidaric">
     <title>Samuel Zidaric - Curriculum Vitae</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #1e1e1e;
+            --bg-card: #242424;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-primary: #5b8af5;
+            --accent-secondary: #7c4dff;
+            --accent-yellow: #ffd54f;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+        
+        .mobile-menu-closed {
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .mobile-menu-toggle {
+                display: none;
+            }
+            .mobile-menu-closed {
+                display: block;
+            }
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        section {
+            scroll-margin-top: 2rem;
+        }
+        
+        .dark-card {
+            background-color: var(--bg-card);
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-glow {
+            transition: all 0.3s ease;
+        }
+        
+        .card-glow:hover {
+            box-shadow: 0 0 15px rgba(91, 138, 245, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .progress-bar-bg {
+            background-color: #333;
+        }
+        
+        .progress-bar-fill-blue {
+            background: linear-gradient(90deg, #4286f4, #5b8af5);
+        }
+        
+        .progress-bar-fill-green {
+            background: linear-gradient(90deg, #20BF55, #2D9CDB);
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(91, 138, 245, 0), rgba(91, 138, 245, 0.5), rgba(91, 138, 245, 0));
+            margin: 3rem 0;
+        }
+        
+        .nav-link {
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: #2a2a2a;
+            border-left: 3px solid var(--accent-primary);
+        }
+        
+        .tag {
+            background-color: #2a2a2a;
+            color: var(--text-primary);
+            border: 1px solid #444;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
-    <div class="flex flex-wrap bg-gray-50 text-gray-800">
-        <!-- Sidebar navigation -->
-        <aside class="w-full md:w-1/4 xl:w-1/5 bg-white">
-            <nav class="sticky top-0 h-screen px-4 py-8">
-                <a href="#" class="block py-2.5 px-4 rounded hover:bg-gray-100 text-xl font-bold">Samuel Zidaric</a>
-                <a href="#home" class="block py-2.5 px-4 rounded hover:bg-gray-100">Home</a>
-                <a href="#experience" class="block py-2.5 px-4 rounded hover:bg-gray-100">Experience</a>
-                <a href="#education" class="block py-2.5 px-4 rounded hover:bg-gray-100">Education</a>
-                <a href="#skills" class="block py-2.5 px-4 rounded hover:bg-gray-100">Skills & Interests</a>
+<body class="bg-gray-900 text-gray-100">
+    <a href="#main-content" class="skip-link">Passa al contenuto principale</a>
+    
+    <div class="flex flex-col md:flex-row">
+        <!-- Mobile navigation toggle -->
+        <div class="md:hidden bg-gray-800 p-4 flex justify-between items-center shadow-md">
+            <h1 class="text-xl font-bold text-gray-100">Samuel Zidaric</h1>
+            <button id="mobileMenuToggle" class="mobile-menu-toggle p-2 text-gray-100" aria-label="Attiva menu di navigazione">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Sidebar navigation - hidden on mobile by default -->
+        <aside id="sidebarNav" class="w-full md:w-1/4 xl:w-1/5 bg-gray-800 shadow-md md:shadow-none transition-all duration-300 mobile-menu-closed md:block">
+            <nav class="md:sticky md:top-0 md:h-screen p-4 md:p-8">
+                <a href="#" class="block py-2.5 px-4 rounded text-xl font-bold text-blue-400 mb-6">Samuel Zidaric</a>
+                <ul class="mt-4 space-y-1">
+                    <li><a href="#home" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white" aria-current="page">Home</a></li>
+                    <li><a href="#experience" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Esperienza</a></li>
+                    <li><a href="#education" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Formazione</a></li>
+                    <li><a href="#skills" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Competenze e Interessi</a></li>
+                    <li><a href="#contact" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Contatto</a></li>
+                </ul>
+                
                 <!-- Language Selector Dropdown -->
-                <div class="relative mt-4">
-                    <select id="languageDropdown" onchange="changeLanguage(this)" class="border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none w-full">
+                <div class="relative mt-8">
+                    <label for="languageDropdown" class="block text-sm font-medium text-gray-400 mb-1">Seleziona lingua</label>
+                    <select id="languageDropdown" class="border border-gray-600 rounded text-gray-300 h-10 pl-5 pr-10 bg-gray-700 hover:border-gray-500 focus:outline-none appearance-none w-full">
                         <option value="index.html">English</option>
                         <option value="index_sl.html">Slovenščina</option>
-                        <option value="index_it.html">Italiano</option>
+                        <option value="index_it.html" selected>Italiano</option>
                     </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400 mt-6">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
                 </div>
             </nav>
         </aside>
         
-        <main class="w-full md:w-3/4 xl:w-4/5 p-4">
+        <main id="main-content" class="w-full md:w-3/4 xl:w-4/5 p-4 md:p-8 bg-gray-900">
             <section id="home" class="mb-10">
-                <h1 class="text-3xl font-bold">Benvenuti nel Portfolio di Samuel Zidaric</h1>
-                <!-- Image of Samuel -->
-                <img src="images/main_image.jpeg" alt="Samuel Zidaric" class="my-4 rounded-full w-64 h-64 object-cover">
-                <p class="mt-4">Ciao! Sono Samuel, un appassionato di neuroscienze con un ricco background in ricerca, insegnamento e sport. Attualmente residente a Trieste, Italia, sono impegnato a far avanzare la nostra comprensione dei meccanismi neurali attraverso la ricerca innovativa.</p>
+                <h1 class="text-3xl font-bold text-blue-400 mb-6">Benvenuti nel Portfolio di Samuel Zidaric</h1>
+                <!-- Image of Samuel with glow effect -->
+                <div class="flex justify-center md:justify-start">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-blue-500 rounded-full blur-md opacity-20"></div>
+                        <img src="images/main_image.jpeg" alt="Samuel Zidaric" class="relative my-4 rounded-full w-48 h-48 md:w-64 md:h-64 object-cover border-2 border-blue-400">
+                    </div>
+                </div>
+                <p class="mt-4 text-lg text-gray-300">Ciao! Sono Samuel, un neuroscienziato che naviga nell'affascinante paradosso dove la biologia incontra il calcolo. Non è forse la suprema ironia che utilizziamo reti neurali artificiali per comprendere i neuroni reali? A Trieste, lavoro su questa precisa contraddizione—utilizzando modelli algoritmici per dare un senso alle strutture biologiche che li hanno ispirati. Il mio percorso di ricerca, dai neuroni di C. elegans ai principi FAIR per i dati, rappresenta non semplicemente un percorso di carriera ma una dialettica continua tra il cervello materiale e i suoi output astratti. Quando non contemplo questo loop ricorsivo della coscienza che studia se stessa, sono sui campi da basket o immerso nelle gallerie d'arte—diversi contesti per la stessa domanda fondamentale: quali schemi connettono tutte le cose?</p>
             </section>
-            <hr class="my-4 h-1 bg-gray-700"> <!-- A thicker, darker, and more spaced-out horizontal rule -->
-    
+            <div class="section-divider"></div> 
+        
             <section id="experience" class="mb-10">
-                <h2 class="text-2xl font-bold">Esperienze Professionali</h2>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Tirocinio, Infordata Sistemi Srl, Trst (IT)</h3>
-                    <p>Giugno 2024 – Presente</p>
-                    <ul class="list-disc ml-5 mt-2">
-                        <li>Preprocessing dei dati e training del modello per il progetto Karst Firewall 5.0</li>
+                <h2 class="text-2xl font-bold text-blue-400 mb-6">Esperienza Professionale</h2>
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg relative overflow-hidden">
+                    <!-- Trophy icon in the background -->
+                    <div class="absolute right-0 top-0 opacity-10 transform translate-x-6 -translate-y-4">
+                        <i class="fas fa-trophy text-9xl text-yellow-500"></i>
+                    </div>
+                    <!-- Gold accent on the left side -->
+                    <div class="absolute left-0 top-0 bottom-0 w-2 bg-yellow-500"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-blue-300">Borsa di Ricerca – Progetto FAIR-by-Design</h3>
+                                <p class="text-gray-400 italic">Area Science Park, Trieste (IT), Giugno 2025 – Presente</p>
+                            </div>
+                            <span class="bg-yellow-900 text-yellow-300 text-xs font-medium px-2.5 py-0.5 rounded border border-yellow-700 flex items-center">
+                                <i class="fas fa-medal mr-1"></i> Posizione di Prestigio
+                            </span>
+                        </div>
+                        <ul class="list-disc ml-5 mt-2 text-gray-300">
+                            <li>Ricerca sull'interpretabilità dei modelli AI (Transformers, LLM) per sequenze proteiche e immagini di microscopia elettronica</li>
+                            <li>Applicazione di tecniche di analisi topologica dei dati a dataset conformi ai principi FAIR</li>
+                            <li>Sviluppo di metodologie per migliorare l'acquisizione e la condivisione dei dati nella ricerca scientifica</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Tirocinio, Infordata Sistemi Srl, Trieste (IT)</h3>
+                    <p class="text-gray-400 italic">Giugno 2024 – Presente</p>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
+                        <li>Armonizzazione e gestione dati per il progetto INSPIRE (<a href="https://infordata.it/sostenibilita/progetto-inspire/" class="text-blue-400 hover:text-blue-300 hover:underline" target="_blank">https://infordata.it/sostenibilita/progetto-inspire/</a>)</li>
+                        <li>Armonizzazione e gestione dati per il progetto Remedies (<a href="https://remedies-for-ocean.eu/" class="text-blue-400 hover:text-blue-300 hover:underline" target="_blank">https://remedies-for-ocean.eu/</a>)</li>
+                        <li>Creazione di algoritmi di apprendimento per la previsione di incendi boschivi per Karst Firewall (<a href="https://infordata.it/sostenibilita/progetto-karst-firewall-5-0-2/" class="text-blue-400 hover:text-blue-300 hover:underline" target="_blank">https://infordata.it/sostenibilita/progetto-karst-firewall-5-0-2/</a>)</li>
                     </ul>
-                </div>    
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Tesi di Master, Laboratorio Zimmer, Vienna (AT)</h3>
-                    <p>Marzo 2023– Marzo 2024</p>
-                    <ul class="list-disc ml-5 mt-2">
-                        <li>Testato un nuovo microscopio optogenetico e di tracciamento, calibrando la sua intensità di luce LED.</li>
-                        <li>Eseguito analisi video approfondite per identificare le risposte comportamentali di C. elegans dopo stimolazioni optogenetiche.</li>
-                        <li>Rivisitato e migliorato un pipeline di analisi comportamentale per il microscopio optogenetico.</li>
-                        <li>Addestrato e perfezionato reti neurali per il tracciamento delle parti del corpo con DeepLabCut.</li>
+                </div>  
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Tesi di Laurea Magistrale, Zimmer Lab, Vienna (AT)</h3>
+                    <p class="text-gray-400 italic">Marzo 2023– Marzo 2024</p>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
+                        <li>Test di un nuovo microscopio optogenetico e di tracciamento, calibrando le prestazioni di intensità luminosa LED.</li>
+                        <li>Analisi video approfondite per identificare le risposte comportamentali di C. elegans dopo stimolazioni optogenetiche.</li>
+                        <li>Revisione e miglioramento di una pipeline di analisi comportamentale per il microscopio optogenetico.</li>
+                        <li>Addestramento e perfezionamento di reti neurali per il tracciamento delle parti del corpo con DeepLabCut.</li>
                     </ul>
                 </div>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Tirocinio Studentesco, BIA Separations (Sartorius), Ajdovščina (SI)</h3>
-                    <p>Agosto 2022– Dicembre 2022</p>
-                    <ul class="list-disc ml-5 mt-2">
-                        <li>Partecipato a attività di ricerca in laboratorio: preparazione di buffer, validazione attrezzature di laboratorio.</li>
-                        <li>Eseguito saggi analitici: SDS-PAGE, Bradford, PicoGreen.</li>
-                        <li>Condotti cicli di cromatografia utilizzando sistemi AKTA per la purificazione delle proteine.</li>
-                        <li>Contribuito ai progetti AAV e Adenovirus, sviluppando metodi downstream per applicazioni di terapia genica.</li>
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Tirocinio, BIA Separations (Sartorius), Ajdovščina (SI)</h3>
+                    <p class="text-gray-400 italic">Agosto 2022– Dicembre 2022</p>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
+                        <li>Partecipazione ad attività di ricerca in laboratorio: preparazione di buffer, validazione di attrezzature di laboratorio.</li>
+                        <li>Esecuzione di saggi analitici: SDS-PAGE, Bradford, PicoGreen.</li>
+                        <li>Esecuzione di cromatografie utilizzando sistemi AKTA per la purificazione di proteine.</li>
+                        <li>Contributo ai progetti AAV e Adenovirus, sviluppando metodi downstream per applicazioni di terapia genica.</li>
                     </ul>
                 </div>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Tesi di Laurea, Laboratorio Tongiorgi, Trieste (IT)</h3>
-                    <p>Maggio 2019– Ottobre 2019</p>
-                    <ul class="list-disc ml-5 mt-2">
-                        <li>Indagato il ruolo del BDNF nello sviluppo neuronale, utilizzando PCR, sezionamento con criostato, elettroforesi su gel e ibridazione in situ.</li>
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Tesi di Laurea Triennale, Tongiorgi Lab, Trieste (IT)</h3>
+                    <p class="text-gray-400 italic">Maggio 2019– Ottobre 2019</p>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
+                        <li>Studio del ruolo del BDNF nello sviluppo neuronale, utilizzando PCR, sezioni al criostato, elettroforesi su gel e ibridazione in situ.</li>
                     </ul>
                 </div>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Oste, Osmizza Zidarich, Trieste</h3>
-                    <p>Anni attivi, es. 2018 – 2024, alcune settimane ogni anno</p>
-                    <ul class="list-disc ml-5 mt-2">
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Host, Osmica Zidarich, Trieste</h3>
+                    <p class="text-gray-400 italic">Anni attivi, es. 2018 – 2024, qualche settimana ogni anno</p>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
                         <li>Accoglienza e interazione con i clienti, spiegazione delle varietà di vino e del processo di produzione.</li>
-                        <li>Prendere ordini, elaborare pagamenti e servire vino ai clienti.</li>
-                        <li>Gestire le richieste dei clienti e risolvere eventuali problemi.</li>
+                        <li>Presa degli ordini, elaborazione dei pagamenti e servizio di vino ai clienti.</li>
+                        <li>Gestione delle richieste dei clienti e risoluzione di eventuali problemi.</li>
                     </ul>
                 </div>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Altre Esperienze Lavorative</h3>
-                    <ul class="list-disc ml-5 mt-2">
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Esperienza Lavorativa Aggiuntiva</h3>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
                         <li>Giocatore Professionista di Basket (2015– 2023)</li>
-                        <li>Allenatore di Minibasket per bambini di 8–12 anni (2016– 2021)</li>
-                        <li>Insegnante di Scuola Media (Marzo 2021– Giugno 2021)</li>
+                        <li>Allenatore di Minibasket per bambini 8–12 anni (2016– 2021)</li>
+                        <li>Insegnante di scuola media (Marzo 2021– Giugno 2021)</li>
                     </ul>
                 </div>
             </section>        
-            <hr class="my-4 h-1 bg-gray-700"> <!-- Una linea orizzontale più spessa, più scura e più distanziata -->
+            <div class="section-divider"></div>
             
             <section id="education" class="mb-10">
-                <h2 class="text-2xl font-bold">Formazione</h2>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Università di Trieste, Dipartimento di Scienze della Vita– Master in Neuroscienze</h3>
-                    <p>Trieste (IT), Settembre 2021– Marzo 2024</p>
-                    <p>Focus dei Corsi: Neurobiologia Cellulare e Molecolare, Neuroanatomia e Neurofarmacologia, Neurofisiologia Molecolare, Neuroscienze Cognitive.</p>
+                <h2 class="text-2xl font-bold text-blue-400 mb-6">Formazione</h2>
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Master in Data Management and Curation (MDMC)</h3>
+                    <p class="text-gray-400 italic">SISSA & Area Science Park, Trieste (IT), Settembre 2024– Maggio 2025</p>
+                    <p class="mt-2 text-gray-300">Programma di master professionale di 10 mesi (60 ECTS) incentrato sulle metodologie FAIR-by-design per la gestione dei dati di ricerca. I corsi includono Open Science, Gestione dei Dati di Ricerca, Programmazione Scientifica con Python, Infrastruttura Cloud, Strumenti di Gestione Dati e AI per Applicazioni Scientifiche.</p>
                 </div>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Università di Trieste, Dipartimento di Scienze della Vita– Laurea in Biologia</h3>
-                    <p>Trieste (IT), Settembre 2017– Marzo 2021</p>
-                    <p>Focus dei Corsi: Biologia Generale, Chimica, Anatomia.</p>
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Università di Trieste, Dipartimento di Scienze della Vita – Laurea Magistrale in Neuroscienze</h3>
+                    <p class="text-gray-400 italic">Trieste (IT), Settembre 2021 – Marzo 2024</p>
+                    <p class="mt-2 text-gray-300">Focus del corso: Neurobiologia Cellulare e Molecolare, Neuroanatomia e Neurofarmacologia, Neurofisiologia Molecolare, Neuroscienze Cognitive.</p>
+                </div>
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Università di Trieste, Dipartimento di Scienze della Vita – Laurea Triennale in Biologia</h3>
+                    <p class="text-gray-400 italic">Trieste (IT), Settembre 2017 – Marzo 2021</p>
+                    <p class="mt-2 text-gray-300">Focus del corso: Biologia Generale, Chimica, Anatomia.</p>
                 </div>
             </section>        
-            <hr class="my-4 h-1 bg-gray-700"> <!-- Una linea orizzontale più spessa, più scura e più distanziata -->
+            <div class="section-divider"></div>
     
             <section id="skills" class="mb-10">
-                <h2 class="text-2xl font-bold">Competenze & Interessi</h2>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Lingue</h3>
-                    <p>Madrelingua Sloveno e Italiano; Fluente in Inglese.</p>
+                <h2 class="text-2xl font-bold text-blue-400 mb-6">Competenze e Interessi</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="dark-card card-glow p-5 rounded-lg">
+                        <h3 class="text-xl font-semibold text-blue-300 mb-3">Lingue</h3>
+                        <div class="space-y-2">
+                            <div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Sloveno</span>
+                                    <span class="text-gray-400">Madrelingua</span>
+                                </div>
+                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
+                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Italiano</span>
+                                    <span class="text-gray-400">Madrelingua</span>
+                                </div>
+                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
+                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Inglese</span>
+                                    <span class="text-gray-400">Fluente</span>
+                                </div>
+                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
+                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Tedesco</span>
+                                    <span class="text-gray-400">Base</span>
+                                </div>
+                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
+                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 30%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dark-card card-glow p-5 rounded-lg">
+                        <h3 class="text-xl font-semibold text-blue-300 mb-3">Competenze Tecniche</h3>
+                        <div class="space-y-2">
+                            <div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Python</span>
+                                    <span class="text-gray-400">Base</span>
+                                </div>
+                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
+                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 40%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">GitHub</span>
+                                    <span class="text-gray-400">Intermedio</span>
+                                </div>
+                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
+                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">SQL</span>
+                                    <span class="text-gray-400">Intermedio</span>
+                                </div>
+                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
+                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Snakemake</span>
+                                    <span class="text-gray-400">Base</span>
+                                </div>
+                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
+                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 35%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Excel</span>
+                                    <span class="text-gray-400">Intermedio</span>
+                                </div>
+                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
+                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dark-card card-glow p-5 rounded-lg">
+                        <h3 class="text-xl font-semibold text-blue-300 mb-3">Soft Skills</h3>
+                        <ul class="list-disc ml-5 text-gray-300">
+                            <li>Problem-solving</li>
+                            <li>Comunicazione (adulti e bambini)</li>
+                            <li>Lavoro di squadra</li>
+                            <li>Ricerca informazioni</li>
+                            <li>Esecuzione di piani</li>
+                        </ul>
+                    </div>
+                    <div class="dark-card card-glow p-5 rounded-lg">
+                        <h3 class="text-xl font-semibold text-blue-300 mb-3">Interessi</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 tag rounded-full text-sm">Cose nerd</span>
+                            <span class="px-3 py-1 tag rounded-full text-sm">Basket</span>
+                            <span class="px-3 py-1 tag rounded-full text-sm">MMA</span>
+                            <span class="px-3 py-1 tag rounded-full text-sm">Arte</span>
+                            <span class="px-3 py-1 tag rounded-full text-sm">Videogiochi</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Soft Skills</h3>
-                    <p>Risoluzione dei problemi, comunicazione (adulti e bambini), lavoro di squadra, ricerca delle informazioni, esecuzione di piani.</p>
+            </section>
+            <div class="section-divider"></div>
+            
+            <section id="contact" class="mb-10">
+                <h2 class="text-2xl font-bold text-blue-400 mb-6">Contattami</h2>
+                <div class="dark-card card-glow p-6 rounded-lg">
+                    <form id="contactForm" class="space-y-6" action="https://formsubmit.co/samzidaric@gmail.com" method="POST">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Il tuo nome</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-1">La tua email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Oggetto</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Messaggio</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full md:w-auto px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">
+                                Invia messaggio
+                            </button>
+                        </div>
+                        <!-- Hidden inputs for FormSubmit configuration -->
+                        <input type="hidden" name="_subject" value="Nuovo messaggio dal sito Portfolio">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+                    </form>
                 </div>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Competenze Tecniche</h3>
-                    <p>Basi in Python, GitHub, Snakemake, Excel.</p>
-                </div>
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Interessi</h3>
-                    <p>Tutto ciò che è da nerd, basket, MMA, arte rinascimentale.</p>
-                </div>
-            </section>     
-            <hr class="my-4 h-1 bg-gray-700"> <!-- Una linea orizzontale più spessa, più scura e più distanziata -->   
+            </section>
         </main>
     </div>
-    
-    <script>
-    window.onload = function() {
-        // Function to update the dropdown based on the current URL
-        function updateLanguageDropdown() {
-            const dropdown = document.getElementById('languageDropdown');
-            const currentUrl = window.location.href;
-    
-            if (currentUrl.includes('index_sl.html')) {
-                dropdown.value = 'index_sl.html';
-                dropdown.nextElementSibling.textContent = 'Slovenščina';
-            } else if (currentUrl.includes('index_it.html')) {
-                dropdown.value = 'index_it.html';
-                dropdown.nextElementSibling.textContent = 'Italiano';
-            } else {
-                // Default to English if no specific language segment is found in the URL
-                dropdown.value = 'index.html';
-                dropdown.nextElementSibling.textContent = 'English';
-            }
-        }
-        
-        updateLanguageDropdown(); // Call the function on page load
-    
-        // Your existing changeLanguage function
-        function changeLanguage(select) {
-            window.location = select.value;
-        }
-        
-        // Attaching the changeLanguage function to the dropdown
-        document.getElementById('languageDropdown').onchange = function() {
-            changeLanguage(this);
-        }
-    };
-    </script>
-        
-    <footer class="bg-white shadow-md mt-10">
-        <div class="container mx-auto px-6 py-4">
-            <p>Informazioni di Contatto: +39 340 800 4175 | samzidaric@gmail.com</p>
+
+    <footer class="bg-gray-800 shadow-md py-6">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Samuel Zidaric. Tutti i diritti riservati.</p>
+                <div class="flex space-x-4">
+                    <a href="https://linkedin.com/" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="https://github.com/" class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://twitter.com/" class="text-gray-400 hover:text-blue-300 transition-colors" aria-label="Twitter">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
-    function changeLanguage(select) {
-        window.location = select.value;
-    }
-
-    function updateLanguageDropdown() {
-        const dropdown = document.getElementById('languageDropdown');
-        const url = window.location.href;
-
-        dropdown.selectedIndex = url.includes('index_sl.html') ? 1 : url.includes('index_it.html') ? 2 : 0;
-    }
-
-    window.onload = updateLanguageDropdown;
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sidebarNav = document.getElementById('sidebarNav');
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            sidebarNav.classList.toggle('mobile-menu-closed');
+        });
+        
+        // Close mobile menu when clicking a nav link
+        const navLinks = document.querySelectorAll('#sidebarNav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth < 768) {
+                    sidebarNav.classList.add('mobile-menu-closed');
+                }
+            });
+        });
+        
+        // Active link highlighting
+        function setActiveLink() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('#sidebarNav a[href^="#"]');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= (sectionTop - 200)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('nav-link-active', 'active', 'bg-gray-800', 'font-medium');
+                link.removeAttribute('aria-current');
+                
+                const href = link.getAttribute('href');
+                if (href === `#${currentSection}`) {
+                    link.classList.add('nav-link-active', 'active', 'bg-gray-800', 'font-medium');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', setActiveLink);
+        setActiveLink(); // Set initial active link
+        
+        // Add hover effects to cards
+        const cards = document.querySelectorAll('.card-glow');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.classList.add('transform', 'scale-[1.01]', 'shadow-lg', 'shadow-blue-900/20');
+            });
+            card.addEventListener('mouseleave', function() {
+                this.classList.remove('transform', 'scale-[1.01]', 'shadow-lg', 'shadow-blue-900/20');
+            });
+        });
+        
+        // Language selector functionality
+        const languageDropdown = document.getElementById('languageDropdown');
+        
+        // Update dropdown based on current URL
+        function updateLanguageDropdown() {
+            const currentUrl = window.location.href;
+            
+            if (currentUrl.includes('index_sl.html')) {
+                languageDropdown.value = 'index_sl.html';
+            } else if (currentUrl.includes('index_it.html')) {
+                languageDropdown.value = 'index_it.html';
+            } else {
+                languageDropdown.value = 'index.html';
+            }
+        }
+        
+        updateLanguageDropdown();
+        
+        // Change language when dropdown changes
+        languageDropdown.addEventListener('change', function() {
+            window.location = this.value;
+        });
+        
+        // Contact form handling (still kept in addition to the form action for any additional processing)
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(e) {
+            // Form will be submitted via action to FormSubmit.co
+            // This event handler is just for any additional JavaScript processing
+            
+            const formData = new FormData(contactForm);
+            let formValues = {};
+            
+            formData.forEach((value, key) => {
+                formValues[key] = value;
+            });
+            
+            console.log('Form submitted:', formValues);
+            
+            // Form submission will be handled by the form action
+        });
+    });
     </script>
 </body>
 
