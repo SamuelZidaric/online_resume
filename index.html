@@ -385,7 +385,7 @@
             <section id="contact" class="mb-10">
                 <h2 class="text-2xl font-bold text-blue-400 mb-6">Contact Me</h2>
                 <div class="dark-card card-glow p-6 rounded-lg">
-                    <form id="contactForm" class="space-y-6">
+                    <form id="contactForm" class="space-y-6" action="https://formsubmit.co/samzidaric@gmail.com" method="POST">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Your Name</label>
@@ -409,6 +409,10 @@
                                 Send Message
                             </button>
                         </div>
+                        <!-- Hidden inputs for FormSubmit configuration -->
+                        <input type="hidden" name="_subject" value="New contact from Portfolio Website">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
                     </form>
                 </div>
             </section>
