@@ -105,6 +105,19 @@
             color: var(--text-primary);
             border: 1px solid #444;
         }
+        
+        .company-link {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            background-color: #1a1a1a;
+            border-top: 1px solid #333;
+        }
+        
+        .company-link.active {
+            max-height: 60px;
+            padding: 0.75rem 0;
+        }
     </style>
 </head>
 
@@ -127,6 +140,7 @@
                 <ul class="mt-4 space-y-1">
                     <li><a href="#home" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white" aria-current="page">Home</a></li>
                     <li><a href="#experience" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Experience</a></li>
+                    <li><a href="#awards" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Awards</a></li>
                     <li><a href="#education" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Education</a></li>
                     <li><a href="#skills" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Skills & Interests</a></li>
                     <li><a href="#contact" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Contact</a></li>
@@ -163,6 +177,112 @@
         
             <section id="experience" class="mb-10">
                 <h2 class="text-2xl font-bold text-blue-400 mb-6">Professional Experience</h2>
+                
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg job-card" data-company="lade">
+                    <h3 class="text-xl font-semibold text-blue-300">Internship, Laboratory of Data Engineering (LADE)</h3>
+                    <p class="text-gray-400 italic">Area Science Park, Trieste (IT), June 2025 – Present</p>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
+                        <li>Developed an automated Python-based tool for validation and analysis of Oxford Nanopore sequencing data, improving quality assessment and extraction of metadata from various output file formats.</li>
+                        <li>Researching interpretability of AI models (Transformers, LLMs) for protein sequences and electron microscopy images</li>
+                        <li>Applying topological data analysis techniques to FAIR-compliant datasets</li>
+                        <li>Developing methodologies for improved data acquisition and sharing in scientific research</li>
+                    </ul>
+                    <div class="company-link mt-2 text-center">
+                        <a href="https://www.areasciencepark.it/en/laboratory-of-data-engineering/" class="text-blue-400 hover:text-blue-300 hover:underline inline-flex items-center" target="_blank">
+                            <i class="fas fa-external-link-alt mr-1"></i> Visit Laboratory of Data Engineering
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg job-card" data-company="infordata">
+                    <h3 class="text-xl font-semibold text-blue-300">Internship, Infordata Sistemi Srl</h3>
+                    <p class="text-gray-400 italic">Trieste (IT), June 2024 – Present</p>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
+                        <li>Led SQL and Python-driven data harmonization for EU sustainability projects (INSPIRE, Remedies), automating workflows in GitHub to ensure compliance and improve dataset accuracy.</li>
+                        <li>Built XGBoost wildfire prediction model using historical data and Fire Weather Index (FWI), addressing Karst's terrain risks; validated results pending deployment in emergency response systems.</li>
+                        <li>Accelerated metadata generation and documentation using LLMs (e.g., GPT-4, Sonnet 3.7), reducing manual effort in cross-functional task coordination and data curation.</li>
+                    </ul>
+                    <div class="company-link mt-2 text-center">
+                        <a href="https://infordata.it/" class="text-blue-400 hover:text-blue-300 hover:underline inline-flex items-center" target="_blank">
+                            <i class="fas fa-external-link-alt mr-1"></i> Visit Infordata Sistemi
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg job-card" data-company="zimmer">
+                    <h3 class="text-xl font-semibold text-blue-300">Master Thesis, Zimmer Lab</h3>
+                    <p class="text-gray-400 italic">Vienna (AT), March 2023– March 2024</p>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
+                        <li>Tested a novel optogenetic and tracking microscope, calibrating its LED light intensity performance.</li>
+                        <li>Performed in-depth video analysis to identify behavioral responses of C. elegans after optogenetic stimulations.</li>
+                        <li>Revisited and improved a behavioral analysis pipeline for the optogenetic microscope.</li>
+                        <li>Trained and refined neural networks for tracking body parts with DeepLabCut.</li>
+                    </ul>
+                    <div class="company-link mt-2 text-center">
+                        <a href="https://www.zimmerlab.org/" class="text-blue-400 hover:text-blue-300 hover:underline inline-flex items-center" target="_blank">
+                            <i class="fas fa-external-link-alt mr-1"></i> Visit Zimmer Lab
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg job-card" data-company="bia">
+                    <h3 class="text-xl font-semibold text-blue-300">Student Internship, BIA Separations (Sartorius)</h3>
+                    <p class="text-gray-400 italic">Ajdovščina (SI), August 2022– December 2022</p>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
+                        <li>Participated in laboratory research activities: buffer preparation, lab equipment validation.</li>
+                        <li>Performed analytical assays: SDS-PAGE, Bradford, PicoGreen.</li>
+                        <li>Executed chromatography runs using AKTA systems for protein purification.</li>
+                        <li>Contributed to AAV and Adenovirus projects, developing downstream methods for gene therapy applications.</li>
+                    </ul>
+                    <div class="company-link mt-2 text-center">
+                        <a href="https://www.sartorius.com/en/products-services/process-filtration-purification/bia-technology" class="text-blue-400 hover:text-blue-300 hover:underline inline-flex items-center" target="_blank">
+                            <i class="fas fa-external-link-alt mr-1"></i> Visit BIA Separations (Sartorius)
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg job-card" data-company="tongiorgi">
+                    <h3 class="text-xl font-semibold text-blue-300">Bachelor Thesis, Tongiorgi Lab</h3>
+                    <p class="text-gray-400 italic">Trieste (IT), May 2019– October 2019</p>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
+                        <li>Investigated the role of BDNF in neuronal development, utilizing PCR, cryostat sectioning, gel electrophoresis, and in-situ hybridization.</li>
+                    </ul>
+                    <div class="company-link mt-2 text-center">
+                        <a href="https://dsv.units.it/en/department/structure/staff/1057/Tongiorgi%20Enrico" class="text-blue-400 hover:text-blue-300 hover:underline inline-flex items-center" target="_blank">
+                            <i class="fas fa-external-link-alt mr-1"></i> Visit Tongiorgi Lab
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg job-card" data-company="zidarich">
+                    <h3 class="text-xl font-semibold text-blue-300">Host, Osmica Zidarich</h3>
+                    <p class="text-gray-400 italic">Trieste (IT), Active years, e.g., 2018 – 2024, a few weeks each year</p>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
+                        <li>Greeted and interacted with customers, explaining wine varieties and the production process.</li>
+                        <li>Took orders, processed payments, and served wine to customers.</li>
+                        <li>Handled customer inquiries and resolved any issues.</li>
+                    </ul>
+                    <div class="company-link mt-2 text-center">
+                        <a href="https://www.zidarich.it/" class="text-blue-400 hover:text-blue-300 hover:underline inline-flex items-center" target="_blank">
+                            <i class="fas fa-external-link-alt mr-1"></i> Visit Zidarich Winery
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-300">Additional Work Experience</h3>
+                    <ul class="list-disc ml-5 mt-2 text-gray-300">
+                        <li>Professional Basketball Player (2015– 2023)</li>
+                        <li>Minibasket Coach for 8–12-year-old children (2016– 2021)</li>
+                        <li>Middle school Teacher (March 2021– June 2021)</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <div class="section-divider"></div>
+            
+            <section id="awards" class="mb-10">
+                <h2 class="text-2xl font-bold text-blue-400 mb-6">Awards & Recognitions</h2>
                 <div class="mt-6 dark-card card-glow p-5 rounded-lg relative overflow-hidden">
                     <div class="absolute right-0 top-0 opacity-10 transform translate-x-6 -translate-y-4">
                         <i class="fas fa-trophy text-9xl text-yellow-500"></i>
@@ -179,65 +299,11 @@
                                 <i class="fas fa-medal mr-1"></i> Distinguished Position
                             </span>
                         </div>
-                        <ul class="list-disc ml-5 mt-2 text-gray-300">
-                            <li>Researching interpretability of AI models (Transformers, LLMs) for protein sequences and electron microscopy images</li>
-                            <li>Applying topological data analysis techniques to FAIR-compliant datasets</li>
-                            <li>Developing methodologies for improved data acquisition and sharing in scientific research</li>
-                        </ul>
+                        <p class="mt-2 text-gray-300">
+                            Selected for a competitive research fellowship to contribute to the FAIR-by-Design methodology project, 
+                            focusing on best practices for scientific data management and processing.
+                        </p>
                     </div>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Internship, Infordata Sistemi Srl, Trieste (IT)</h3>
-                    <p class="text-gray-400 italic">June 2024 – Present</p>
-                    <ul class="list-disc ml-5 mt-2 text-gray-300">
-                        <li>Data harmonization and management for INSPIRE project (<a href="https://infordata.it/sostenibilita/progetto-inspire/" class="text-blue-400 hover:text-blue-300 hover:underline" target="_blank">https://infordata.it/sostenibilita/progetto-inspire/</a>)</li>
-                        <li>Data harmonization and management for Remedies project (<a href="https://remedies-for-ocean.eu/" class="text-blue-400 hover:text-blue-300 hover:underline" target="_blank">https://remedies-for-ocean.eu/</a>)</li>
-                        <li>Creation of learning algorithm for wildfire prediction for Karst Firewall (<a href="https://infordata.it/sostenibilita/progetto-karst-firewall-5-0-2/" class="text-blue-400 hover:text-blue-300 hover:underline" target="_blank">https://infordata.it/sostenibilita/progetto-karst-firewall-5-0-2/</a>)</li>
-                    </ul>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Master Thesis, Zimmer Lab, Vienna (AT)</h3>
-                    <p class="text-gray-400 italic">March 2023– March 2024</p>
-                    <ul class="list-disc ml-5 mt-2 text-gray-300">
-                        <li>Tested a novel optogenetic and tracking microscope, calibrating its LED light intensity performance.</li>
-                        <li>Performed in-depth video analysis to identify behavioral responses of C. elegans after optogenetic stimulations.</li>
-                        <li>Revisited and improved a behavioral analysis pipeline for the optogenetic microscope.</li>
-                        <li>Trained and refined neural networks for tracking body parts with DeepLabCut.</li>
-                    </ul>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Student Internship, BIA Separations (Sartorius), Ajdovščina (SI)</h3>
-                    <p class="text-gray-400 italic">August 2022– December 2022</p>
-                    <ul class="list-disc ml-5 mt-2 text-gray-300">
-                        <li>Participated in laboratory research activities: buffer preparation, lab equipment validation.</li>
-                        <li>Performed analytical assays: SDS-PAGE, Bradford, PicoGreen.</li>
-                        <li>Executed chromatography runs using AKTA systems for protein purification.</li>
-                        <li>Contributed to AAV and Adenovirus projects, developing downstream methods for gene therapy applications.</li>
-                    </ul>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Bachelor Thesis, Tongiorgi Lab, Trieste (IT)</h3>
-                    <p class="text-gray-400 italic">May 2019– October 2019</p>
-                    <ul class="list-disc ml-5 mt-2 text-gray-300">
-                        <li>Investigated the role of BDNF in neuronal development, utilizing PCR, cryostat sectioning, gel electrophoresis, and in-situ hybridization.</li>
-                    </ul>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Host, Osmica Zidarich, Trieste</h3>
-                    <p class="text-gray-400 italic">Active years, e.g., 2018 – 2024, a few weeks each year</p>
-                    <ul class="list-disc ml-5 mt-2 text-gray-300">
-                        <li>Greeted and interacted with customers, explaining wine varieties and the production process.</li>
-                        <li>Took orders, processed payments, and served wine to customers.</li>
-                        <li>Handled customer inquiries and resolved any issues.</li>
-                    </ul>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Additional Work Experience</h3>
-                    <ul class="list-disc ml-5 mt-2 text-gray-300">
-                        <li>Professional Basketball Player (2015– 2023)</li>
-                        <li>Minibasket Coach for 8–12-year-old children (2016– 2021)</li>
-                        <li>Middle school Teacher (March 2021– June 2021)</li>
-                    </ul>
                 </div>
             </section>
    
@@ -545,6 +611,30 @@
             // Show success message
             alert('Thank you for your message! I will get back to you soon.');
             contactForm.reset();
+        });
+        
+        // Job card company link toggle
+        const jobCards = document.querySelectorAll('.job-card');
+        
+        jobCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const companyLink = this.querySelector('.company-link');
+                
+                // Toggle this card's company link
+                if (companyLink) {
+                    companyLink.classList.toggle('active');
+                }
+                
+                // Close other company links
+                jobCards.forEach(otherCard => {
+                    if (otherCard !== card) {
+                        const otherCompanyLink = otherCard.querySelector('.company-link');
+                        if (otherCompanyLink && otherCompanyLink.classList.contains('active')) {
+                            otherCompanyLink.classList.remove('active');
+                        }
+                    }
+                });
+            });
         });
     });
     </script>
