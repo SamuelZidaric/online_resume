@@ -163,32 +163,23 @@
         
         <main id="main-content" class="w-full md:w-3/4 xl:w-4/5 p-4 md:p-8" style="background-color: #081C15;">
             <section id="home" class="mb-10">
-                <h1 class="text-3xl font-bold mb-8" style="color: #52B788;">Welcome to Samuel Zidaric's Portfolio</h1>
+                <h1 class="text-3xl font-bold mb-6" style="color: #52B788;">Welcome to Samuel Zidaric's Portfolio</h1>
                 
-                <div class="flex flex-col md:flex-row">
-                    <!-- Left column with duotone image - clean design -->
-                    <div class="md:w-1/3 flex justify-center md:justify-start mb-8 md:mb-0">
-                        <div class="relative w-64 h-72 overflow-hidden" style="box-shadow: 0 10px 25px rgba(8, 28, 21, 0.5);">
-                            <!-- Base image with duotone effect -->
-                            <img src="images/main_image.jpeg" alt="Samuel Zidaric" class="w-full h-full object-cover"
-                                 style="filter: grayscale(100%) contrast(1.1) brightness(0.9);">
-                            
-                            <!-- Duotone overlay using the green palette -->
-                            <div class="absolute inset-0" style="background-color: #1B4332; mix-blend-mode: color; opacity: 0.8;"></div>
-                            <div class="absolute inset-0" style="background: linear-gradient(135deg, #52B788 0%, transparent 50%, #081C15 100%); mix-blend-mode: overlay; opacity: 0.6;"></div>
-                            
-                            <!-- Simple border with site colors -->
-                            <div class="absolute inset-0 border-2" style="border-color: #52B788;"></div>
+                <div class="flex flex-col md:flex-row items-center md:items-start">
+                    <!-- Image of Samuel with B&W effect and fading -->
+                    <div class="relative w-64 md:mr-8">
+                        <div class="absolute inset-0 rounded-lg blur-md opacity-10" style="background-color: #52B788;"></div>
+                        <div class="relative">
+                            <img src="images/main_image.jpeg" alt="Samuel Zidaric" class="relative rounded-lg w-64 h-64 object-cover border-2" style="border-color: #40916C; filter: grayscale(100%);">
+                            <!-- Fade overlay from right to left -->
+                            <div class="absolute top-0 right-0 h-full w-1/3" style="background: linear-gradient(to right, rgba(8, 28, 21, 0), rgba(8, 28, 21, 1));"></div>
                         </div>
                     </div>
                     
-                    <!-- Right column with description text - clean with subtle styling -->
-                    <div class="md:w-2/3">
-                        <div class="relative bg-opacity-10 p-5 rounded-lg" style="background-color: rgba(27, 67, 50, 0.3);">
-                            <h2 class="text-xl mb-4 font-medium" style="color: #95D5B2;">Neuroscientist & Data Specialist</h2>
-                            <p class="text-lg mb-4" style="color: #D8F3DC;">Hello! I'm Samuel, a neuroscientist exploring the fascinating intersections between biological and artificial intelligence. When I'm not deep in data analysis, I'm searching for meaning in both my work and life.</p>
-                            <p class="text-lg" style="color: #D8F3DC;">I created this space initially out of curiosity, but it's evolving into something more - a collection of professional accomplishments, yes, but also personal memories and reflections that matter to me. This website represents the ultimate tragedy of our time, the digital catastrophe that is unfolding before our eyes. We create this spaces knowing full well they are narcissistic voids, and yet, the true horror, we continue, hoping that someone will enjoy it.</p>
-                        </div>
+                    <!-- Description with subtle fade-in from left edge -->
+                    <div class="md:max-w-2xl mt-6 md:mt-0" style="position: relative;">
+                        <div class="absolute left-0 top-0 h-full w-8 z-0" style="background: linear-gradient(to right, rgba(8, 28, 21, 1), rgba(8, 28, 21, 0.5)); opacity: 0.8;"></div>
+                        <p class="relative z-10 text-lg pl-2" style="color: #D8F3DC;">Hello! I'm Samuel, a neuroscientist exploring the fascinating intersections between biological and artificial intelligence. When I'm not deep in data analysis, I'm searching for meaning in both my work and life. I created this space initially out of curiosity, but it's evolving into something more - a collection of professional accomplishments, yes, but also personal memories and reflections that matter to me. This website represents the ultimate tragedy of our time, the digital catastrophe that is unfolding before our eyes. We create this spaces knowing full well they are narcissistic voids, and yet, the true horror, we continue, hoping that someone will enjoy it.</p>
                     </div>
                 </div>
             </section>
