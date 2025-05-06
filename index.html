@@ -164,14 +164,24 @@
         <main id="main-content" class="w-full md:w-3/4 xl:w-4/5 p-4 md:p-8" style="background-color: #081C15;">
             <section id="home" class="mb-10">
                 <h1 class="text-3xl font-bold mb-6" style="color: #52B788;">Welcome to Samuel Zidaric's Portfolio</h1>
-                <!-- Image of Samuel with glow effect -->
-                <div class="flex justify-center md:justify-start">
-                    <div class="relative">
-                        <div class="absolute inset-0 rounded-full blur-md opacity-20" style="background-color: #52B788;"></div>
-                        <img src="images/main_image.jpeg" alt="Samuel Zidaric" class="relative my-4 rounded-full w-48 h-48 md:w-64 md:h-64 object-cover border-2" style="border-color: #40916C;">
+                
+                <div class="flex flex-col md:flex-row items-center md:items-start">
+                    <!-- Image of Samuel with B&W effect and fading -->
+                    <div class="relative w-64 md:mr-8">
+                        <div class="absolute inset-0 rounded-lg blur-md opacity-10" style="background-color: #52B788;"></div>
+                        <div class="relative">
+                            <img src="images/main_image.jpeg" alt="Samuel Zidaric" class="relative rounded-lg w-64 h-64 object-cover border-2" style="border-color: #40916C; filter: grayscale(100%);">
+                            <!-- Fade overlay from right to left -->
+                            <div class="absolute top-0 right-0 h-full w-1/3" style="background: linear-gradient(to right, rgba(8, 28, 21, 0), rgba(8, 28, 21, 1));"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Description with subtle fade-in from left edge -->
+                    <div class="md:max-w-2xl mt-6 md:mt-0" style="position: relative;">
+                        <div class="absolute left-0 top-0 h-full w-8 z-0" style="background: linear-gradient(to right, rgba(8, 28, 21, 1), rgba(8, 28, 21, 0.5)); opacity: 0.8;"></div>
+                        <p class="relative z-10 text-lg pl-2" style="color: #D8F3DC;">Hello! I'm Samuel, a neuroscientist exploring the fascinating intersections between biological and artificial intelligence. When I'm not deep in data analysis, I'm searching for meaning in both my work and life. I created this space initially out of curiosity, but it's evolving into something more - a collection of professional accomplishments, yes, but also personal memories and reflections that matter to me. This website represents the ultimate tragedy of our time, the digital catastrophe that is unfolding before our eyes. We create this spaces knowing full well they are narcissistic voids, and yet, the true horror, we continue, hoping that someone will enjoy it.</p>
                     </div>
                 </div>
-                <p class="mt-4 text-lg" style="color: #D8F3DC;">Hello! I'm Samuel, a neuroscientist exploring the fascinating intersections between biological and artificial intelligence. When I'm not deep in data analysis, I'm searching for meaning in both my work and life. I created this space initially out of curiosity, but it's evolving into something more - a collection of professional accomplishments, yes, but also personal memories and reflections that matter to me. This website represents the ultimate tragedy of our time, the digital catastrophe that is unfolding before our eyes. We create this spaces knowing full well they are narcissistic voids, and yet, the true horror, we continue, hoping that someone will enjoy it.</p>
             </section>
             <div class="section-divider"></div> 
         
