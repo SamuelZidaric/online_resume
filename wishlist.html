@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Samuel Zidaric's wishlist">
+    <title>Samuel Zidaric - Wishlist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #081C15;
+            --bg-secondary: #1B4332;
+            --bg-card: #2D6A4F;
+            --text-primary: #D8F3DC;
+            --text-secondary: #B7E4C7;
+            --accent-primary: #52B788;
+            --accent-secondary: #74C69D;
+            --accent-third: #95D5B2;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+        
+        .mobile-menu-closed {
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .mobile-menu-toggle {
+                display: none;
+            }
+            .mobile-menu-closed {
+                display: block;
+            }
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #081C15;
+            color: #D8F3DC;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        section {
+            scroll-margin-top: 2rem;
+        }
+        
+        .dark-card {
+            background-color: var(--bg-card);
+            border: 1px solid #40916C;
+            box-shadow: 0 4px 6px rgba(8, 28, 21, 0.3);
+        }
+        
+        .card-glow {
+            transition: all 0.3s ease;
+        }
+        
+        .card-glow:hover {
+            box-shadow: 0 0 15px rgba(82, 183, 136, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(82, 183, 136, 0), rgba(82, 183, 136, 0.5), rgba(82, 183, 136, 0));
+            margin: 3rem 0;
+        }
+        
+        .nav-link {
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: #2D6A4F;
+            border-left: 3px solid var(--accent-primary);
+        }
+        
+        .tag {
+            background-color: #1B4332;
+            color: var(--text-primary);
+            border: 1px solid #40916C;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <div class="flex flex-col md:flex-row">
+        <!-- Mobile navigation toggle -->
+        <div class="md:hidden p-4 flex justify-between items-center shadow-md" style="background-color: #1B4332;">
+            <h1 class="text-xl font-bold" style="color: #D8F3DC;">Samuel Zidaric</h1>
+            <button id="mobileMenuToggle" class="mobile-menu-toggle p-2" style="color: #D8F3DC;" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Sidebar navigation - hidden on mobile by default -->
+        <aside id="sidebarNav" class="w-full md:w-1/4 xl:w-1/5 shadow-md md:shadow-none transition-all duration-300 mobile-menu-closed md:block" style="background-color: #1B4332;">
+            <nav class="md:sticky md:top-0 md:h-screen p-4 md:p-8">
+                <a href="index.html" class="block py-2.5 px-4 rounded text-xl font-bold mb-6" style="color: #52B788;">Samuel Zidaric</a>
+                <ul class="mt-4 space-y-1">
+                    <li><a href="index.html" class="nav-link block py-2.5 px-4 rounded transition-colors" style="color: #D8F3DC;">Home</a></li>
+                    <li><a href="index.html#experience" class="nav-link block py-2.5 px-4 rounded transition-colors" style="color: #D8F3DC;">Experience</a></li>
+                    <li><a href="index.html#awards" class="nav-link block py-2.5 px-4 rounded transition-colors" style="color: #D8F3DC;">Awards</a></li>
+                    <li><a href="index.html#education" class="nav-link block py-2.5 px-4 rounded transition-colors" style="color: #D8F3DC;">Education</a></li>
+                    <li><a href="index.html#skills" class="nav-link block py-2.5 px-4 rounded transition-colors" style="color: #D8F3DC;">Skills & Interests</a></li>
+                    <li><a href="index.html#contact" class="nav-link block py-2.5 px-4 rounded transition-colors" style="color: #D8F3DC;">Contact</a></li>
+                    <li><a href="wishlist.html" class="nav-link block py-2.5 px-4 rounded transition-colors active" style="color: #D8F3DC; background-color: #2D6A4F; border-left: 3px solid #52B788;">Wishlist</a></li>
+                </ul>
+                
+                <!-- Language Selector Dropdown -->
+                <div class="relative mt-8">
+                    <label for="languageDropdown" class="block text-sm font-medium mb-1" style="color: #95D5B2;">Select Language</label>
+                    <select id="languageDropdown" class="border rounded h-10 pl-5 pr-10 hover:border-gray-500 focus:outline-none appearance-none w-full" style="border-color: #40916C; background-color: #081C15; color: #D8F3DC;">
+                        <option value="wishlist.html">English</option>
+                        <option value="wishlist_sl.html">Slovenščina</option>
+                        <option value="wishlist_it.html">Italiano</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 mt-6" style="color: #95D5B2;">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main id="main-content" class="w-full md:w-3/4 xl:w-4/5 p-4 md:p-8" style="background-color: #081C15;">
+            <section id="wishlist" class="mb-10">
+                <h1 class="text-3xl font-bold mb-6" style="color: #52B788;">My Wishlist</h1>
+                <p class="text-lg mb-8" style="color: #D8F3DC;">A collection of items I'd like to buy or acquire in the future, organized alphabetically.</p>
+                
+                <!-- Wishlist Items Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Audio System -->
+                    <div class="dark-card card-glow p-5 rounded-lg">
+                        <div class="mb-4 rounded-lg overflow-hidden h-48">
+                            <img src="images/audio_system.jpg" alt="Audio System for Computer" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: #D8F3DC;">Audio System</h3>
+                        <p class="text-sm italic mt-1" style="color: #B7E4C7;">Computer/monitor audio setup for my room</p>
+                        <p class="mt-2" style="color: #D8F3DC;">A quality audio system that can potentially be used for other purposes in the future.</p>
+                    </div>
+                    
+                    <!-- Books -->
+                    <div class="dark-card card-glow p-5 rounded-lg">
+                        <div class="mb-4 rounded-lg overflow-hidden h-48">
+                            <img src="images/books_collection.jpg" alt="Books Collection" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: #D8F3DC;">Books</h3>
+                        <p class="text-sm italic mt-1" style="color: #B7E4C7;">Books I don't have or want to reread</p>
+                        <p class="mt-2" style="color: #D8F3DC;">Various books to add to my collection.</p>
+                        <a href="books.html" class="block mt-2 text-sm hover:underline" style="color: #74C69D;">View full books list →</a>
+                    </div>
+                    
+                    <!-- God of War Ragnarok -->
+                    <div class="dark-card card-glow p-5 rounded-lg">
+                        <div class="mb-4 rounded-lg overflow-hidden h-48">
+                            <img src="images/gowr.jpg" alt="God of War Ragnarok" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: #D8F3DC;">God of War Ragnarok</h3>
+                        <p class="text-sm italic mt-1" style="color: #B7E4C7;">Steam</p>
+                        <p class="mt-2" style="color: #D8F3DC;">The latest installment in the God of War series for PC.</p>
+                    </div>
+                    
+                    <!-- Mechanical Keyboard -->
+                    <div class="dark-card card-glow p-5 rounded-lg">
+                        <div class="mb-4 rounded-lg overflow-hidden h-48">
+                            <img src="images/keyboard.jpg" alt="Mechanical Keyboard" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: #D8F3DC;">Mechanical Keyboard</h3>
+                        <p class="text-sm italic mt-1" style="color: #B7E4C7;">For home use</p>
+                        <p class="mt-2" style="color: #D8F3DC;">A high-quality mechanical keyboard for future home use.</p>
+                    </div>
+                    
+                    <!-- Nothing Ear (2) -->
+                    <div class="dark-card card-glow p-5 rounded-lg">
+                        <div class="mb-4 rounded-lg overflow-hidden h-48">
+                            <img src="images/nothing_ear.jpg" alt="Nothing Ear (2)" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: #D8F3DC;">Nothing Ear (2)</h3>
+                        <p class="text-sm italic mt-1" style="color: #B7E4C7;">Wireless earbuds</p>
+                        <p class="mt-2" style="color: #D8F3DC;">Stylish and high-quality wireless earbuds from Nothing.</p>
+                    </div>
+                    
+                    <!-- Puzzles (Rompicapi) -->
+                    <div class="dark-card card-glow p-5 rounded-lg">
+                        <div class="mb-4 rounded-lg overflow-hidden h-48">
+                            <img src="images/puzzles_collection.jpg" alt="Puzzles Collection" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: #D8F3DC;">Puzzles (Rompicapi)</h3>
+                        <p class="text-sm italic mt-1" style="color: #B7E4C7;">Brain teasers and puzzle games</p>
+                        <p class="mt-2" style="color: #D8F3DC;">Various challenging puzzles and brain teasers from my list.</p>
+                        <a href="puzzles.html" class="block mt-2 text-sm hover:underline" style="color: #74C69D;">View full puzzle list →</a>
+                    </div>
+                    
+                    <!-- Tom Ford - Vanilla Tobacco -->
+                    <div class="dark-card card-glow p-5 rounded-lg">
+                        <div class="mb-4 rounded-lg overflow-hidden h-48">
+                            <img src="images/tom_ford.jpg" alt="Tom Ford Vanilla Tobacco" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: #D8F3DC;">Tom Ford - Vanilla Tobacco</h3>
+                        <p class="text-sm italic mt-1" style="color: #B7E4C7;">Fragrance</p>
+                        <p class="mt-2" style="color: #D8F3DC;">Luxurious fragrance from Tom Ford's private blend collection.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="shadow-md py-6" style="background-color: #1B4332;">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p style="color: #95D5B2;" class="mb-4 md:mb-0">© 2025 Samuel Zidaric. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="https://linkedin.com/" style="color: #95D5B2;" class="hover:text-green-400 transition-colors" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="https://github.com/" style="color: #95D5B2;" class="hover:text-white transition-colors" aria-label="GitHub">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://twitter.com/" style="color: #95D5B2;" class="hover:text-green-300 transition-colors" aria-label="Twitter">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sidebarNav = document.getElementById('sidebarNav');
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            sidebarNav.classList.toggle('mobile-menu-closed');
+        });
+        
+        // Close mobile menu when clicking a nav link
+        const navLinks = document.querySelectorAll('#sidebarNav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth < 768) {
+                    sidebarNav.classList.add('mobile-menu-closed');
+                }
+            });
+        });
+        
+        // Add hover effects to cards
+        const cards = document.querySelectorAll('.card-glow');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.classList.add('transform', 'scale-[1.01]', 'shadow-lg');
+                this.style.boxShadow = '0 0 15px rgba(82, 183, 136, 0.3)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.classList.remove('transform', 'scale-[1.01]', 'shadow-lg');
+                this.style.boxShadow = '';
+            });
+        });
+        
+        // Language selector functionality
+        const languageDropdown = document.getElementById('languageDropdown');
+        
+        // Update dropdown based on current URL
+        function updateLanguageDropdown() {
+            const currentUrl = window.location.href;
+            
+            if (currentUrl.includes('wishlist_sl.html')) {
+                languageDropdown.value = 'wishlist_sl.html';
+            } else if (currentUrl.includes('wishlist_it.html')) {
+                languageDropdown.value = 'wishlist_it.html';
+            } else {
+                languageDropdown.value = 'wishlist.html';
+            }
+        }
+        
+        updateLanguageDropdown();
+        
+        // Change language when dropdown changes
+        languageDropdown.addEventListener('change', function() {
+            window.location = this.value;
+        });
+    });
+    </script>
+</body>
+
+</html>
