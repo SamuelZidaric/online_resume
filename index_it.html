@@ -1,549 +1,449 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio professionale e curriculum vitae di Samuel Zidaric">
-    <title>Samuel Zidaric - Curriculum Vitae</title>
+    <meta name="description" content="Samuel Zidaric - Neuroscienziato e Professionista della Data Science">
+    <title>Samuel Zidaric | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --bg-primary: #121212;
-            --bg-secondary: #1e1e1e;
-            --bg-card: #242424;
-            --text-primary: #e0e0e0;
-            --text-secondary: #a0a0a0;
-            --accent-primary: #5b8af5;
-            --accent-secondary: #7c4dff;
-            --accent-yellow: #ffd54f;
-        }
-        
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-        }
-        
-        .mobile-menu-closed {
-            display: none;
-        }
-        
-        @media (min-width: 768px) {
-            .mobile-menu-toggle {
-                display: none;
-            }
-            .mobile-menu-closed {
-                display: block;
-            }
-        }
-        
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: #000;
-            color: white;
-            padding: 8px;
-            z-index: 100;
-            transition: top 0.3s;
-        }
-        
-        .skip-link:focus {
-            top: 0;
-        }
-        
-        section {
-            scroll-margin-top: 2rem;
-        }
-        
-        .dark-card {
-            background-color: var(--bg-card);
-            border: 1px solid #333;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-        
-        .card-glow {
-            transition: all 0.3s ease;
-        }
-        
-        .card-glow:hover {
-            box-shadow: 0 0 15px rgba(91, 138, 245, 0.5);
-            transform: translateY(-2px);
-        }
-        
-        .progress-bar-bg {
-            background-color: #333;
-        }
-        
-        .progress-bar-fill-blue {
-            background: linear-gradient(90deg, #4286f4, #5b8af5);
-        }
-        
-        .progress-bar-fill-green {
-            background: linear-gradient(90deg, #20BF55, #2D9CDB);
-        }
-        
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, rgba(91, 138, 245, 0), rgba(91, 138, 245, 0.5), rgba(91, 138, 245, 0));
-            margin: 3rem 0;
-        }
-        
-        .nav-link {
-            transition: all 0.2s ease;
-            border-left: 3px solid transparent;
-        }
-        
-        .nav-link:hover, .nav-link.active {
-            background-color: #2a2a2a;
-            border-left: 3px solid var(--accent-primary);
-        }
-        
-        .tag {
-            background-color: #2a2a2a;
-            color: var(--text-primary);
-            border: 1px solid #444;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
-<body class="bg-gray-900 text-gray-100">
-    <a href="#main-content" class="skip-link">Passa al contenuto principale</a>
-    
-    <div class="flex flex-col md:flex-row">
-        <!-- Mobile navigation toggle -->
-        <div class="md:hidden bg-gray-800 p-4 flex justify-between items-center shadow-md">
-            <h1 class="text-xl font-bold text-gray-100">Samuel Zidaric</h1>
-            <button id="mobileMenuToggle" class="mobile-menu-toggle p-2 text-gray-100" aria-label="Attiva menu di navigazione">
-                <i class="fas fa-bars text-xl"></i>
+<body>
+    <nav>
+        <div class="nav-container">
+            <h1 style="font-size: 1.5rem; font-weight: 700;">Samuel Zidaric</h1>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#experience">Esperienza</a></li>
+                <li><a href="#skills">Competenze</a></li>
+                <li><a href="#awards">Riconoscimenti</a></li>
+                <li><a href="#education">Formazione</a></li>
+                <li><a href="#contact">Contatti</a></li>
+            </ul>
+            <div class="language-switcher">
+                <select id="languageSelect" aria-label="Seleziona Lingua">
+                    <option value="index.html">EN</option>
+                    <option value="index_it.html" selected>IT</option>
+                    <option value="index_sl.html">SL</option>
+                </select>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Apri/Chiudi Menù">
+                <i class="fas fa-bars"></i>
             </button>
         </div>
-
-        <!-- Sidebar navigation - hidden on mobile by default -->
-        <aside id="sidebarNav" class="w-full md:w-1/4 xl:w-1/5 bg-gray-800 shadow-md md:shadow-none transition-all duration-300 mobile-menu-closed md:block">
-            <nav class="md:sticky md:top-0 md:h-screen p-4 md:p-8">
-                <a href="#" class="block py-2.5 px-4 rounded text-xl font-bold text-blue-400 mb-6">Samuel Zidaric</a>
-                <ul class="mt-4 space-y-1">
-                    <li><a href="#home" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white" aria-current="page">Home</a></li>
-                    <li><a href="#experience" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Esperienza</a></li>
-                    <li><a href="#education" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Formazione</a></li>
-                    <li><a href="#skills" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Competenze e Interessi</a></li>
-                    <li><a href="#contact" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Contatto</a></li>
-                </ul>
-                
-                <!-- Language Selector Dropdown -->
-                <div class="relative mt-8">
-                    <label for="languageDropdown" class="block text-sm font-medium text-gray-400 mb-1">Seleziona lingua</label>
-                    <select id="languageDropdown" class="border border-gray-600 rounded text-gray-300 h-10 pl-5 pr-10 bg-gray-700 hover:border-gray-500 focus:outline-none appearance-none w-full">
-                        <option value="index.html">English</option>
-                        <option value="index_sl.html">Slovenščina</option>
-                        <option value="index_it.html" selected>Italiano</option>
-                    </select>
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400 mt-6">
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                </div>
-            </nav>
-        </aside>
-        
-        <main id="main-content" class="w-full md:w-3/4 xl:w-4/5 p-4 md:p-8 bg-gray-900">
-            <section id="home" class="mb-10">
-                <h1 class="text-3xl font-bold text-blue-400 mb-6">Benvenuti nel Portfolio di Samuel Zidaric</h1>
-                <!-- Image of Samuel with glow effect -->
-                <div class="flex justify-center md:justify-start">
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-blue-500 rounded-full blur-md opacity-20"></div>
-                        <img src="images/main_image.jpeg" alt="Samuel Zidaric" class="relative my-4 rounded-full w-48 h-48 md:w-64 md:h-64 object-cover border-2 border-blue-400">
-                    </div>
-                </div>
-                <p class="mt-4 text-lg text-gray-300">Ciao! Sono Samuel, un neuroscienziato che naviga nell'affascinante paradosso dove la biologia incontra il calcolo. Non è forse la suprema ironia che utilizziamo reti neurali artificiali per comprendere i neuroni reali? A Trieste, lavoro su questa precisa contraddizione—utilizzando modelli algoritmici per dare un senso alle strutture biologiche che li hanno ispirati. Il mio percorso di ricerca, dai neuroni di C. elegans ai principi FAIR per i dati, rappresenta non semplicemente un percorso di carriera ma una dialettica continua tra il cervello materiale e i suoi output astratti. Quando non contemplo questo loop ricorsivo della coscienza che studia se stessa, sono sui campi da basket o immerso nelle gallerie d'arte—diversi contesti per la stessa domanda fondamentale: quali schemi connettono tutte le cose?</p>
-            </section>
-            <div class="section-divider"></div> 
-        
-            <section id="experience" class="mb-10">
-                <h2 class="text-2xl font-bold text-blue-400 mb-6">Esperienza Professionale</h2>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg relative overflow-hidden">
-                    <!-- Trophy icon in the background -->
-                    <div class="absolute right-0 top-0 opacity-10 transform translate-x-6 -translate-y-4">
-                        <i class="fas fa-trophy text-9xl text-yellow-500"></i>
-                    </div>
-                    <!-- Gold accent on the left side -->
-                    <div class="absolute left-0 top-0 bottom-0 w-2 bg-yellow-500"></div>
-                    
-                    <div class="relative z-10">
-                        <div class="flex items-start justify-between">
-                            <div>
-                                <h3 class="text-xl font-semibold text-blue-300">Borsa di Ricerca – Progetto FAIR-by-Design</h3>
-                                <p class="text-gray-400 italic">Area Science Park, Trieste (IT), Giugno 2025 – Presente</p>
-                            </div>
-                            <span class="bg-yellow-900 text-yellow-300 text-xs font-medium px-2.5 py-0.5 rounded border border-yellow-700 flex items-center">
-                                <i class="fas fa-medal mr-1"></i> Posizione di Prestigio
-                            </span>
-                        </div>
-                        <ul class="list-disc ml-5 mt-2 text-gray-300">
-                            <li>Il progetto ha sviluppato uno strumento automatizzato basato su Python per la validazione e l'analisi dei dati di sequenziamento Oxford Nanopore, migliorando la valutazione della qualità e l'estrazione di metadati da vari formati di file di output.</li>
-                            <li>Ricerca sull'interpretabilità dei modelli AI (Transformers, LLM) per sequenze proteiche e immagini di microscopia elettronica</li>
-                            <li>Applicazione di tecniche di analisi topologica dei dati a dataset conformi ai principi FAIR</li>
-                            <li>Sviluppo di metodologie per migliorare l'acquisizione e la condivisione dei dati nella ricerca scientifica</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Tirocinante in Gestione Dati e Machine Learning, Infordata Sistemi Srl, Trieste (IT)</h3>
-                    <p class="text-gray-400 italic">Giugno 2024 – Presente</p>
-                    <ul class="list-disc ml-5 mt-2 text-gray-300">
-                        <li>Guidato l'armonizzazione dei dati basata su SQL e Python per progetti di sostenibilità dell'UE (INSPIRE, Remedies), automatizzando i flussi di lavoro in GitHub per garantire la conformità e migliorare l'accuratezza dei dataset.</li>
-                        <li>Sviluppato un modello XGBoost per la previsione degli incendi boschivi utilizzando dati storici e l'Indice di Pericolo Incendi (FWI), affrontando i rischi del terreno carsico; risultati validati in attesa di implementazione nei sistemi di risposta alle emergenze.</li>
-                        <li>Accelerato la generazione di metadati e documentazione utilizzando LLM (es. GPT-4), riducendo lo sforzo manuale nel coordinamento delle attività interfunzionali e nella cura dei dati.</li>
-                    </ul>
-                </div>  
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Tesi di Laurea Magistrale, Zimmer Lab, Vienna (AT)</h3>
-                    <p class="text-gray-400 italic">Marzo 2023– Marzo 2024</p>
-                    <ul class="list-disc ml-5 mt-2 text-gray-300">
-                        <li>Test di un nuovo microscopio optogenetico e di tracciamento, calibrando le prestazioni di intensità luminosa LED.</li>
-                        <li>Analisi video approfondite per identificare le risposte comportamentali di C. elegans dopo stimolazioni optogenetiche.</li>
-                        <li>Revisione e miglioramento di una pipeline di analisi comportamentale per il microscopio optogenetico.</li>
-                        <li>Addestramento e perfezionamento di reti neurali per il tracciamento delle parti del corpo con DeepLabCut.</li>
-                    </ul>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Tirocinio, BIA Separations (Sartorius), Ajdovščina (SI)</h3>
-                    <p class="text-gray-400 italic">Agosto 2022– Dicembre 2022</p>
-                    <ul class="list-disc ml-5 mt-2 text-gray-300">
-                        <li>Partecipazione ad attività di ricerca in laboratorio: preparazione di buffer, validazione di attrezzature di laboratorio.</li>
-                        <li>Esecuzione di saggi analitici: SDS-PAGE, Bradford, PicoGreen.</li>
-                        <li>Esecuzione di cromatografie utilizzando sistemi AKTA per la purificazione di proteine.</li>
-                        <li>Contributo ai progetti AAV e Adenovirus, sviluppando metodi downstream per applicazioni di terapia genica.</li>
-                    </ul>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Tesi di Laurea Triennale, Tongiorgi Lab, Trieste (IT)</h3>
-                    <p class="text-gray-400 italic">Maggio 2019– Ottobre 2019</p>
-                    <ul class="list-disc ml-5 mt-2 text-gray-300">
-                        <li>Studio del ruolo del BDNF nello sviluppo neuronale, utilizzando PCR, sezioni al criostato, elettroforesi su gel e ibridazione in situ.</li>
-                    </ul>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Host, Osmica Zidarich, Trieste</h3>
-                    <p class="text-gray-400 italic">Anni attivi, es. 2018 – 2024, qualche settimana ogni anno</p>
-                    <ul class="list-disc ml-5 mt-2 text-gray-300">
-                        <li>Accoglienza e interazione con i clienti, spiegazione delle varietà di vino e del processo di produzione.</li>
-                        <li>Presa degli ordini, elaborazione dei pagamenti e servizio di vino ai clienti.</li>
-                        <li>Gestione delle richieste dei clienti e risoluzione di eventuali problemi.</li>
-                    </ul>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Esperienza Lavorativa Aggiuntiva</h3>
-                    <ul class="list-disc ml-5 mt-2 text-gray-300">
-                        <li>Giocatore Professionista di Basket (2015– 2023)</li>
-                        <li>Allenatore di Minibasket per bambini 8–12 anni (2016– 2021)</li>
-                        <li>Insegnante di scuola media (Marzo 2021– Giugno 2021)</li>
-                    </ul>
-                </div>
-            </section>        
-            <div class="section-divider"></div>
-            
-            <section id="education" class="mb-10">
-                <h2 class="text-2xl font-bold text-blue-400 mb-6">Formazione</h2>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Master in Data Management and Curation (MDMC)</h3>
-                    <p class="text-gray-400 italic">SISSA & Area Science Park, Trieste (IT), Settembre 2024– Maggio 2025</p>
-                    <p class="mt-2 text-gray-300">Programma di master professionale di 10 mesi (60 ECTS) incentrato sulle metodologie FAIR-by-design per la gestione dei dati di ricerca. I corsi includono Open Science, Gestione dei Dati di Ricerca, Programmazione Scientifica con Python, Infrastruttura Cloud, Strumenti di Gestione Dati e AI per Applicazioni Scientifiche.</p>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Università di Trieste, Dipartimento di Scienze della Vita – Laurea Magistrale in Neuroscienze</h3>
-                    <p class="text-gray-400 italic">Trieste (IT), Settembre 2021 – Marzo 2024</p>
-                    <p class="mt-2 text-gray-300">Focus del corso: Neurobiologia Cellulare e Molecolare, Neuroanatomia e Neurofarmacologia, Neurofisiologia Molecolare, Neuroscienze Cognitive.</p>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Università di Trieste, Dipartimento di Scienze della Vita – Laurea Triennale in Biologia</h3>
-                    <p class="text-gray-400 italic">Trieste (IT), Settembre 2017 – Marzo 2021</p>
-                    <p class="mt-2 text-gray-300">Focus del corso: Biologia Generale, Chimica, Anatomia.</p>
-                </div>
-            </section>        
-            <div class="section-divider"></div>
+    </nav>
     
-            <section id="skills" class="mb-10">
-                <h2 class="text-2xl font-bold text-blue-400 mb-6">Competenze e Interessi</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="dark-card card-glow p-5 rounded-lg">
-                        <h3 class="text-xl font-semibold text-blue-300 mb-3">Lingue</h3>
-                        <div class="space-y-2">
-                            <div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">Sloveno</span>
-                                    <span class="text-gray-400">Madrelingua</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 100%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">Italiano</span>
-                                    <span class="text-gray-400">Madrelingua</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 100%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">Inglese</span>
-                                    <span class="text-gray-400">Fluente</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">Tedesco</span>
-                                    <span class="text-gray-400">Base</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 30%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dark-card card-glow p-5 rounded-lg">
-                        <h3 class="text-xl font-semibold text-blue-300 mb-3">Competenze Tecniche</h3>
-                        <div class="space-y-2">
-                            <div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">Python</span>
-                                    <span class="text-gray-400">Base</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 40%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">GitHub</span>
-                                    <span class="text-gray-400">Intermedio</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 60%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">SQL</span>
-                                    <span class="text-gray-400">Intermedio</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 60%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">Snakemake</span>
-                                    <span class="text-gray-400">Base</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 35%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">Excel</span>
-                                    <span class="text-gray-400">Intermedio</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 65%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dark-card card-glow p-5 rounded-lg">
-                        <h3 class="text-xl font-semibold text-blue-300 mb-3">Soft Skills</h3>
-                        <ul class="list-disc ml-5 text-gray-300">
-                            <li>Problem-solving</li>
-                            <li>Comunicazione (adulti e bambini)</li>
-                            <li>Lavoro di squadra</li>
-                            <li>Ricerca informazioni</li>
-                            <li>Esecuzione di piani</li>
-                        </ul>
-                    </div>
-                    <div class="dark-card card-glow p-5 rounded-lg">
-                        <h3 class="text-xl font-semibold text-blue-300 mb-3">Interessi</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 tag rounded-full text-sm">Cose nerd</span>
-                            <span class="px-3 py-1 tag rounded-full text-sm">Basket</span>
-                            <span class="px-3 py-1 tag rounded-full text-sm">MMA</span>
-                            <span class="px-3 py-1 tag rounded-full text-sm">Arte</span>
-                            <span class="px-3 py-1 tag rounded-full text-sm">Videogiochi</span>
-                        </div>
-                    </div>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text slide-in-left">
+                <h1>Ciao, sono Samuel Zidaric</h1>
+                <p class="subtitle">Neuroscienziato e Professionista della Data Science</p>
+                <p>Esploro le affascinanti intersezioni tra intelligenza biologica e artificiale. Attualmente sto approfondendo tecniche avanzate di gestione dei dati, applicando il rigore scientifico a sfide del mondo reale.</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#contact" class="btn btn-primary">Contattami</a>
+                    <a href="#experience" class="btn btn-outline">Guarda i Lavori</a>
                 </div>
-            </section>
-            <div class="section-divider"></div>
+            </div>
+            <div class="hero-image slide-in-right">
+                <img src="images/main_image.jpeg" alt="Samuel Zidaric">
+            </div>
+        </div>
+    </section>
+    
+    <section id="experience">
+        <div class="section-header fade-in">
+            <h2>Percorso Professionale</h2>
+            <p>Dalla ricerca nelle neuroscienze all'ingegneria dei dati, il mio percorso è stato guidato da curiosità e innovazione.</p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Assegnista di Ricerca - Progetto FAIR-by-Design</h3>
+                    <p class="company">Laboratorio di Data Engineering (LADE), Area Science Park</p>
+                    <ul>
+                        <li>Sviluppo di strumenti automatizzati in Python per la validazione dei dati di sequenziamento Oxford Nanopore</li>
+                        <li>Applicazione dell'analisi topologica dei dati a dataset conformi ai principi FAIR</li>
+                        <li>Creazione di metodologie per una migliore condivisione dei dati scientifici</li>
+                    </ul>
+                    <a href="https://www.areasciencepark.it/en/research-infrastructures/data-engineering-lade/" target="_blank" class="link-external">
+                        Scopri di più <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2024 - 2025</span>
+            </div>
             
-            <section id="contact" class="mb-10">
-                <h2 class="text-2xl font-bold text-blue-400 mb-6">Contattami</h2>
-                <div class="dark-card card-glow p-6 rounded-lg">
-                    <form id="contactForm" class="space-y-6" action="https://formsubmit.co/samzidaric@gmail.com" method="POST">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Il tuo nome</label>
-                                <input type="text" id="name" name="name" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required>
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-300 mb-1">La tua email</label>
-                                <input type="email" id="email" name="email" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Oggetto</label>
-                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required>
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Messaggio</label>
-                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required></textarea>
-                        </div>
-                        <div>
-                            <button type="submit" class="w-full md:w-auto px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">
-                                Invia messaggio
-                            </button>
-                        </div>
-                        <!-- Hidden inputs for FormSubmit configuration -->
-                        <input type="hidden" name="_subject" value="Nuovo messaggio dal sito Portfolio">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
-                    </form>
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Data Scientist</h3>
+                    <p class="company">Infordata Sistemi Srl</p>
+                    <ul>
+                        <li>Gestione di database per progetti UE: Remedies (monitoraggio dell'ecosistema oceanico), Inspire e Karst Firewall 5.0</li>
+                        <li>Coordinamento dell'armonizzazione e integrazione dei dati tra molteplici iniziative di sostenibilità</li>
+                        <li>Supporto allo sviluppo di nuovi progetti e all'implementazione tecnica</li>
+                        <li>Sviluppo continuo di modelli di ML per sistemi di previsione ambientale</li>
+                    </ul>
+                    <a href="https://infordata.it/" target="_blank" class="link-external">
+                        Scopri di più <i class="fas fa-external-link-alt"></i>
+                    </a>
                 </div>
-            </section>
-        </main>
-    </div>
-
-    <footer class="bg-gray-800 shadow-md py-6">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Samuel Zidaric. Tutti i diritti riservati.</p>
-                <div class="flex space-x-4">
-                    <a href="https://linkedin.com/" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin text-xl"></i>
+                <span class="timeline-date">Lug 2025 - Presente</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Tirocinante in Data Science</h3>
+                    <p class="company">Infordata Sistemi Srl</p>
+                    <ul>
+                        <li>Ho guidato l'armonizzazione dei dati tramite SQL e Python per progetti di sostenibilità dell'UE</li>
+                        <li>Ho costruito un modello predittivo di incendi boschivi con XGBoost utilizzando dati storici e l'indice FWI</li>
+                        <li>Ho accelerato la generazione di metadati utilizzando LLM (GPT-4, Claude)</li>
+                    </ul>
+                </div>
+                <span class="timeline-date">Giu 2024 - Giu 2025</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Ricercatore per Tesi Magistrale</h3>
+                    <p class="company">Zimmer Lab, Vienna</p>
+                    <ul>
+                        <li>Test di nuovi sistemi di microscopia optogenetica e di tracciamento</li>
+                        <li>Analisi video delle risposte comportamentali di C. elegans</li>
+                        <li>Addestramento di reti neurali per il tracciamento di parti del corpo con DeepLabCut</li>
+                    </ul>
+                    <a href="https://neurodevbio.univie.ac.at/zimmer-research/" target="_blank" class="link-external">
+                        Scopri di più <i class="fas fa-external-link-alt"></i>
                     </a>
-                    <a href="https://github.com/" class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
-                        <i class="fab fa-github text-xl"></i>
+                </div>
+                <span class="timeline-date">2023 - 2024</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Tirocinante Ricercatore</h3>
+                    <p class="company">BIA Separations (Sartorius)</p>
+                    <ul>
+                        <li>Esecuzione di cicli di cromatografia con sistemi AKTA per la purificazione di proteine</li>
+                        <li>Contributo allo sviluppo di metodi downstream per AAV e Adenovirus</li>
+                        <li>Esecuzione di saggi analitici: SDS-PAGE, Bradford, PicoGreen</li>
+                    </ul>
+                    <a href="https://www.biaseparations.com/" target="_blank" class="link-external">
+                        Scopri di più <i class="fas fa-external-link-alt"></i>
                     </a>
-                    <a href="https://twitter.com/" class="text-gray-400 hover:text-blue-300 transition-colors" aria-label="Twitter">
-                        <i class="fab fa-twitter text-xl"></i>
+                </div>
+                <span class="timeline-date">2022</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Ricercatore per Tesi Triennale</h3>
+                    <p class="company">Laboratorio Tongiorgi, Trieste</p>
+                    <ul>
+                        <li>Studio del ruolo del BDNF nello sviluppo neuronale</li>
+                        <li>Utilizzo di PCR, sezionamento al criostato ed elettroforesi su gel</li>
+                        <li>Esecuzione di tecniche di ibridazione in-situ</li>
+                    </ul>
+                    <a href="https://dsv.units.it/it/ricerca/ambiti/gruppi/18224" target="_blank" class="link-external">
+                        Scopri di più <i class="fas fa-external-link-alt"></i>
                     </a>
+                </div>
+                <span class="timeline-date">2019</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Altre Esperienze</h3>
+                    <p class="company">Vari Ruoli</p>
+                    <ul>
+                        <li><strong>Gestore, Osmica Zidarich</strong> - Servizio clienti per l'azienda vinicola di famiglia (2018-2024)</li>
+                        <li><strong>Giocatore di Pallacanestro Professionista</strong> (2015-2023)</li>
+                        <li><strong>Allenatore di Pallacanestro Giovanile</strong> - Allenamento di bambini di 8-12 anni (2016-2021)</li>
+                        <li><strong>Insegnante di Scuola Media</strong> (Marzo-Giugno 2021)</li>
+                    </ul>
+                    <a href="https://www.zidarich.it/" target="_blank" class="link-external">
+                        Cantina Zidarich <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2015 - 2024</span>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills">
+        <div class="section-header fade-in">
+            <h2>Competenze e Perizie</h2>
+            <p>Un insieme diversificato di competenze che spaziano tra neuroscienze, data science e comunicazione.</p>
+        </div>
+        
+        <div class="skills-grid">
+            <div class="skill-card fade-in">
+                <h3><i class="fas fa-code"></i> Competenze Tecniche</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Python</span>
+                        <span>Intermedio</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>SQL</span>
+                        <span>Intermedio</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Excel</span>
+                        <span>Avanzato</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>GitHub</span>
+                        <span>Intermedio</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Snakemake</span>
+                        <span>Base</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 40%;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-card fade-in">
+                <h3><i class="fas fa-language"></i> Lingue</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Sloveno</span>
+                        <span>Madrelingua</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Italiano</span>
+                        <span>Madrelingua</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Inglese</span>
+                        <span>Fluente</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Tedesco</span>
+                        <span>Base</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 30%;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-card fade-in">
+                <h3><i class="fas fa-users"></i> Competenze Trasversali</h3>
+                <ul class="soft-skills-list">
+                    <li><i class="fas fa-check"></i> Problem-solving</li>
+                    <li><i class="fas fa-check"></i> Comunicazione (adulti e bambini)</li>
+                    <li><i class="fas fa-check"></i> Lavoro di squadra e Collaborazione</li>
+                    <li><i class="fas fa-check"></i> Ricerca di informazioni</li>
+                    <li><i class="fas fa-check"></i> Pianificazione ed esecuzione di progetti</li>
+                </ul>
+            </div>
+            
+            <div class="skill-card fade-in">
+                <h3><i class="fas fa-heart"></i> Interessi</h3>
+                <div class="interests-tags">
+                    <span class="tag">Tecnologia e AI</span>
+                    <span class="tag">Pallacanestro</span>
+                    <span class="tag">MMA</span>
+                    <span class="tag">Arte e Design</span>
+                    <span class="tag">Gaming</span>
+                    <span class="tag">Filosofia</span>
                 </div>
             </div>
         </div>
+    </section>
+    
+    <section id="awards" class="section-light">
+        <div class="section-header fade-in">
+            <h2>Premi e Riconoscimenti</h2>
+            <p>Traguardi che evidenziano il mio percorso accademico e professionale.</p>
+        </div>
+        
+        <div class="awards-grid">
+            <div class="award-card fade-in">
+                <div class="award-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3>Borsa di Ricerca</h3>
+                <p class="award-subtitle">Progetto FAIR-by-Design</p>
+                <p>Borsa di studio competitiva per aver contribuito alle migliori pratiche di gestione dei dati scientifici presso Area Science Park (2024-2025).</p>
+                <a href="https://amministrazionetrasparente.areasciencepark.it/" target="_blank" class="award-link">
+                    Vedi Dettagli <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="award-card fade-in">
+                <div class="award-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Borsa di Studio ZKB</h3>
+                <p class="award-subtitle">Eccellenza Accademica</p>
+                <p>Borsa di studio basata sul merito, assegnata dalla Banca di Credito Cooperativo ZKB per sostenere il Master in Neuroscienze (2021-2024).</p>
+                <a href="https://www.zkb.it/soci/borse-di-studio/" target="_blank" class="award-link">
+                    Vedi Dettagli <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education">
+        <div class="section-header fade-in">
+            <h2>Formazione</h2>
+            <p>Costruire competenze all'intersezione tra neuroscienze e data science.</p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Master in Gestione e Cura dei Dati (MDMC)</h3>
+                    <p class="company">SISSA & Area Science Park, Trieste</p>
+                    <p class="education-description">Master professionale di 10 mesi (60 ECTS) focalizzato sulle metodologie FAIR-by-design per la gestione dei dati di ricerca.</p>
+                    <p><strong>Corsi principali:</strong> Scienza Aperta, Gestione dei Dati di Ricerca, Programmazione Scientifica con Python, Infrastruttura Cloud, AI per Applicazioni Scientifiche</p>
+                    <a href="https://www.sissa.it/training/professional-master-courses/master-data-management-and-curation" target="_blank" class="link-external">
+                        Scopri di più <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2024 - 2025</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Laurea Magistrale in Neuroscienze</h3>
+                    <p class="company">Università di Trieste, Dipartimento di Scienze della Vita</p>
+                    <p class="education-description">Programma completo che esplora le complessità del sistema nervoso, dai livelli molecolari a quelli comportamentali.</p>
+                    <p><strong>Aree di specializzazione:</strong> Neurobiologia Cellulare e Molecolare, Neuroanatomia, Neurofarmacologia, Neurofisiologia Molecolare, Neuroscienze Cognitive</p>
+                    <a href="https://www.biologia.units.it/corsi/3/LM-in-Neuroscienze" target="_blank" class="link-external">
+                        Scopri di più <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2021 - 2024</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Laurea Triennale in Biologia</h3>
+                    <p class="company">Università di Trieste, Dipartimento di Scienze della Vita</p>
+                    <p class="education-description">Formazione di base nelle scienze biologiche con enfasi sulla biologia molecolare e cellulare.</p>
+                    <p><strong>Studi principali:</strong> Biologia Generale, Chimica, Anatomia, Biologia Molecolare, Genetica</p>
+                    <a href="https://www.biologia.units.it/index.php?/corsi/1/Laurea-in-Scienze-e-Tecnologie-Biologiche" target="_blank" class="link-external">
+                        Scopri di più <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2017 - 2021</span>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="section-light">
+        <div class="section-header fade-in">
+            <h2>Mettiamoci in Contatto</h2>
+            <p>Hai un progetto in mente o vuoi collaborare? Scrivimi, mi farebbe piacere.</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info fade-in">
+                <h3>Contattami</h3>
+                <p>Sono sempre interessato a discutere nuove opportunità, collaborazioni o semplicemente a fare una chiacchierata su neuroscienze e data science.</p>
+                
+                <div class="contact-links">
+                    <a href="https://linkedin.com/in/samuelzidaric" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/samuelzidaric" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:samzidaric@gmail.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://twitter.com/samuelzidaric" target="_blank" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+                
+                <div class="contact-details">
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        Brescia, Lombardia, Italia
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        samzidaric@gmail.com
+                    </p>
+                </div>
+            </div>
+            
+            <form class="contact-form fade-in" action="https://formsubmit.co/samzidaric@gmail.com" method="POST">
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Oggetto</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Messaggio</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <input type="hidden" name="_subject" value="Nuovo contatto dal sito Portfolio">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://samuelzidaric.com/thank-you.html">
+                
+                <button type="submit" class="btn btn-primary btn-full">Invia Messaggio</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Samuel Zidaric. Tutti i diritti riservati.</p>
     </footer>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Mobile menu toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const sidebarNav = document.getElementById('sidebarNav');
-        
-        mobileMenuToggle.addEventListener('click', function() {
-            sidebarNav.classList.toggle('mobile-menu-closed');
-        });
-        
-        // Close mobile menu when clicking a nav link
-        const navLinks = document.querySelectorAll('#sidebarNav a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth < 768) {
-                    sidebarNav.classList.add('mobile-menu-closed');
-                }
-            });
-        });
-        
-        // Active link highlighting
-        function setActiveLink() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('#sidebarNav a[href^="#"]');
-            
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (window.scrollY >= (sectionTop - 200)) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('nav-link-active', 'active', 'bg-gray-800', 'font-medium');
-                link.removeAttribute('aria-current');
-                
-                const href = link.getAttribute('href');
-                if (href === `#${currentSection}`) {
-                    link.classList.add('nav-link-active', 'active', 'bg-gray-800', 'font-medium');
-                    link.setAttribute('aria-current', 'page');
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', setActiveLink);
-        setActiveLink(); // Set initial active link
-        
-        // Add hover effects to cards
-        const cards = document.querySelectorAll('.card-glow');
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.classList.add('transform', 'scale-[1.01]', 'shadow-lg', 'shadow-blue-900/20');
-            });
-            card.addEventListener('mouseleave', function() {
-                this.classList.remove('transform', 'scale-[1.01]', 'shadow-lg', 'shadow-blue-900/20');
-            });
-        });
-        
-        // Language selector functionality
-        const languageDropdown = document.getElementById('languageDropdown');
-        
-        // Update dropdown based on current URL
-        function updateLanguageDropdown() {
-            const currentUrl = window.location.href;
-            
-            if (currentUrl.includes('index_sl.html')) {
-                languageDropdown.value = 'index_sl.html';
-            } else if (currentUrl.includes('index_it.html')) {
-                languageDropdown.value = 'index_it.html';
-            } else {
-                languageDropdown.value = 'index.html';
-            }
-        }
-        
-        updateLanguageDropdown();
-        
-        // Change language when dropdown changes
-        languageDropdown.addEventListener('change', function() {
-            window.location = this.value;
-        });
-        
-        // Contact form handling (still kept in addition to the form action for any additional processing)
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', function(e) {
-            // Form will be submitted via action to FormSubmit.co
-            // This event handler is just for any additional JavaScript processing
-            
-            const formData = new FormData(contactForm);
-            let formValues = {};
-            
-            formData.forEach((value, key) => {
-                formValues[key] = value;
-            });
-            
-            console.log('Form submitted:', formValues);
-            
-            // Form submission will be handled by the form action
-        });
-    });
-    </script>
 </body>
+</html>
 
 </html>
