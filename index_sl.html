@@ -1,549 +1,449 @@
 <!DOCTYPE html>
 <html lang="sl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Profesionalni portfolio in življenjepis Samuela Zidarica">
-    <title>Samuel Zidaric - Življenjepis</title>
+    <meta name="description" content="Samuel Zidaric - Nevroznanstvenik in Strokovnjak za Podatkovno Znanost">
+    <title>Samuel Zidaric | Portfelj</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --bg-primary: #121212;
-            --bg-secondary: #1e1e1e;
-            --bg-card: #242424;
-            --text-primary: #e0e0e0;
-            --text-secondary: #a0a0a0;
-            --accent-primary: #5b8af5;
-            --accent-secondary: #7c4dff;
-            --accent-yellow: #ffd54f;
-        }
-        
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-        }
-        
-        .mobile-menu-closed {
-            display: none;
-        }
-        
-        @media (min-width: 768px) {
-            .mobile-menu-toggle {
-                display: none;
-            }
-            .mobile-menu-closed {
-                display: block;
-            }
-        }
-        
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: #000;
-            color: white;
-            padding: 8px;
-            z-index: 100;
-            transition: top 0.3s;
-        }
-        
-        .skip-link:focus {
-            top: 0;
-        }
-        
-        section {
-            scroll-margin-top: 2rem;
-        }
-        
-        .dark-card {
-            background-color: var(--bg-card);
-            border: 1px solid #333;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-        
-        .card-glow {
-            transition: all 0.3s ease;
-        }
-        
-        .card-glow:hover {
-            box-shadow: 0 0 15px rgba(91, 138, 245, 0.5);
-            transform: translateY(-2px);
-        }
-        
-        .progress-bar-bg {
-            background-color: #333;
-        }
-        
-        .progress-bar-fill-blue {
-            background: linear-gradient(90deg, #4286f4, #5b8af5);
-        }
-        
-        .progress-bar-fill-green {
-            background: linear-gradient(90deg, #20BF55, #2D9CDB);
-        }
-        
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, rgba(91, 138, 245, 0), rgba(91, 138, 245, 0.5), rgba(91, 138, 245, 0));
-            margin: 3rem 0;
-        }
-        
-        .nav-link {
-            transition: all 0.2s ease;
-            border-left: 3px solid transparent;
-        }
-        
-        .nav-link:hover, .nav-link.active {
-            background-color: #2a2a2a;
-            border-left: 3px solid var(--accent-primary);
-        }
-        
-        .tag {
-            background-color: #2a2a2a;
-            color: var(--text-primary);
-            border: 1px solid #444;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
-<body class="bg-gray-900 text-gray-100">
-    <a href="#main-content" class="skip-link">Preskoči na glavno vsebino</a>
-    
-    <div class="flex flex-col md:flex-row">
-        <!-- Mobile navigation toggle -->
-        <div class="md:hidden bg-gray-800 p-4 flex justify-between items-center shadow-md">
-            <h1 class="text-xl font-bold text-gray-100">Samuel Zidaric</h1>
-            <button id="mobileMenuToggle" class="mobile-menu-toggle p-2 text-gray-100" aria-label="Preklopi navigacijski meni">
-                <i class="fas fa-bars text-xl"></i>
+<body>
+    <nav>
+        <div class="nav-container">
+            <h1 style="font-size: 1.5rem; font-weight: 700;">Samuel Zidaric</h1>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Domov</a></li>
+                <li><a href="#experience">Izkušnje</a></li>
+                <li><a href="#skills">Znanja</a></li>
+                <li><a href="#awards">Nagrade</a></li>
+                <li><a href="#education">Izobrazba</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+            <div class="language-switcher">
+                <select id="languageSelect" aria-label="Izberite jezik">
+                    <option value="index.html">EN</option>
+                    <option value="index_it.html">IT</option>
+                    <option value="index_sl.html" selected>SL</option>
+                </select>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Preklopi Meni">
+                <i class="fas fa-bars"></i>
             </button>
         </div>
-
-        <!-- Sidebar navigation - hidden on mobile by default -->
-        <aside id="sidebarNav" class="w-full md:w-1/4 xl:w-1/5 bg-gray-800 shadow-md md:shadow-none transition-all duration-300 mobile-menu-closed md:block">
-            <nav class="md:sticky md:top-0 md:h-screen p-4 md:p-8">
-                <a href="#" class="block py-2.5 px-4 rounded text-xl font-bold text-blue-400 mb-6">Samuel Zidaric</a>
-                <ul class="mt-4 space-y-1">
-                    <li><a href="#home" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white" aria-current="page">Domov</a></li>
-                    <li><a href="#experience" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Izkušnje</a></li>
-                    <li><a href="#education" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Izobrazba</a></li>
-                    <li><a href="#skills" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Veščine in interesi</a></li>
-                    <li><a href="#contact" class="nav-link block py-2.5 px-4 rounded transition-colors text-gray-300 hover:text-white">Kontakt</a></li>
-                </ul>
-                
-                <!-- Language Selector Dropdown -->
-                <div class="relative mt-8">
-                    <label for="languageDropdown" class="block text-sm font-medium text-gray-400 mb-1">Izberi jezik</label>
-                    <select id="languageDropdown" class="border border-gray-600 rounded text-gray-300 h-10 pl-5 pr-10 bg-gray-700 hover:border-gray-500 focus:outline-none appearance-none w-full">
-                        <option value="index.html">English</option>
-                        <option value="index_sl.html" selected>Slovenščina</option>
-                        <option value="index_it.html">Italiano</option>
-                    </select>
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400 mt-6">
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                </div>
-            </nav>
-        </aside>
-        
-        <main id="main-content" class="w-full md:w-3/4 xl:w-4/5 p-4 md:p-8 bg-gray-900">
-            <section id="home" class="mb-10">
-                <h1 class="text-3xl font-bold text-blue-400 mb-6">Dobrodošli na portfoliu Samuela Zidarica</h1>
-                <!-- Image of Samuel with glow effect -->
-                <div class="flex justify-center md:justify-start">
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-blue-500 rounded-full blur-md opacity-20"></div>
-                        <img src="images/main_image.jpeg" alt="Samuel Zidaric" class="relative my-4 rounded-full w-48 h-48 md:w-64 md:h-64 object-cover border-2 border-blue-400">
-                    </div>
-                </div>
-                <p class="mt-4 text-lg text-gray-300">Živjo! Sem Samuel, nevroznanstvenik, ki raziskuje fascinanten paradoks, kjer se biologja sreča z računalništvom. Ali ni to največja ironija, da uporabljamo umetne nevronske mreže za razumevanje pravih nevronov? V Trstu delam na tem natančnem protislovju - uporabljam algoritmične modele za razumevanje bioloških struktur, ki so jih navdihnile. Moja raziskovalna pot od nevronov C. elegans do načel FAIR podatkov ne predstavlja le karierne poti, ampak tudi dialog med materialnimi možgani in njihovimi abstraktnimi izidi. Ko ne razmišljam o tej rekurzivni zanki zavesti, ki preučuje samo sebe, sem na košarkarskih igriščih ali pa v umetniških galerijah—različni okviri za isto temeljno vprašanje: kateri vzorci povezujejo vse stvari?</p>
-            </section>
-            <div class="section-divider"></div> 
-        
-            <section id="experience" class="mb-10">
-                <h2 class="text-2xl font-bold text-blue-400 mb-6">Strokovne izkušnje</h2>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg relative overflow-hidden">
-                    <!-- Trophy icon in the background -->
-                    <div class="absolute right-0 top-0 opacity-10 transform translate-x-6 -translate-y-4">
-                        <i class="fas fa-trophy text-9xl text-yellow-500"></i>
-                    </div>
-                    <!-- Gold accent on the left side -->
-                    <div class="absolute left-0 top-0 bottom-0 w-2 bg-yellow-500"></div>
-                    
-                    <div class="relative z-10">
-                        <div class="flex items-start justify-between">
-                            <div>
-                                <h3 class="text-xl font-semibold text-blue-300">Raziskovalna štipendija – Projekt FAIR-by-Design</h3>
-                                <p class="text-gray-400 italic">Area Science Park, Trst (IT), junij 2025 – Trenutno</p>
-                            </div>
-                            <span class="bg-yellow-900 text-yellow-300 text-xs font-medium px-2.5 py-0.5 rounded border border-yellow-700 flex items-center">
-                                <i class="fas fa-medal mr-1"></i> Ugledna pozicija
-                            </span>
-                        </div>
-                        <ul class="list-disc ml-5 mt-2 text-gray-300">
-                            <li>Projekt je razvil avtomatizirano orodje na osnovi Pythona za validacijo in analizo izhodnih podatkov Oxford Nanopore sekvenciranja, ki je izboljšalo oceno kakovosti in ekstrakcijo metapodatkov iz različnih izhodnih formatov datotek.</li>
-                            <li>Raziskovanje interpretabilnosti AI modelov (Transformerji, LLM) za proteinske sekvence in slike elektronske mikroskopije</li>
-                            <li>Uporaba tehnik topološke analize podatkov na zbirkah podatkov, skladnih s FAIR</li>
-                            <li>Razvoj metodologij za izboljšano pridobivanje in deljenje podatkov v znanstvenih raziskavah</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Pripravnik za upravljanje podatkov in strojno učenje, Infordata Sistemi Srl, Trst (IT)</h3>
-                    <p class="text-gray-400 italic">Junij 2024 – Trenutno</p>
-                    <ul class="list-disc ml-5 mt-2 text-gray-300">
-                        <li>Vodil harmonizacijo podatkov za EU projekte trajnostnega razvoja (INSPIRE, Remedies) z uporabo SQL in Python, avtomatiziral delovne procese v GitHub-u za zagotavljanje skladnosti in izboljšanje natančnosti podatkovnih zbirk.</li>
-                        <li>Zgradil XGBoost model za napovedovanje požarov z uporabo zgodovinskih podatkov in indeksa požarne ogroženosti (FWI), s poudarkom na tveganjih kraškega terena; potrjeni rezultati čakajo na uporabo v sistemih za odziv na izredne razmere.</li>
-                        <li>Pospešil ustvarjanje metapodatkov in dokumentacijo z uporabo jezikovnih modelov (npr. GPT-4), zmanjšal ročno delo pri koordinaciji nalog med različnimi funkcijami in kuriranju podatkov.</li>
-                    </ul>
-                </div>  
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Magistrska naloga, Zimmer Lab, Dunaj (AT)</h3>
-                    <p class="text-gray-400 italic">Marec 2023– Marec 2024</p>
-                    <ul class="list-disc ml-5 mt-2 text-gray-300">
-                        <li>Testiranje novega optogenetskega in sledilnega mikroskopa, kalibracija njegove LED svetlobne intenzitete.</li>
-                        <li>Izvajanje poglobljene video analize za identifikacijo vedenjskih odzivov C. elegans po optogenetskih stimulacijah.</li>
-                        <li>Pregled in izboljšava pipeline vedenjske analize za optogenetski mikroskop.</li>
-                        <li>Učenje in izpopolnjevanje nevronskih mrež za sledenje delom telesa z DeepLabCut.</li>
-                    </ul>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Študentska praksa, BIA Separations (Sartorius), Ajdovščina (SI)</h3>
-                    <p class="text-gray-400 italic">Avgust 2022– December 2022</p>
-                    <ul class="list-disc ml-5 mt-2 text-gray-300">
-                        <li>Sodelovanje pri laboratorijskih raziskovalnih aktivnostih: priprava pufrov, validacija laboratorijske opreme.</li>
-                        <li>Izvajanje analitskih testov: SDS-PAGE, Bradford, PicoGreen.</li>
-                        <li>Izvajanje kromatografije z uporabo AKTA sistemov za čiščenje proteinov.</li>
-                        <li>Prispevanje k projektom AAV in Adenovirus, razvoj metod čiščenja za genske terapije.</li>
-                    </ul>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Diplomska naloga, Tongiorgi Lab, Trst (IT)</h3>
-                    <p class="text-gray-400 italic">Maj 2019– Oktober 2019</p>
-                    <ul class="list-disc ml-5 mt-2 text-gray-300">
-                        <li>Raziskava vloge BDNF v razvoju nevronov z uporabo PCR, kriostatnega rezanja, gelske elektroforeze in in-situ hibridizacije.</li>
-                    </ul>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Gostitelj, Osmica Zidarich, Trst</h3>
-                    <p class="text-gray-400 italic">Aktivna leta, npr. 2018 – 2024, nekaj tednov vsako leto</p>
-                    <ul class="list-disc ml-5 mt-2 text-gray-300">
-                        <li>Sprejem in komunikacija s strankami, razlaga vinskih sort in proizvodnega procesa.</li>
-                        <li>Sprejemanje naročil, obdelava plačil in postrežba vina strankam.</li>
-                        <li>Obravnava vprašanj strank in reševanje morebitnih težav.</li>
-                    </ul>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Dodatne delovne izkušnje</h3>
-                    <ul class="list-disc ml-5 mt-2 text-gray-300">
-                        <li>Profesionalni košarkar (2015– 2023)</li>
-                        <li>Trener košarke za otroke od 8 do 12 let (2016– 2021)</li>
-                        <li>Učitelj v osnovni šoli (marec 2021– junij 2021)</li>
-                    </ul>
-                </div>
-            </section>        
-            <div class="section-divider"></div>
-            
-            <section id="education" class="mb-10">
-                <h2 class="text-2xl font-bold text-blue-400 mb-6">Izobrazba</h2>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Magisterij iz upravljanja in kuriranja podatkov (MDMC)</h3>
-                    <p class="text-gray-400 italic">SISSA & Area Science Park, Trst (IT), september 2024– maj 2025</p>
-                    <p class="mt-2 text-gray-300">10-mesečni profesionalni magisterij (60 ECTS), osredotočen na metodologije FAIR-by-design za upravljanje raziskovalnih podatkov. Predmeti vključujejo odprto znanost, upravljanje raziskovalnih podatkov, znanstveno programiranje s Pythonom, oblačno infrastrukturo, orodja za upravljanje podatkov in AI za znanstvene aplikacije.</p>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Univerza v Trstu, Oddelek za vede o življenju – Magisterij iz nevroznanosti</h3>
-                    <p class="text-gray-400 italic">Trst (IT), september 2021 – marec 2024</p>
-                    <p class="mt-2 text-gray-300">Poudarek: Celična in molekularna nevrobiologija, nevroanatomija in nevrofarmakologija, molekularna nevrofiziologija, kognitivna nevroznanost.</p>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Univerza v Trstu, Oddelek za vede o življenju – Dodiplomski študij biologije</h3>
-                    <p class="text-gray-400 italic">Trst (IT), september 2017 – marec 2021</p>
-                    <p class="mt-2 text-gray-300">Poudarek: Splošna biologija, kemija, anatomija.</p>
-                </div>
-            </section>        
-            <div class="section-divider"></div>
+    </nav>
     
-            <section id="skills" class="mb-10">
-                <h2 class="text-2xl font-bold text-blue-400 mb-6">Veščine in interesi</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="dark-card card-glow p-5 rounded-lg">
-                        <h3 class="text-xl font-semibold text-blue-300 mb-3">Jeziki</h3>
-                        <div class="space-y-2">
-                            <div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">Slovenščina</span>
-                                    <span class="text-gray-400">Materni jezik</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 100%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">Italijanščina</span>
-                                    <span class="text-gray-400">Materni jezik</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 100%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">Angleščina</span>
-                                    <span class="text-gray-400">Tekoče</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">Nemščina</span>
-                                    <span class="text-gray-400">Osnovno</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 30%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dark-card card-glow p-5 rounded-lg">
-                        <h3 class="text-xl font-semibold text-blue-300 mb-3">Tehnične veščine</h3>
-                        <div class="space-y-2">
-                            <div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">Python</span>
-                                    <span class="text-gray-400">Osnovno</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 40%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">GitHub</span>
-                                    <span class="text-gray-400">Srednje</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 60%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">SQL</span>
-                                    <span class="text-gray-400">Srednje</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 60%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">Snakemake</span>
-                                    <span class="text-gray-400">Osnovno</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 35%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">Excel</span>
-                                    <span class="text-gray-400">Srednje</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 65%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dark-card card-glow p-5 rounded-lg">
-                        <h3 class="text-xl font-semibold text-blue-300 mb-3">Mehke veščine</h3>
-                        <ul class="list-disc ml-5 text-gray-300">
-                            <li>Reševanje problemov</li>
-                            <li>Komunikacija (odrasli in otroci)</li>
-                            <li>Timsko delo</li>
-                            <li>Raziskovanje informacij</li>
-                            <li>Izvajanje načrtov</li>
-                        </ul>
-                    </div>
-                    <div class="dark-card card-glow p-5 rounded-lg">
-                        <h3 class="text-xl font-semibold text-blue-300 mb-3">Interesi</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 tag rounded-full text-sm">Piflarija</span>
-                            <span class="px-3 py-1 tag rounded-full text-sm">Košarka</span>
-                            <span class="px-3 py-1 tag rounded-full text-sm">MMA</span>
-                            <span class="px-3 py-1 tag rounded-full text-sm">Umetnost</span>
-                            <span class="px-3 py-1 tag rounded-full text-sm">Videoigre</span>
-                        </div>
-                    </div>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text slide-in-left">
+                <h1>Pozdravljeni, sem Samuel Zidaric</h1>
+                <p class="subtitle">Nevroznanstvenik in Strokovnjak za Podatkovno Znanost</p>
+                <p>Raziskujem fascinantna presečišča med biološko in umetno inteligenco. Trenutno se poglabljam v napredne tehnike upravljanja podatkov in znanstveno strogost prenašam v reševanje realnih izzivov.</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#contact" class="btn btn-primary">Stopite v stik</a>
+                    <a href="#experience" class="btn btn-outline">Oglejte si delo</a>
                 </div>
-            </section>
-            <div class="section-divider"></div>
+            </div>
+            <div class="hero-image slide-in-right">
+                <img src="images/main_image.jpeg" alt="Samuel Zidaric">
+            </div>
+        </div>
+    </section>
+    
+    <section id="experience">
+        <div class="section-header fade-in">
+            <h2>Poklicna Pot</h2>
+            <p>Od nevroznanstvenih raziskav do podatkovnega inženiringa, mojo pot sta vodili radovednost in inovativnost.</p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Raziskovalni Sodelavec - Projekt FAIR-by-Design</h3>
+                    <p class="company">Laboratorij za Podatkovno Inženirstvo (LADE), Area Science Park</p>
+                    <ul>
+                        <li>Razvoj avtomatiziranih orodij v Pythonu za validacijo podatkov sekvenciranja Oxford Nanopore</li>
+                        <li>Uporaba topološke analize podatkov na FAIR-skladnih podatkovnih nizih</li>
+                        <li>Ustvarjanje metodologij za izboljšano izmenjavo znanstvenih podatkov</li>
+                    </ul>
+                    <a href="https://www.areasciencepark.it/en/research-infrastructures/data-engineering-lade/" target="_blank" class="link-external">
+                        Več o tem <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2024 - 2025</span>
+            </div>
             
-            <section id="contact" class="mb-10">
-                <h2 class="text-2xl font-bold text-blue-400 mb-6">Kontaktirajte me</h2>
-                <div class="dark-card card-glow p-6 rounded-lg">
-                    <form id="contactForm" class="space-y-6" action="https://formsubmit.co/samzidaric@gmail.com" method="POST">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Vaše ime</label>
-                                <input type="text" id="name" name="name" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required>
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Vaš email</label>
-                                <input type="email" id="email" name="email" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Zadeva</label>
-                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required>
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Sporočilo</label>
-                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200" required></textarea>
-                        </div>
-                        <div>
-                            <button type="submit" class="w-full md:w-auto px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">
-                                Pošlji sporočilo
-                            </button>
-                        </div>
-                        <!-- Hidden inputs for FormSubmit configuration -->
-                        <input type="hidden" name="_subject" value="Novo sporočilo s spletne strani Portfolio">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
-                    </form>
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Podatkovni Znanstvenik</h3>
+                    <p class="company">Infordata Sistemi Srl</p>
+                    <ul>
+                        <li>Upravljanje podatkovnih baz za projekte EU: Remedies (spremljanje oceanskega ekosistema), Inspire in Karst Firewall 5.0</li>
+                        <li>Vodenje usklajevanja in integracije podatkov v več trajnostnih pobudah</li>
+                        <li>Podpora razvoju novih projektov in tehnični izvedbi</li>
+                        <li>Nadaljevanje razvoja ML modelov za sisteme napovedovanja okoljskih dejavnikov</li>
+                    </ul>
+                    <a href="https://infordata.it/" target="_blank" class="link-external">
+                        Več o tem <i class="fas fa-external-link-alt"></i>
+                    </a>
                 </div>
-            </section>
-        </main>
-    </div>
-
-    <footer class="bg-gray-800 shadow-md py-6">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Samuel Zidaric. Vse pravice pridržane.</p>
-                <div class="flex space-x-4">
-                    <a href="https://linkedin.com/" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin text-xl"></i>
+                <span class="timeline-date">Jul 2025 - Sedanjost</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Pripravnik za Podatkovno Znanost</h3>
+                    <p class="company">Infordata Sistemi Srl</p>
+                    <ul>
+                        <li>Vodenje usklajevanja podatkov s pomočjo SQL in Pythona za trajnostne projekte EU</li>
+                        <li>Izdelava napovednega modela za gozdne požare z XGBoostom z uporabo zgodovinskih podatkov in FWI</li>
+                        <li>Pospešitev generiranja metapodatkov z uporabo LLM (GPT-4, Claude)</li>
+                    </ul>
+                </div>
+                <span class="timeline-date">Jun 2024 - Jun 2025</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Raziskovalec za Magistrsko Nalogo</h3>
+                    <p class="company">Zimmer Lab, Dunaj</p>
+                    <ul>
+                        <li>Testiranje novih optogenetskih in sledilnih mikroskopskih sistemov</li>
+                        <li>Izvajanje video analize vedenjskih odzivov C. elegans</li>
+                        <li>Učenje nevronskih mrež za sledenje delov telesa z DeepLabCut</li>
+                    </ul>
+                    <a href="https://neurodevbio.univie.ac.at/zimmer-research/" target="_blank" class="link-external">
+                        Več o tem <i class="fas fa-external-link-alt"></i>
                     </a>
-                    <a href="https://github.com/" class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
-                        <i class="fab fa-github text-xl"></i>
+                </div>
+                <span class="timeline-date">2023 - 2024</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Raziskovalni Pripravnik</h3>
+                    <p class="company">BIA Separations (Sartorius)</p>
+                    <ul>
+                        <li>Izvajanje kromatografskih postopkov s sistemi AKTA za čiščenje proteinov</li>
+                        <li>Prispevek k razvoju metod za downstream procesiranje AAV in Adenovirusov</li>
+                        <li>Izvajanje analitskih testov: SDS-PAGE, Bradford, PicoGreen</li>
+                    </ul>
+                    <a href="https://www.biaseparations.com/" target="_blank" class="link-external">
+                        Več o tem <i class="fas fa-external-link-alt"></i>
                     </a>
-                    <a href="https://twitter.com/" class="text-gray-400 hover:text-blue-300 transition-colors" aria-label="Twitter">
-                        <i class="fab fa-twitter text-xl"></i>
+                </div>
+                <span class="timeline-date">2022</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Raziskovalec za Diplomsko Nalogo</h3>
+                    <p class="company">Laboratorij Tongiorgi, Trst</p>
+                    <ul>
+                        <li>Raziskovanje vloge BDNF pri nevronskem razvoju</li>
+                        <li>Uporaba PCR, rezanja s kriostatom in gelske elektroforeze</li>
+                        <li>Izvajanje tehnik hibridizacije in situ</li>
+                    </ul>
+                    <a href="https://dsv.units.it/it/ricerca/ambiti/gruppi/18224" target="_blank" class="link-external">
+                        Več o tem <i class="fas fa-external-link-alt"></i>
                     </a>
+                </div>
+                <span class="timeline-date">2019</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Dodatne Izkušnje</h3>
+                    <p class="company">Različne Vloge</p>
+                    <ul>
+                        <li><strong>Gostitelj, Osmica Zidarich</strong> - delo s strankami v družinski kleti (2018-2024)</li>
+                        <li><strong>Profesionalni Košarkar</strong> (2015-2023)</li>
+                        <li><strong>Košarkarski Trener za Mladino</strong> - treniranje otrok starih 8-12 let (2016-2021)</li>
+                        <li><strong>Učitelj na Srednji Šoli</strong> (Marec-Junij 2021)</li>
+                    </ul>
+                    <a href="https://www.zidarich.it/" target="_blank" class="link-external">
+                        Klet Zidarich <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2015 - 2024</span>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills">
+        <div class="section-header fade-in">
+            <h2>Znanja in Strokovnost</h2>
+            <p>Raznolik nabor znanj, ki zajema nevroznanost, podatkovno znanost in komunikacijo.</p>
+        </div>
+        
+        <div class="skills-grid">
+            <div class="skill-card fade-in">
+                <h3><i class="fas fa-code"></i> Tehnična Znanja</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Python</span>
+                        <span>Srednje</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>SQL</span>
+                        <span>Srednje</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Excel</span>
+                        <span>Napredno</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>GitHub</span>
+                        <span>Srednje</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Snakemake</span>
+                        <span>Osnovno</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 40%;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-card fade-in">
+                <h3><i class="fas fa-language"></i> Jeziki</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Slovenščina</span>
+                        <span>Matern jezik</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Italijanščina</span>
+                        <span>Matern jezik</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Angleščina</span>
+                        <span>Tekoče</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Nemščina</span>
+                        <span>Osnovno</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 30%;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-card fade-in">
+                <h3><i class="fas fa-users"></i> Mehke Veščine</h3>
+                <ul class="soft-skills-list">
+                    <li><i class="fas fa-check"></i> Reševanje problemov</li>
+                    <li><i class="fas fa-check"></i> Komunikacija (z odraslimi in otroki)</li>
+                    <li><i class="fas fa-check"></i> Timsko delo in sodelovanje</li>
+                    <li><i class="fas fa-check"></i> Iskanje informacij</li>
+                    <li><i class="fas fa-check"></i> Načrtovanje in izvedba projektov</li>
+                </ul>
+            </div>
+            
+            <div class="skill-card fade-in">
+                <h3><i class="fas fa-heart"></i> Interesi</h3>
+                <div class="interests-tags">
+                    <span class="tag">Tehnologija in UI</span>
+                    <span class="tag">Košarka</span>
+                    <span class="tag">MMA</span>
+                    <span class="tag">Umetnost in oblikovanje</span>
+                    <span class="tag">Igranje iger</span>
+                    <span class="tag">Filozofija</span>
                 </div>
             </div>
         </div>
+    </section>
+    
+    <section id="awards" class="section-light">
+        <div class="section-header fade-in">
+            <h2>Nagrade in Priznanja</h2>
+            <p>Dosežki, ki poudarjajo mojo akademsko in poklicno pot.</p>
+        </div>
+        
+        <div class="awards-grid">
+            <div class="award-card fade-in">
+                <div class="award-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3>Raziskovalna Štipendija</h3>
+                <p class="award-subtitle">Projekt FAIR-by-Design</p>
+                <p>Konkurenčna štipendija za prispevek k najboljšim praksam upravljanja znanstvenih podatkov v Area Science Park (2024-2025).</p>
+                <a href="https://amministrazionetrasparente.areasciencepark.it/" target="_blank" class="award-link">
+                    Podrobnosti <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="award-card fade-in">
+                <div class="award-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Štipendija ZKB</h3>
+                <p class="award-subtitle">Akademska Odličnost</p>
+                <p>Štipendija za uspeh, ki jo podeljuje Zadružna Kraška Banka ZKB za podporo magistrskemu študiju nevroznanosti (2021-2024).</p>
+                <a href="https://www.zkb.it/soci/borse-di-studio/" target="_blank" class="award-link">
+                    Podrobnosti <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education">
+        <div class="section-header fade-in">
+            <h2>Izobrazba</h2>
+            <p>Gradnja strokovnega znanja na presečišču nevroznanosti in podatkovne znanosti.</p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Magisterij iz Upravljanja in Kuriranja Podatkov (MDMC)</h3>
+                    <p class="company">SISSA & Area Science Park, Trst</p>
+                    <p class="education-description">10-mesečni strokovni magistrski program (60 ECTS), osredotočen na metodologije FAIR-by-design za upravljanje raziskovalnih podatkov.</p>
+                    <p><strong>Ključni predmeti:</strong> Odprta Znanost, Upravljanje Raziskovalnih Podatkov, Znanstveno Programiranje s Pythonom, Infrastruktura v Oblaku, Umetna Inteligenca za Znanstvene Aplikacije</p>
+                    <a href="https://www.sissa.it/training/professional-master-courses/master-data-management-and-curation" target="_blank" class="link-external">
+                        Več o tem <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2024 - 2025</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Magisterij Znanosti iz Nevroznanosti</h3>
+                    <p class="company">Univerza v Trstu, Oddelek za Življenjske Vede</p>
+                    <p class="education-description">Celovit program, ki raziskuje kompleksnost živčnega sistema od molekularne do vedenjske ravni.</p>
+                    <p><strong>Področja poudarka:</strong> Celična in Molekularna Nevrobiologija, Nevroanatomija, Nevrofarmakologija, Molekularna Nevrofiziologija, Kognitivna Nevroznanost</p>
+                    <a href="https://www.biologia.units.it/corsi/3/LM-in-Neuroscienze" target="_blank" class="link-external">
+                        Več o tem <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2021 - 2024</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Diploma iz Biologije</h3>
+                    <p class="company">Univerza v Trstu, Oddelek za Življenjske Vede</p>
+                    <p class="education-description">Temeljna izobrazba v bioloških znanostih s poudarkom na molekularni in celični biologiji.</p>
+                    <p><strong>Temeljni predmeti:</strong> Splošna Biologija, Kemija, Anatomija, Molekularna Biologija, Genetika</p>
+                    <a href="https://www.biologia.units.it/index.php?/corsi/1/Laurea-in-Scienze-e-Tecnologie-Biologiche" target="_blank" class="link-external">
+                        Več o tem <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2017 - 2021</span>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="section-light">
+        <div class="section-header fade-in">
+            <h2>Povežimo se</h2>
+            <p>Imate v mislih projekt ali želite sodelovati? Z veseljem bi slišal vaše predloge.</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info fade-in">
+                <h3>Stopite v stik</h3>
+                <p>Vedno me zanima pogovor o novih priložnostih, sodelovanjih ali samo klepet o nevroznanosti in podatkovni znanosti.</p>
+                
+                <div class="contact-links">
+                    <a href="https://linkedin.com/in/samuelzidaric" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/samuelzidaric" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:samzidaric@gmail.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://twitter.com/samuelzidaric" target="_blank" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+                
+                <div class="contact-details">
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        Brescia, Lombardija, Italija
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        samzidaric@gmail.com
+                    </p>
+                </div>
+            </div>
+            
+            <form class="contact-form fade-in" action="https://formsubmit.co/samzidaric@gmail.com" method="POST">
+                <div class="form-group">
+                    <label for="name">Ime</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-pošta</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Zadeva</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Sporočilo</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <input type="hidden" name="_subject" value="Novo sporočilo s spletne strani Portfelj">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://samuelzidaric.com/thank-you.html">
+                
+                <button type="submit" class="btn btn-primary btn-full">Pošlji sporočilo</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Samuel Zidaric. Vse pravice pridržane.</p>
     </footer>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Mobile menu toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const sidebarNav = document.getElementById('sidebarNav');
-        
-        mobileMenuToggle.addEventListener('click', function() {
-            sidebarNav.classList.toggle('mobile-menu-closed');
-        });
-        
-        // Close mobile menu when clicking a nav link
-        const navLinks = document.querySelectorAll('#sidebarNav a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth < 768) {
-                    sidebarNav.classList.add('mobile-menu-closed');
-                }
-            });
-        });
-        
-        // Active link highlighting
-        function setActiveLink() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('#sidebarNav a[href^="#"]');
-            
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (window.scrollY >= (sectionTop - 200)) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('nav-link-active', 'active', 'bg-gray-800', 'font-medium');
-                link.removeAttribute('aria-current');
-                
-                const href = link.getAttribute('href');
-                if (href === `#${currentSection}`) {
-                    link.classList.add('nav-link-active', 'active', 'bg-gray-800', 'font-medium');
-                    link.setAttribute('aria-current', 'page');
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', setActiveLink);
-        setActiveLink(); // Set initial active link
-        
-        // Add hover effects to cards
-        const cards = document.querySelectorAll('.card-glow');
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.classList.add('transform', 'scale-[1.01]', 'shadow-lg', 'shadow-blue-900/20');
-            });
-            card.addEventListener('mouseleave', function() {
-                this.classList.remove('transform', 'scale-[1.01]', 'shadow-lg', 'shadow-blue-900/20');
-            });
-        });
-        
-        // Language selector functionality
-        const languageDropdown = document.getElementById('languageDropdown');
-        
-        // Update dropdown based on current URL
-        function updateLanguageDropdown() {
-            const currentUrl = window.location.href;
-            
-            if (currentUrl.includes('index_sl.html')) {
-                languageDropdown.value = 'index_sl.html';
-            } else if (currentUrl.includes('index_it.html')) {
-                languageDropdown.value = 'index_it.html';
-            } else {
-                languageDropdown.value = 'index.html';
-            }
-        }
-        
-        updateLanguageDropdown();
-        
-        // Change language when dropdown changes
-        languageDropdown.addEventListener('change', function() {
-            window.location = this.value;
-        });
-        
-        // Contact form handling (still kept in addition to the form action for any additional processing)
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', function(e) {
-            // Form will be submitted via action to FormSubmit.co
-            // This event handler is just for any additional JavaScript processing
-            
-            const formData = new FormData(contactForm);
-            let formValues = {};
-            
-            formData.forEach((value, key) => {
-                formValues[key] = value;
-            });
-            
-            console.log('Form submitted:', formValues);
-            
-            // Form submission will be handled by the form action
-        });
-    });
-    </script>
 </body>
+</html>
 
 </html>
