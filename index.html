@@ -6,554 +6,7 @@
     <meta name="description" content="Samuel Zidaric - Neuroscientist & Data Science Professional">
     <title>Samuel Zidaric | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --primary: #000;
-            --secondary: #333;
-            --light: #666;
-            --lighter: #999;
-            --white: #fff;
-            --bg-light: #f8f8f8;
-            --accent: #0066ff;
-            --max-width: 1200px;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--primary);
-            background: var(--white);
-            overflow-x: hidden;
-        }
-        
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .nav-container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--light);
-            font-size: 0.95rem;
-            transition: color 0.3s;
-            position: relative;
-        }
-        
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--primary);
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s;
-        }
-        
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-        
-        /* Mobile Menu */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 0 2rem;
-            margin-top: 60px;
-        }
-        
-        .hero-content {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .hero-text h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-        }
-        
-        .hero-text .subtitle {
-            font-size: 1.25rem;
-            color: var(--light);
-            margin-bottom: 2rem;
-        }
-        
-        .hero-text p {
-            color: var(--secondary);
-            margin-bottom: 2rem;
-            max-width: 500px;
-        }
-        
-        .hero-image {
-            position: relative;
-        }
-        
-        .hero-image img {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        
-        .hero-image::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--accent);
-            border-radius: 20px;
-            z-index: -1;
-        }
-        
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-        
-        .btn-primary {
-            background: var(--primary);
-            color: var(--white);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .btn-outline {
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-        
-        .btn-outline:hover {
-            background: var(--primary);
-            color: var(--white);
-        }
-        
-        /* Sections */
-        section {
-            padding: 5rem 2rem;
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .section-header p {
-            color: var(--light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* Experience Timeline */
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: #eee;
-        }
-        
-        .timeline-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-        
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-        
-        .timeline-content {
-            width: 45%;
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 10px;
-            position: relative;
-            transition: all 0.3s;
-        }
-        
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .timeline-date {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            border: 2px solid var(--accent);
-            font-weight: 600;
-            white-space: nowrap;
-        }
-        
-        .timeline-content h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .timeline-content .company {
-            color: var(--light);
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-        
-        .timeline-content ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .timeline-content li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .timeline-content li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-        
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .skill-card {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 10px;
-            transition: all 0.3s;
-        }
-        
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .skill-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .skill-card i {
-            color: var(--accent);
-        }
-        
-        .skill-item {
-            margin-bottom: 1rem;
-        }
-        
-        .skill-item .skill-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-        }
-        
-        .skill-bar {
-            width: 100%;
-            height: 6px;
-            background: #ddd;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            background: var(--accent);
-            border-radius: 3px;
-            transition: width 1s ease;
-        }
-        
-        /* Awards */
-        .awards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .award-card {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-        
-        .award-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .award-icon {
-            font-size: 3rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-        
-        /* Contact */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-        
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-info p {
-            color: var(--secondary);
-            margin-bottom: 2rem;
-        }
-        
-        .contact-links {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .contact-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--bg-light);
-            color: var(--primary);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .contact-links a:hover {
-            background: var(--accent);
-            color: var(--white);
-            transform: translateY(-3px);
-        }
-        
-        .contact-form {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 10px;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-            
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--white);
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .hero-image {
-                order: -1;
-            }
-            
-            .timeline::before {
-                left: 20px;
-            }
-            
-            .timeline-item {
-                flex-direction: column !important;
-            }
-            
-            .timeline-content {
-                width: calc(100% - 40px);
-                margin-left: 40px;
-            }
-            
-            .timeline-date {
-                position: static;
-                transform: none;
-                margin-bottom: 1rem;
-                display: inline-block;
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.6s forwards;
-        }
-        
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            animation: slideInLeft 0.6s forwards;
-        }
-        
-        @keyframes slideInLeft {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(50px);
-            animation: slideInRight 0.6s forwards;
-        }
-        
-        @keyframes slideInRight {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -568,7 +21,14 @@
                 <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="menu-toggle" id="menuToggle">
+            <div class="language-switcher">
+                <select id="languageSelect" aria-label="Select Language">
+                    <option value="index.html" selected>EN</option>
+                    <option value="index_it.html">IT</option>
+                    <option value="index_sl.html">SL</option>
+                </select>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -581,7 +41,7 @@
                 <h1>Hi, I'm Samuel Zidaric</h1>
                 <p class="subtitle">Neuroscientist & Data Science Professional</p>
                 <p>Exploring the fascinating intersections between biological and artificial intelligence. Currently pursuing advanced data management techniques while bringing scientific rigor to real-world challenges.</p>
-                <div style="display: flex; gap: 1rem;">
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                     <a href="#contact" class="btn btn-primary">Get in Touch</a>
                     <a href="#experience" class="btn btn-outline">View Work</a>
                 </div>
@@ -609,11 +69,28 @@
                         <li>Applying topological data analysis to FAIR-compliant datasets</li>
                         <li>Creating methodologies for improved scientific data sharing</li>
                     </ul>
-                    <a href="https://www.areasciencepark.it/en/research-infrastructures/data-engineering-lade/" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">
+                    <a href="https://www.areasciencepark.it/en/research-infrastructures/data-engineering-lade/" target="_blank" class="link-external">
                         Learn more <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
                 <span class="timeline-date">2024 - 2025</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Data Scientist</h3>
+                    <p class="company">Infordata Sistemi Srl</p>
+                    <ul>
+                        <li>Managing databases for EU projects: Remedies (ocean ecosystem monitoring), Inspire, and Karst Firewall 5.0</li>
+                        <li>Leading data harmonization and integration across multiple sustainability initiatives</li>
+                        <li>Supporting new project development and technical implementation</li>
+                        <li>Continuing ML model development for environmental prediction systems</li>
+                    </ul>
+                    <a href="https://infordata.it/" target="_blank" class="link-external">
+                        Learn more <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">Nov 2024 - Present</span>
             </div>
             
             <div class="timeline-item fade-in">
@@ -625,11 +102,8 @@
                         <li>Built XGBoost wildfire prediction model using historical data and FWI</li>
                         <li>Accelerated metadata generation using LLMs (GPT-4, Claude)</li>
                     </ul>
-                    <a href="https://infordata.it/" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">
-                        Learn more <i class="fas fa-external-link-alt"></i>
-                    </a>
                 </div>
-                <span class="timeline-date">2024 - Present</span>
+                <span class="timeline-date">Jun - Nov 2024</span>
             </div>
             
             <div class="timeline-item fade-in">
@@ -641,7 +115,7 @@
                         <li>Performed video analysis of C. elegans behavioral responses</li>
                         <li>Trained neural networks for body part tracking with DeepLabCut</li>
                     </ul>
-                    <a href="https://neurodevbio.univie.ac.at/zimmer-research/" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">
+                    <a href="https://neurodevbio.univie.ac.at/zimmer-research/" target="_blank" class="link-external">
                         Learn more <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
@@ -653,6 +127,331 @@
                     <h3>Research Intern</h3>
                     <p class="company">BIA Separations (Sartorius)</p>
                     <ul>
-                        <li>Executed chromatography runs using AKTA systems</li>
+                        <li>Executed chromatography runs using AKTA systems for protein purification</li>
                         <li>Contributed to AAV and Adenovirus downstream method development</li>
-                        <li>Performed analytical assays:
+                        <li>Performed analytical assays: SDS-PAGE, Bradford, PicoGreen</li>
+                    </ul>
+                    <a href="https://www.biaseparations.com/" target="_blank" class="link-external">
+                        Learn more <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2022</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Bachelor Thesis Researcher</h3>
+                    <p class="company">Tongiorgi Lab, Trieste</p>
+                    <ul>
+                        <li>Investigated the role of BDNF in neuronal development</li>
+                        <li>Utilized PCR, cryostat sectioning, and gel electrophoresis</li>
+                        <li>Performed in-situ hybridization techniques</li>
+                    </ul>
+                    <a href="https://dsv.units.it/it/ricerca/ambiti/gruppi/18224" target="_blank" class="link-external">
+                        Learn more <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2019</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Additional Experience</h3>
+                    <p class="company">Various Roles</p>
+                    <ul>
+                        <li><strong>Host, Osmica Zidarich</strong> - Family winery customer service (2018-2024)</li>
+                        <li><strong>Professional Basketball Player</strong> (2015-2023)</li>
+                        <li><strong>Youth Basketball Coach</strong> - Training 8-12 year olds (2016-2021)</li>
+                        <li><strong>Middle School Teacher</strong> (March-June 2021)</li>
+                    </ul>
+                    <a href="https://www.zidarich.it/" target="_blank" class="link-external">
+                        Zidarich Winery <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2015 - 2024</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-header fade-in">
+            <h2>Skills & Expertise</h2>
+            <p>A diverse skillset spanning neuroscience, data science, and communication</p>
+        </div>
+        
+        <div class="skills-grid">
+            <div class="skill-card fade-in">
+                <h3><i class="fas fa-code"></i> Technical Skills</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Python</span>
+                        <span>Intermediate</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>SQL</span>
+                        <span>Intermediate</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Excel</span>
+                        <span>Advanced</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>GitHub</span>
+                        <span>Intermediate</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Snakemake</span>
+                        <span>Foundational</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 40%;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-card fade-in">
+                <h3><i class="fas fa-language"></i> Languages</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Slovenian</span>
+                        <span>Native</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Italian</span>
+                        <span>Native</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>English</span>
+                        <span>Fluent</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>German</span>
+                        <span>Basic</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 30%;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-card fade-in">
+                <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                <ul class="soft-skills-list">
+                    <li><i class="fas fa-check"></i> Problem-solving</li>
+                    <li><i class="fas fa-check"></i> Communication (adults and children)</li>
+                    <li><i class="fas fa-check"></i> Teamwork & Collaboration</li>
+                    <li><i class="fas fa-check"></i> Information Research</li>
+                    <li><i class="fas fa-check"></i> Project Planning & Execution</li>
+                </ul>
+            </div>
+            
+            <div class="skill-card fade-in">
+                <h3><i class="fas fa-heart"></i> Interests</h3>
+                <div class="interests-tags">
+                    <span class="tag">Technology & AI</span>
+                    <span class="tag">Basketball</span>
+                    <span class="tag">MMA</span>
+                    <span class="tag">Art & Design</span>
+                    <span class="tag">Gaming</span>
+                    <span class="tag">Philosophy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Awards Section -->
+    <section id="awards" class="section-light">
+        <div class="section-header fade-in">
+            <h2>Awards & Recognition</h2>
+            <p>Achievements that highlight my academic and professional journey</p>
+        </div>
+        
+        <div class="awards-grid">
+            <div class="award-card fade-in">
+                <div class="award-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3>Research Fellowship</h3>
+                <p class="award-subtitle">FAIR-by-Design Project</p>
+                <p>Competitive fellowship for contributing to scientific data management best practices at Area Science Park (2024-2025)</p>
+                <a href="https://amministrazionetrasparente.areasciencepark.it/" target="_blank" class="award-link">
+                    View Details <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="award-card fade-in">
+                <div class="award-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>ZKB Scholarship</h3>
+                <p class="award-subtitle">Academic Excellence</p>
+                <p>Merit-based scholarship awarded by ZKB Cooperative Bank to support Master's degree in Neuroscience (2021-2024)</p>
+                <a href="https://www.zkb.it/soci/borse-di-studio/" target="_blank" class="award-link">
+                    View Details <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section id="education">
+        <div class="section-header fade-in">
+            <h2>Education</h2>
+            <p>Building expertise at the intersection of neuroscience and data science</p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Master in Data Management and Curation (MDMC)</h3>
+                    <p class="company">SISSA & Area Science Park, Trieste</p>
+                    <p class="education-description">10-month professional master's program (60 ECTS) focused on FAIR-by-design methodologies for research data management.</p>
+                    <p><strong>Key Coursework:</strong> Open Science, Research Data Management, Scientific Programming with Python, Cloud Infrastructure, AI for Scientific Applications</p>
+                    <a href="https://www.sissa.it/training/professional-master-courses/master-data-management-and-curation" target="_blank" class="link-external">
+                        Learn more <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2024 - 2025</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Master of Science in Neuroscience</h3>
+                    <p class="company">University of Trieste, Department of Life Sciences</p>
+                    <p class="education-description">Comprehensive program exploring the complexities of the nervous system from molecular to behavioral levels.</p>
+                    <p><strong>Focus Areas:</strong> Cellular and Molecular Neurobiology, Neuroanatomy, Neuropharmacology, Molecular Neurophysiology, Cognitive Neuroscience</p>
+                    <a href="https://www.biologia.units.it/corsi/3/LM-in-Neuroscienze" target="_blank" class="link-external">
+                        Learn more <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2021 - 2024</span>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Bachelor of Science in Biology</h3>
+                    <p class="company">University of Trieste, Department of Life Sciences</p>
+                    <p class="education-description">Foundational education in biological sciences with emphasis on molecular and cellular biology.</p>
+                    <p><strong>Core Studies:</strong> General Biology, Chemistry, Anatomy, Molecular Biology, Genetics</p>
+                    <a href="https://www.biologia.units.it/index.php?/corsi/1/Laurea-in-Scienze-e-Tecnologie-Biologiche" target="_blank" class="link-external">
+                        Learn more <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2017 - 2021</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section-light">
+        <div class="section-header fade-in">
+            <h2>Let's Connect</h2>
+            <p>Have a project in mind or want to collaborate? I'd love to hear from you</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info fade-in">
+                <h3>Get in Touch</h3>
+                <p>I'm always interested in discussing new opportunities, collaborations, or just having a conversation about neuroscience and data science.</p>
+                
+                <div class="contact-links">
+                    <a href="https://linkedin.com/in/samuelzidaric" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/samuelzidaric" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:samzidaric@gmail.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://twitter.com/samuelzidaric" target="_blank" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+                
+                <div class="contact-details">
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        Brescia, Lombardy, Italy
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        samzidaric@gmail.com
+                    </p>
+                </div>
+            </div>
+            
+            <form class="contact-form fade-in" action="https://formsubmit.co/samzidaric@gmail.com" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <input type="hidden" name="_subject" value="New contact from Portfolio Website">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://samuelzidaric.com/thank-you.html">
+                
+                <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Samuel Zidaric. All rights reserved.</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
