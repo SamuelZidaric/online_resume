@@ -1,721 +1,658 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Samuel Zidaric's professional portfolio and curriculum vitae">
-    <title>Samuel Zidaric - Curriculum Vitae</title>
+    <meta name="description" content="Samuel Zidaric - Neuroscientist & Data Science Professional">
+    <title>Samuel Zidaric | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         :root {
-            --bg-primary: #081C15;
-            --bg-secondary: #1B4332;
-            --bg-card: #2D6A4F;
-            --text-primary: #D8F3DC;
-            --text-secondary: #B7E4C7;
-            --accent-primary: #52B788;
-            --accent-secondary: #74C69D;
-            --accent-third: #95D5B2;
+            --primary: #000;
+            --secondary: #333;
+            --light: #666;
+            --lighter: #999;
+            --white: #fff;
+            --bg-light: #f8f8f8;
+            --accent: #0066ff;
+            --max-width: 1200px;
         }
         
         body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            background: var(--white);
+            overflow-x: hidden;
         }
         
-        .mobile-menu-closed {
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--light);
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        /* Mobile Menu */
+        .menu-toggle {
             display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
         
-        @media (min-width: 768px) {
-            .mobile-menu-toggle {
-                display: none;
-            }
-            .mobile-menu-closed {
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            margin-top: 60px;
+        }
+        
+        .hero-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-text .subtitle {
+            font-size: 1.25rem;
+            color: var(--light);
+            margin-bottom: 2rem;
+        }
+        
+        .hero-text p {
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+        
+        .hero-image {
+            position: relative;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent);
+            border-radius: 20px;
+            z-index: -1;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            color: var(--light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: #eee;
+        }
+        
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 10px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-date {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 2px solid var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content .company {
+            color: var(--light);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .timeline-content li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .skill-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .skill-card i {
+            color: var(--accent);
+        }
+        
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+        
+        .skill-item .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-bar {
+            width: 100%;
+            height: 6px;
+            background: #ddd;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+        
+        /* Awards */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .award-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .award-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .award-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        /* Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info p {
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-light);
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .contact-links a:hover {
+            background: var(--accent);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        .contact-form {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
                 display: block;
             }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-image {
+                order: -1;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 40px);
+                margin-left: 40px;
+            }
+            
+            .timeline-date {
+                position: static;
+                transform: none;
+                margin-bottom: 1rem;
+                display: inline-block;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
         }
         
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: #081C15;
-            color: #D8F3DC;
-            padding: 8px;
-            z-index: 100;
-            transition: top 0.3s;
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s forwards;
         }
         
-        .skip-link:focus {
-            top: 0;
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        section {
-            scroll-margin-top: 2rem;
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft 0.6s forwards;
         }
         
-        .dark-card {
-            background-color: var(--bg-card);
-            border: 1px solid #40916C;
-            box-shadow: 0 4px 6px rgba(8, 28, 21, 0.3);
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
         
-        .card-glow {
-            transition: all 0.3s ease;
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideInRight 0.6s forwards;
         }
         
-        .card-glow:hover {
-            box-shadow: 0 0 15px rgba(82, 183, 136, 0.4);
-            transform: translateY(-2px);
-        }
-        
-        .progress-bar-bg {
-            background-color: #1B4332;
-        }
-        
-        .progress-bar-fill-blue {
-            background: linear-gradient(90deg, #40916C, #52B788);
-        }
-        
-        .progress-bar-fill-green {
-            background: linear-gradient(90deg, #40916C, #52B788);
-        }
-        
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, rgba(82, 183, 136, 0), rgba(82, 183, 136, 0.5), rgba(82, 183, 136, 0));
-            margin: 3rem 0;
-        }
-        
-        .nav-link {
-            transition: all 0.2s ease;
-            border-left: 3px solid transparent;
-        }
-        
-        .nav-link:hover, .nav-link.active {
-            background-color: #2D6A4F;
-            border-left: 3px solid var(--accent-primary);
-        }
-        
-        .tag {
-            background-color: #1B4332;
-            color: var(--text-primary);
-            border: 1px solid #40916C;
-        }
-        
-        .company-link {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-            background-color: #1B4332;
-            border-top: 1px solid #40916C;
-        }
-        
-        .company-link.active {
-            max-height: 60px;
-            padding: 0.75rem 0;
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
     </style>
 </head>
-
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <div class="flex flex-col md:flex-row">
-        <!-- Mobile navigation toggle -->
-        <div class="md:hidden p-4 flex justify-between items-center shadow-md" style="background-color: #1B4332;">
-            <h1 class="text-xl font-bold" style="color: #D8F3DC;">Samuel Zidaric</h1>
-            <button id="mobileMenuToggle" class="mobile-menu-toggle p-2" style="color: #D8F3DC;" aria-label="Toggle navigation menu">
-                <i class="fas fa-bars text-xl"></i>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <h1 style="font-size: 1.5rem; font-weight: 700;">Samuel Zidaric</h1>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
             </button>
         </div>
-
-        <!-- Sidebar navigation - hidden on mobile by default -->
-        <aside id="sidebarNav" class="w-full md:w-1/4 xl:w-1/5 shadow-md md:shadow-none transition-all duration-300 mobile-menu-closed md:block" style="background-color: #1B4332;">
-            <nav class="md:sticky md:top-0 md:h-screen p-4 md:p-8">
-                <a href="#" class="block py-2.5 px-4 rounded text-xl font-bold mb-6" style="color: #52B788;">Samuel Zidaric</a>
-                <ul class="mt-4 space-y-1">
-                    <li><a href="#home" class="nav-link block py-2.5 px-4 rounded transition-colors" style="color: #D8F3DC;" aria-current="page">Home</a></li>
-                    <li><a href="#experience" class="nav-link block py-2.5 px-4 rounded transition-colors" style="color: #D8F3DC;">Experience</a></li>
-                    <li><a href="#awards" class="nav-link block py-2.5 px-4 rounded transition-colors" style="color: #D8F3DC;">Awards</a></li>
-                    <li><a href="#education" class="nav-link block py-2.5 px-4 rounded transition-colors" style="color: #D8F3DC;">Education</a></li>
-                    <li><a href="#skills" class="nav-link block py-2.5 px-4 rounded transition-colors" style="color: #D8F3DC;">Skills & Interests</a></li>
-                    <li><a href="#contact" class="nav-link block py-2.5 px-4 rounded transition-colors" style="color: #D8F3DC;">Contact</a></li>
-                </ul>
-                
-                <!-- Language Selector Dropdown -->
-                <div class="relative mt-8">
-                    <label for="languageDropdown" class="block text-sm font-medium mb-1" style="color: #95D5B2;">Select Language</label>
-                    <select id="languageDropdown" class="border rounded h-10 pl-5 pr-10 hover:border-gray-500 focus:outline-none appearance-none w-full" style="border-color: #40916C; background-color: #081C15; color: #D8F3DC;">
-                        <option value="index.html">English</option>
-                        <option value="index_sl.html">Slovenščina</option>
-                        <option value="index_it.html">Italiano</option>
-                    </select>
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 mt-6" style="color: #95D5B2;">
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                </div>
-            </nav>
-        </aside>
-        
-        <main id="main-content" class="w-full md:w-3/4 xl:w-4/5 p-4 md:p-8" style="background-color: #081C15;">
-            <section id="home" class="mb-10">
-                <h1 class="text-3xl font-bold mb-6" style="color: #52B788;">Welcome to Samuel Zidaric's Portfolio</h1>
-                
-                <div class="flex flex-col md:flex-row items-center md:items-start">
-                    <!-- Image of Samuel with B&W effect and fading -->
-                    <div class="relative w-64 md:mr-8">
-                        <div class="absolute inset-0 rounded-lg blur-md opacity-10" style="background-color: #52B788;"></div>
-                        <div class="relative">
-                            <img src="images/main_image.jpeg" alt="Samuel Zidaric" class="relative rounded-lg w-64 h-64 object-cover border-2" style="border-color: #40916C; filter: grayscale(100%);">
-                            <!-- Fade overlay from right to left -->
-                            <div class="absolute top-0 right-0 h-full w-1/3" style="background: linear-gradient(to right, rgba(8, 28, 21, 0), rgba(8, 28, 21, 1));"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- Description with subtle fade-in from left edge -->
-                    <div class="md:max-w-2xl mt-6 md:mt-0" style="position: relative;">
-                        <div class="absolute left-0 top-0 h-full w-8 z-0" style="background: linear-gradient(to right, rgba(8, 28, 21, 1), rgba(8, 28, 21, 0.5)); opacity: 0.8;"></div>
-                        <p class="relative z-10 text-lg pl-2" style="color: #D8F3DC;">Hello! I'm Samuel, a neuroscientist exploring the fascinating intersections between biological and artificial intelligence. When I'm not deep in data analysis, I'm searching for meaning in both my work and life. I created this space initially out of curiosity, but it's evolving into something more - a collection of professional accomplishments, yes, but also personal memories and reflections that matter to me. This website represents the ultimate tragedy of our time, the digital catastrophe that is unfolding before our eyes. We create this spaces knowing full well they are narcissistic voids, and yet, the true horror, we continue, hoping that someone will enjoy it.</p>
-                    </div>
-                </div>
-            </section>
-            <div class="section-divider"></div> 
-        
-            <section id="experience" class="mb-10">
-                <h2 class="text-2xl font-bold mb-6" style="color: #52B788;">Professional Experience</h2>
-                
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg job-card" data-company="lade">
-                    <h3 class="text-xl font-semibold flex justify-between items-center" style="color: #D8F3DC;">
-                        <span>Internship, Laboratory of Data Engineering (LADE)</span>
-                        <i class="fas fa-database" style="color: #74C69D;"></i>
-                    </h3>
-                    <p class="italic" style="color: #B7E4C7;">Area Science Park, Trieste (IT), November 2024 – June 2025</p>
-                    <ul class="list-disc ml-5 mt-2" style="color: #D8F3DC;">
-                        <li>Developed an automated Python-based tool for validation and analysis of Oxford Nanopore sequencing data, improving quality assessment and extraction of metadata from various output file formats.</li>
-                        <li>Applying topological data analysis techniques to FAIR-compliant datasets</li>
-                        <li>Developing methodologies for improved data acquisition and sharing in scientific research</li>
-                    </ul>
-                    <div class="company-link mt-2 text-center">
-                        <a href="https://www.areasciencepark.it/en/research-infrastructures/data-engineering-lade/" class="hover:underline inline-flex items-center" style="color: #74C69D;" target="_blank">
-                            <i class="fas fa-external-link-alt mr-1"></i> Visit Laboratory of Data Engineering
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg job-card" data-company="infordata">
-                    <h3 class="text-xl font-semibold flex justify-between items-center" style="color: #D8F3DC;">
-                        <span>Internship, Infordata Sistemi Srl</span>
-                        <i class="fas fa-code" style="color: #74C69D;"></i>
-                    </h3>
-                    <p class="italic" style="color: #B7E4C7;">Trieste (IT), June 2024 – Present</p>
-                    <ul class="list-disc ml-5 mt-2" style="color: #D8F3DC;">
-                        <li>Led SQL and Python-driven data harmonization for EU sustainability projects, including:
-                            <ul class="list-disc ml-5 mt-1">
-                                <li>INSPIRE project - <a href="https://infordata.it/sostenibilita/progetto-inspire/" class="hover:underline" style="color: #74C69D;" target="_blank">Learn more</a></li>
-                                <li>Remedies project (ocean ecosystem monitoring) - <a href="https://remedies-for-ocean.eu/" class="hover:underline" style="color: #74C69D;" target="_blank">Learn more</a></li>
-                            </ul>
-                        </li>
-                        <li>Built XGBoost wildfire prediction model using historical data and Fire Weather Index (FWI) for Karst Firewall project, addressing terrain risks with results pending deployment - <a href="https://infordata.it/sostenibilita/progetto-karst-firewall-5-0-2/" class="hover:underline" style="color: #74C69D;" target="_blank">Learn more</a></li>
-                        <li>Accelerated metadata generation and documentation using LLMs (e.g., GPT-4, Sonnet 3.7), reducing manual effort in cross-functional task coordination and data curation.</li>
-                    </ul>
-                    <div class="company-link mt-2 text-center">
-                        <a href="https://infordata.it/" class="hover:underline inline-flex items-center" style="color: #74C69D;" target="_blank">
-                            <i class="fas fa-external-link-alt mr-1"></i> Visit Infordata Sistemi
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg job-card" data-company="zimmer">
-                    <h3 class="text-xl font-semibold flex justify-between items-center" style="color: #D8F3DC;">
-                        <span>Master Thesis, Zimmer Lab</span>
-                        <i class="fas fa-microscope" style="color: #74C69D;"></i>
-                    </h3>
-                    <p class="italic" style="color: #B7E4C7;">Vienna (AT), March 2023– March 2024</p>
-                    <ul class="list-disc ml-5 mt-2" style="color: #D8F3DC;">
-                        <li>Tested a novel optogenetic and tracking microscope, calibrating its LED light intensity performance.</li>
-                        <li>Performed in-depth video analysis to identify behavioral responses of C. elegans after optogenetic stimulations.</li>
-                        <li>Revisited and improved a behavioral analysis pipeline for the optogenetic microscope.</li>
-                        <li>Trained and refined neural networks for tracking body parts with DeepLabCut.</li>
-                    </ul>
-                    <div class="company-link mt-2 text-center">
-                        <a href="https://neurodevbio.univie.ac.at/zimmer-research/" class="hover:underline inline-flex items-center" style="color: #74C69D;" target="_blank">
-                            <i class="fas fa-external-link-alt mr-1"></i> Visit Zimmer Lab
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg job-card" data-company="bia">
-                    <h3 class="text-xl font-semibold flex justify-between items-center" style="color: #D8F3DC;">
-                        <span>Student Internship, BIA Separations (Sartorius)</span>
-                        <i class="fas fa-flask" style="color: #74C69D;"></i>
-                    </h3>
-                    <p class="italic" style="color: #B7E4C7;">Ajdovščina (SI), August 2022– December 2022</p>
-                    <ul class="list-disc ml-5 mt-2" style="color: #D8F3DC;">
-                        <li>Participated in laboratory research activities: buffer preparation, lab equipment validation.</li>
-                        <li>Performed analytical assays: SDS-PAGE, Bradford, PicoGreen.</li>
-                        <li>Executed chromatography runs using AKTA systems for protein purification.</li>
-                        <li>Contributed to AAV and Adenovirus projects, developing downstream methods for gene therapy applications.</li>
-                    </ul>
-                    <div class="company-link mt-2 text-center">
-                        <a href="https://www.biaseparations.com/" class="hover:underline inline-flex items-center" style="color: #74C69D;" target="_blank">
-                            <i class="fas fa-external-link-alt mr-1"></i> Visit BIA Separations (Sartorius)
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg job-card" data-company="tongiorgi">
-                    <h3 class="text-xl font-semibold flex justify-between items-center" style="color: #D8F3DC;">
-                        <span>Bachelor Thesis, Tongiorgi Lab</span>
-                        <i class="fas fa-dna" style="color: #74C69D;"></i>
-                    </h3>
-                    <p class="italic" style="color: #B7E4C7;">Trieste (IT), May 2019– October 2019</p>
-                    <ul class="list-disc ml-5 mt-2" style="color: #D8F3DC;">
-                        <li>Investigated the role of BDNF in neuronal development, utilizing PCR, cryostat sectioning, gel electrophoresis, and in-situ hybridization.</li>
-                    </ul>
-                    <div class="company-link mt-2 text-center">
-                        <a href="https://dsv.units.it/it/ricerca/ambiti/gruppi/18224" class="hover:underline inline-flex items-center" style="color: #74C69D;" target="_blank">
-                            <i class="fas fa-external-link-alt mr-1"></i> Visit Tongiorgi Lab
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg job-card" data-company="zidarich">
-                    <h3 class="text-xl font-semibold flex justify-between items-center" style="color: #D8F3DC;">
-                        <span>Host, Osmica Zidarich</span>
-                        <i class="fas fa-wine-glass-alt" style="color: #74C69D;"></i>
-                    </h3>
-                    <p class="italic" style="color: #B7E4C7;">Trieste (IT), Active years, e.g., 2018 – 2024, a few weeks each year</p>
-                    <ul class="list-disc ml-5 mt-2" style="color: #D8F3DC;">
-                        <li>Greeted and interacted with customers, explaining wine varieties and the production process.</li>
-                        <li>Took orders, processed payments, and served wine to customers.</li>
-                        <li>Handled customer inquiries and resolved any issues.</li>
-                    </ul>
-                    <div class="company-link mt-2 text-center">
-                        <a href="https://www.zidarich.it/" class="hover:underline inline-flex items-center" style="color: #74C69D;" target="_blank">
-                            <i class="fas fa-external-link-alt mr-1"></i> Visit Zidarich Winery
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg">
-                    <h3 class="text-xl font-semibold flex justify-between items-center" style="color: #D8F3DC;">
-                        <span>Additional Work Experience</span>
-                        <i class="fas fa-briefcase" style="color: #74C69D;"></i>
-                    </h3>
-                    <ul class="list-disc ml-5 mt-2" style="color: #D8F3DC;">
-                        <li>Professional Basketball Player (2015– 2023)</li>
-                        <li>Minibasket Coach for 8–12-year-old children (2016– 2021)</li>
-                        <li>Middle school Teacher (March 2021– June 2021)</li>
-                    </ul>
-                </div>
-            </section>
-            
-            <div class="section-divider"></div>
-            
-            <section id="awards" class="mb-10">
-                <h2 class="text-2xl font-bold mb-6" style="color: #52B788;">Awards & Recognitions</h2>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg job-card" data-company="fair-fellowship">
-                    <div class="relative">
-                        <div class="flex items-start justify-between">
-                            <div>
-                                <h3 class="text-xl font-semibold flex justify-between items-center" style="color: #D8F3DC;">
-                                    <span>Research Fellowship – FAIR-by-Design Project</span>
-                                </h3>
-                                <p class="italic" style="color: #B7E4C7;">Area Science Park, Trieste (IT), November 2024 – June 2025</p>
-                            </div>
-                            <span class="text-xs font-medium px-2.5 py-0.5 rounded border flex items-center" style="background-color: #1B4332; color: #D8F3DC; border-color: #40916C;">
-                                <i class="fas fa-medal mr-1"></i> Distinguished Position
-                            </span>
-                        </div>
-                        <p class="mt-2" style="color: #D8F3DC;">
-                            Selected for a competitive research fellowship to contribute to the FAIR-by-Design methodology project, 
-                            focusing on best practices for scientific data management and processing.
-                        </p>
-                    </div>
-                    <div class="company-link mt-2 text-center">
-                        <a href="https://amministrazionetrasparente.areasciencepark.it/lavora-in-area/borse-di-ricerca/1-borsa-di-studio-nellambito-del-progetto-fair-by-design-finanziato-dal-programma-nazionale-di-ricerca-pnr-da-svolgersi-presso-le-strutture-dellistituto-ricerca-per-linnovazione-tecnolo/" class="hover:underline inline-flex items-center" style="color: #74C69D;" target="_blank">
-                            <i class="fas fa-external-link-alt mr-1"></i> View Fellowship Details
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg job-card" data-company="zkb">
-                    <div class="relative">
-                        <div class="flex items-start justify-between">
-                            <div>
-                                <h3 class="text-xl font-semibold flex justify-between items-center" style="color: #D8F3DC;">
-                                    <span>ZKB Scholarship</span>
-                                </h3>
-                                <p class="italic" style="color: #B7E4C7;">ZKB Cooperative Bank, 2021-2024</p>
-                            </div>
-                            <span class="text-xs font-medium px-2.5 py-0.5 rounded border flex items-center" style="background-color: #1B4332; color: #D8F3DC; border-color: #40916C;">
-                                <i class="fas fa-graduation-cap mr-1"></i> Academic Merit
-                            </span>
-                        </div>
-                        <p class="mt-2" style="color: #D8F3DC;">
-                            Awarded merit-based scholarship to support my Master's degree studies in Neuroscience.
-                        </p>
-                    </div>
-                    <div class="company-link mt-2 text-center">
-                        <a href="https://www.zkb.it/soci/borse-di-studio/" class="hover:underline inline-flex items-center" style="color: #74C69D;" target="_blank">
-                            <i class="fas fa-external-link-alt mr-1"></i> View Scholarship Program
-                        </a>
-                    </div>
-                </div>
-            </section>
-   
-            <div class="section-divider"></div>
-            
-            <section id="education" class="mb-10">
-                <h2 class="text-2xl font-bold mb-6" style="color: #52B788;">Education</h2>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg job-card" data-company="mdmc">
-                    <h3 class="text-xl font-semibold flex justify-between items-center" style="color: #D8F3DC;">
-                        <span>Master in Data Management and Curation (MDMC)</span>
-                        <i class="fas fa-server" style="color: #74C69D;"></i>
-                    </h3>
-                    <p class="italic" style="color: #B7E4C7;">SISSA & Area Science Park, Trieste (IT), September 2024– June 2025</p>
-                    <p class="mt-2" style="color: #D8F3DC;">10-month professional master's program (60 ECTS) focused on FAIR-by-design methodologies for research data management. Coursework includes Open Science, Research Data Management, Scientific Programming with Python, Cloud Infrastructure, Data Management Tools, and AI for Scientific Applications.</p>
-                    <div class="company-link mt-2 text-center">
-                        <a href="https://www.sissa.it/training/professional-master-courses/master-data-management-and-curation" class="hover:underline inline-flex items-center" style="color: #74C69D;" target="_blank">
-                            <i class="fas fa-external-link-alt mr-1"></i> Visit MDMC Program Page
-                        </a>
-                    </div>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg job-card" data-company="neuroscience">
-                    <h3 class="text-xl font-semibold flex justify-between items-center" style="color: #D8F3DC;">
-                        <span>University of Trieste, Department of Life Sciences – Master of Neuroscience</span>
-                        <i class="fas fa-brain" style="color: #74C69D;"></i>
-                    </h3>
-                    <p class="italic" style="color: #B7E4C7;">Trieste (IT), September 2021 – March 2024</p>
-                    <p class="mt-2" style="color: #D8F3DC;">Course Focus: Cellular and Molecular Neurobiology, Neuroanatomy and Neuropharmacology, Molecular Neurophysiology, Cognitive Neuroscience.</p>
-                    <div class="company-link mt-2 text-center">
-                        <a href="https://www.biologia.units.it/corsi/3/LM-in-Neuroscienze" class="hover:underline inline-flex items-center" style="color: #74C69D;" target="_blank">
-                            <i class="fas fa-external-link-alt mr-1"></i> Visit Neuroscience Program Page
-                        </a>
-                    </div>
-                </div>
-                <div class="mt-6 dark-card card-glow p-5 rounded-lg job-card" data-company="biology">
-                    <h3 class="text-xl font-semibold flex justify-between items-center" style="color: #D8F3DC;">
-                        <span>University of Trieste, Department of Life Sciences – Bachelor of Biology</span>
-                        <i class="fas fa-leaf" style="color: #74C69D;"></i>
-                    </h3>
-                    <p class="italic" style="color: #B7E4C7;">Trieste (IT), September 2017 – March 2021</p>
-                    <p class="mt-2" style="color: #D8F3DC;">Course Focus: General Biology, Chemistry, Anatomy.</p>
-                    <div class="company-link mt-2 text-center">
-                        <a href="https://www.biologia.units.it/index.php?/corsi/1/Laurea-in-Scienze-e-Tecnologie-Biologiche" class="hover:underline inline-flex items-center" style="color: #74C69D;" target="_blank">
-                            <i class="fas fa-external-link-alt mr-1"></i> Visit Biology Program Page
-                        </a>
-                    </div>
-                </div>
-            </section> 
-            
-            <div class="section-divider"></div>
+    </nav>
     
-            <section id="skills" class="mb-10">
-                <h2 class="text-2xl font-bold mb-6" style="color: #52B788;">Skills & Interests</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="dark-card card-glow p-5 rounded-lg">
-                        <h3 class="text-xl font-semibold flex justify-between items-center mb-3" style="color: #D8F3DC;">
-                            <span>Languages</span>
-                            <i class="fas fa-globe" style="color: #74C69D;"></i>
-                        </h3>
-                        <div class="space-y-2">
-                            <div>
-                                <div class="flex justify-between">
-                                    <span style="color: #D8F3DC;">Slovenian</span>
-                                    <span style="color: #B7E4C7;">Native</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 100%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span style="color: #D8F3DC;">Italian</span>
-                                    <span style="color: #B7E4C7;">Native</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 100%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span style="color: #D8F3DC;">English</span>
-                                    <span style="color: #B7E4C7;">Fluent</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span style="color: #D8F3DC;">German</span>
-                                    <span style="color: #B7E4C7;">Basic</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-blue h-2.5 rounded-full" style="width: 30%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dark-card card-glow p-5 rounded-lg">
-                        <h3 class="text-xl font-semibold flex justify-between items-center mb-3" style="color: #D8F3DC;">
-                            <span>Technical Skills</span>
-                            <i class="fas fa-cogs" style="color: #74C69D;"></i>
-                        </h3>
-                        <div class="space-y-2">
-                            <div>
-                                <div class="flex justify-between">
-                                    <span style="color: #D8F3DC;">Python</span>
-                                    <span style="color: #B7E4C7;">Novice</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 20%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span style="color: #D8F3DC;">GitHub</span>
-                                    <span style="color: #B7E4C7;">Intermediate</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 60%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span style="color: #D8F3DC;">SQL</span>
-                                    <span style="color: #B7E4C7;">Intermediate</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 60%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span style="color: #D8F3DC;">Snakemake</span>
-                                    <span style="color: #B7E4C7;">Foundational</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 40%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between">
-                                    <span style="color: #D8F3DC;">Excel</span>
-                                    <span style="color: #B7E4C7;">Advanced</span>
-                                </div>
-                                <div class="w-full progress-bar-bg rounded-full h-2.5 mt-1">
-                                    <div class="progress-bar-fill-green h-2.5 rounded-full" style="width: 70%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dark-card card-glow p-5 rounded-lg">
-                        <h3 class="text-xl font-semibold flex justify-between items-center mb-3" style="color: #D8F3DC;">
-                            <span>Soft Skills</span>
-                            <i class="fas fa-users" style="color: #74C69D;"></i>
-                        </h3>
-                        <ul class="list-disc ml-5" style="color: #D8F3DC;">
-                            <li>Problem-solving</li>
-                            <li>Communication (adults and children)</li>
-                            <li>Teamwork</li>
-                            <li>Information research</li>
-                            <li>Plan execution</li>
-                        </ul>
-                    </div>
-                    <div class="dark-card card-glow p-5 rounded-lg">
-                        <h3 class="text-xl font-semibold flex justify-between items-center mb-3" style="color: #D8F3DC;">
-                            <span>Interests</span>
-                            <i class="fas fa-star" style="color: #74C69D;"></i>
-                        </h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 tag rounded-full text-sm">Nerdy things</span>
-                            <span class="px-3 py-1 tag rounded-full text-sm">Basketball</span>
-                            <span class="px-3 py-1 tag rounded-full text-sm">MMA</span>
-                            <span class="px-3 py-1 tag rounded-full text-sm">Art</span>
-                            <span class="px-3 py-1 tag rounded-full text-sm">Videogames</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="section-divider"></div>
-            
-            <section id="contact" class="mb-10">
-                <h2 class="text-2xl font-bold mb-6" style="color: #52B788;">Contact Me</h2>
-                <div class="dark-card card-glow p-6 rounded-lg">
-                    <form id="contactForm" class="space-y-6" action="https://formsubmit.co/samzidaric@gmail.com" method="POST">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="name" class="block text-sm font-medium mb-1" style="color: #D8F3DC;">Your Name</label>
-                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2" style="background-color: #1B4332; border-color: #40916C; color: #D8F3DC; focus:ring-color: #52B788;" required>
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium mb-1" style="color: #D8F3DC;">Your Email</label>
-                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2" style="background-color: #1B4332; border-color: #40916C; color: #D8F3DC; focus:ring-color: #52B788;" required>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="subject" class="block text-sm font-medium mb-1" style="color: #D8F3DC;">Subject</label>
-                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2" style="background-color: #1B4332; border-color: #40916C; color: #D8F3DC; focus:ring-color: #52B788;" required>
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium mb-1" style="color: #D8F3DC;">Message</label>
-                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2" style="background-color: #1B4332; border-color: #40916C; color: #D8F3DC; focus:ring-color: #52B788;" required></textarea>
-                        </div>
-                        <div>
-                            <button type="submit" class="w-full md:w-auto px-6 py-3 font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors" style="background-color: #40916C; color: #D8F3DC; hover:background-color: #52B788;">
-                                Send Message
-                            </button>
-                        </div>
-                        <!-- Hidden inputs for FormSubmit configuration -->
-                        <input type="hidden" name="_subject" value="New contact from Portfolio Website">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="https://samuelzidaric.com/thank-you.html">
-                    </form>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <footer class="shadow-md py-6" style="background-color: #1B4332;">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <p style="color: #95D5B2;" class="mb-4 md:mb-0">© 2025 Samuel Zidaric. All rights reserved.</p>
-                <div class="flex space-x-4">
-                    <a href="https://linkedin.com/" style="color: #95D5B2;" class="hover:text-green-400 transition-colors" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                    <a href="https://github.com/" style="color: #95D5B2;" class="hover:text-white transition-colors" aria-label="GitHub">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="https://twitter.com/" style="color: #95D5B2;" class="hover:text-green-300 transition-colors" aria-label="Twitter">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text slide-in-left">
+                <h1>Hi, I'm Samuel Zidaric</h1>
+                <p class="subtitle">Neuroscientist & Data Science Professional</p>
+                <p>Exploring the fascinating intersections between biological and artificial intelligence. Currently pursuing advanced data management techniques while bringing scientific rigor to real-world challenges.</p>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="#experience" class="btn btn-outline">View Work</a>
                 </div>
             </div>
+            <div class="hero-image slide-in-right">
+                <img src="images/main_image.jpeg" alt="Samuel Zidaric">
+            </div>
         </div>
-    </footer>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Mobile menu toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const sidebarNav = document.getElementById('sidebarNav');
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="section-header fade-in">
+            <h2>Professional Journey</h2>
+            <p>From neuroscience research to data engineering, my path has been driven by curiosity and innovation</p>
+        </div>
         
-        mobileMenuToggle.addEventListener('click', function() {
-            sidebarNav.classList.toggle('mobile-menu-closed');
-        });
-        
-        // Close mobile menu when clicking a nav link
-        const navLinks = document.querySelectorAll('#sidebarNav a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth < 768) {
-                    sidebarNav.classList.add('mobile-menu-closed');
-                }
-            });
-        });
-        
-        // Active link highlighting
-        function setActiveLink() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('#sidebarNav a[href^="#"]');
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Research Fellow - FAIR-by-Design Project</h3>
+                    <p class="company">Laboratory of Data Engineering (LADE), Area Science Park</p>
+                    <ul>
+                        <li>Developing automated Python tools for Oxford Nanopore sequencing data validation</li>
+                        <li>Applying topological data analysis to FAIR-compliant datasets</li>
+                        <li>Creating methodologies for improved scientific data sharing</li>
+                    </ul>
+                    <a href="https://www.areasciencepark.it/en/research-infrastructures/data-engineering-lade/" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">
+                        Learn more <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2024 - 2025</span>
+            </div>
             
-            let currentSection = '';
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Data Science Intern</h3>
+                    <p class="company">Infordata Sistemi Srl</p>
+                    <ul>
+                        <li>Led SQL and Python-driven data harmonization for EU sustainability projects</li>
+                        <li>Built XGBoost wildfire prediction model using historical data and FWI</li>
+                        <li>Accelerated metadata generation using LLMs (GPT-4, Claude)</li>
+                    </ul>
+                    <a href="https://infordata.it/" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">
+                        Learn more <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2024 - Present</span>
+            </div>
             
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (window.scrollY >= (sectionTop - 200)) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Master Thesis Researcher</h3>
+                    <p class="company">Zimmer Lab, Vienna</p>
+                    <ul>
+                        <li>Tested novel optogenetic and tracking microscope systems</li>
+                        <li>Performed video analysis of C. elegans behavioral responses</li>
+                        <li>Trained neural networks for body part tracking with DeepLabCut</li>
+                    </ul>
+                    <a href="https://neurodevbio.univie.ac.at/zimmer-research/" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">
+                        Learn more <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <span class="timeline-date">2023 - 2024</span>
+            </div>
             
-            navLinks.forEach(link => {
-                link.classList.remove('nav-link-active', 'active', 'font-medium');
-                link.removeAttribute('aria-current');
-                link.style.backgroundColor = '';
-                
-                const href = link.getAttribute('href');
-                if (href === `#${currentSection}`) {
-                    link.classList.add('nav-link-active', 'active', 'font-medium');
-                    link.setAttribute('aria-current', 'page');
-                    link.style.backgroundColor = '#2D6A4F';
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', setActiveLink);
-        setActiveLink(); // Set initial active link
-        
-        // Add hover effects to cards
-        const cards = document.querySelectorAll('.card-glow');
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.classList.add('transform', 'scale-[1.01]', 'shadow-lg');
-                this.style.boxShadow = '0 0 15px rgba(82, 183, 136, 0.3)';
-            });
-            card.addEventListener('mouseleave', function() {
-                this.classList.remove('transform', 'scale-[1.01]', 'shadow-lg');
-                this.style.boxShadow = '';
-            });
-        });
-        
-        // Language selector functionality
-        const languageDropdown = document.getElementById('languageDropdown');
-        
-        // Update dropdown based on current URL
-        function updateLanguageDropdown() {
-            const currentUrl = window.location.href;
-            
-            if (currentUrl.includes('index_sl.html')) {
-                languageDropdown.value = 'index_sl.html';
-            } else if (currentUrl.includes('index_it.html')) {
-                languageDropdown.value = 'index_it.html';
-            } else {
-                languageDropdown.value = 'index.html';
-            }
-        }
-        
-        updateLanguageDropdown();
-        
-        // Change language when dropdown changes
-        languageDropdown.addEventListener('change', function() {
-            window.location = this.value;
-        });
-        
-        // Job card company link toggle
-        const jobCards = document.querySelectorAll('.job-card');
-        
-        jobCards.forEach(card => {
-            card.addEventListener('click', function() {
-                const companyLink = this.querySelector('.company-link');
-                
-                // Toggle this card's company link
-                if (companyLink) {
-                    companyLink.classList.toggle('active');
-                }
-                
-                // Close other company links
-                jobCards.forEach(otherCard => {
-                    if (otherCard !== card) {
-                        const otherCompanyLink = otherCard.querySelector('.company-link');
-                        if (otherCompanyLink && otherCompanyLink.classList.contains('active')) {
-                            otherCompanyLink.classList.remove('active');
-                        }
-                    }
-                });
-            });
-        });
-    });
-    </script>
-</body>
-
-</html>
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <h3>Research Intern</h3>
+                    <p class="company">BIA Separations (Sartorius)</p>
+                    <ul>
+                        <li>Executed chromatography runs using AKTA systems</li>
+                        <li>Contributed to AAV and Adenovirus downstream method development</li>
+                        <li>Performed analytical assays:
