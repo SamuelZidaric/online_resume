@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Samuel Zidaric</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .thank-you-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .thank-you-content {
+            max-width: 600px;
+        }
+        
+        .thank-you-icon {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+        }
+        
+        .thank-you-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .thank-you-content p {
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="thank-you-content fade-in">
+            <div class="thank-you-icon">✓</div>
+            <h1>Thank You!</h1>
+            <p>Your message has been successfully sent. I'll get back to you as soon as possible.</p>
+            <a href="index.html" class="btn btn-primary">Back to Homepage</a>
+        </div>
+    </div>
+    
+    <script>
+        // Redirect after 5 seconds
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 5000);
+    </script>
+</body>
+</html>
